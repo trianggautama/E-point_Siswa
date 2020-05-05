@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/index', 'adminController@index')->name('index');
 Route::get('/user', 'adminController@userIndex')->name('userIndex');
+Route::get('/pejabat', 'adminController@pejabatIndex')->name('pejabatIndex');

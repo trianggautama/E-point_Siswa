@@ -67,22 +67,22 @@
             <a href="" class="nav-link"><i data-feather="user"></i> <span>Pegawai</span></a>
             <ul>
               <li><a href="{{Route('userIndex')}}">Admin</a></li>
-              <li><a href="#">Pejabat Struktural</a></li>
+              <li><a href="{{Route('pejabatIndex')}}">Pejabat Struktural</a></li>
             </ul>
           </li>
           <li class="nav-item with-sub">
-            <a href="" class="nav-link"><i data-feather="user"></i> <span>Siswa</span></a>
+            <a href="" class="nav-link"><i data-feather="users"></i> <span>Siswa</span></a>
             <ul>
               <li><a href="{{Route('userIndex')}}">Data Kelas</a></li>
               <li><a href="">Data Siswa</a></li>
               <li><a href="#">Data Wali</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="users"></i> <span>Panduan Poin</span></a></li>
+          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="file-text"></i> <span>Panduan Poin</span></a></li>
           <li class="nav-label mg-t-25">Konseling Siswa</li>
-          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="file-text"></i> <span>Poin Siswa</span></a></li>
-          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="sunrise"></i> <span>Pelanggaran Siswa</span></a></li>
-          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="edit-3"></i> <span>Prestasi Siswa</span></a></li>
+          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="check-square"></i> <span>Poin Siswa</span></a></li>
+          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="alert-circle"></i> <span>Pelanggaran Siswa</span></a></li>
+          <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="award"></i> <span>Prestasi Siswa</span></a></li>
          </ul>
       </div>
     </aside>
