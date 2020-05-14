@@ -47,4 +47,12 @@ Route::get('/kelas/edit/{uuid}', 'KelasController@edit')->name('kelasEdit');
 Route::put('/kelas/edit/{uuid}', 'KelasController@update')->name('kelasUpdate');
 Route::get('/kelas/delete/{uuid}', 'KelasController@destroy')->name('kelasDestroy');
 
+// kelas route
+Route::get('/siswa', 'SiswaController@index')->name('siswaIndex');
+Route::post('/siswa', 'SiswaController@store')->name('siswaStore');
+Route::get('/siswa/detail/{uuid}', 'SiswaController@show')->name('siswaShow');
+Route::get('/siswa/edit/{uuid}', 'SiswaController@edit')->name('siswaEdit');
+Route::put('/siswa/edit/{uuid}', 'SiswaController@update')->name('siswaUpdate');
+Route::get('/siswa/delete/{uuid}', 'SiswaController@destroy')->name('siswaDestroy');
+
 // });

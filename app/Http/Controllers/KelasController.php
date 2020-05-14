@@ -34,6 +34,7 @@ class KelasController extends Controller
     {
         $data = Kelas::where('uuid', $uuid)->first();
         $data->kelas = $request->kelas;
+        $data->update();
 
         return redirect()->route('kelasIndex')->with('success', 'Data Berhasil Diubah');
 
