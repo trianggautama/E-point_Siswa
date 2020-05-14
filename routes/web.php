@@ -40,4 +40,11 @@ Route::get('/pejabat/edit/{uuid}', 'PejabatController@edit')->name('pejabatEdit'
 Route::put('/pejabat/edit/{uuid}', 'PejabatController@update')->name('pejabatUpdate');
 Route::get('/pejabat/delete/{uuid}', 'PejabatController@destroy')->name('pejabatDestroy');
 
+// kelas route
+Route::get('/kelas', 'KelasController@index')->name('kelasIndex');
+Route::post('/kelas', 'KelasController@store')->name('kelasStore');
+Route::get('/kelas/edit/{uuid}', 'KelasController@edit')->name('kelasEdit');
+Route::put('/kelas/edit/{uuid}', 'KelasController@update')->name('kelasUpdate');
+Route::get('/kelas/delete/{uuid}', 'KelasController@destroy')->name('kelasDestroy');
+
 // });

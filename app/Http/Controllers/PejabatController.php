@@ -48,7 +48,7 @@ class PejabatController extends Controller
     {
         $data = Pejabat_struktural::where('uuid', $uuid)->first()->delete();
 
-        return redirect()->route('userIndex')->with('success', 'Berhasil menghapus data');
+        return redirect()->route('pejabatIndex')->with('success', 'Berhasil menghapus data');
 
     }
 
