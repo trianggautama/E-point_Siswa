@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Pejabat_struktural; 
+use App\Pejabat_struktural;
+use Illuminate\Http\Request;
 
 class PejabatController extends Controller
 {
@@ -50,6 +51,5 @@ class PejabatController extends Controller
         return redirect()->route('userIndex')->with('success', 'Berhasil menghapus data');
 
     }
-}
 
 }
