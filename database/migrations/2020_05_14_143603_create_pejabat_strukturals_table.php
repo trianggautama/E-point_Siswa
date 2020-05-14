@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreatePejabatStrukturalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pejabat_strukturals', function (Blueprint $table) {
             $table->id();
             $table->string('uuid', 36);
+            $table->string('NIP', 25);
             $table->string('nama', 50);
-            $table->string('username')->unique();
-            $table->string('password', 100);
-            $table->tinyInteger('role')->default(1);
-            $table->string('foto');
-            $table->rememberToken();
+            $table->string('jabatan', 30);
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pejabat_strukturals');
     }
 }
