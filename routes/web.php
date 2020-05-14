@@ -47,12 +47,19 @@ Route::get('/kelas/edit/{uuid}', 'KelasController@edit')->name('kelasEdit');
 Route::put('/kelas/edit/{uuid}', 'KelasController@update')->name('kelasUpdate');
 Route::get('/kelas/delete/{uuid}', 'KelasController@destroy')->name('kelasDestroy');
 
-// kelas route
+// siswa route
 Route::get('/siswa', 'SiswaController@index')->name('siswaIndex');
 Route::post('/siswa', 'SiswaController@store')->name('siswaStore');
 Route::get('/siswa/detail/{uuid}', 'SiswaController@show')->name('siswaShow');
 Route::get('/siswa/edit/{uuid}', 'SiswaController@edit')->name('siswaEdit');
 Route::put('/siswa/edit/{uuid}', 'SiswaController@update')->name('siswaUpdate');
 Route::get('/siswa/delete/{uuid}', 'SiswaController@destroy')->name('siswaDestroy');
+
+// pedoman route
+Route::get('/pedoman', 'PedomanController@index')->name('pedomanIndex');
+Route::post('/pedoman', 'PedomanController@store')->name('pedomanStore');
+Route::get('/pedoman/edit/{uuid}', 'PedomanController@edit')->name('pedomanEdit');
+Route::put('/pedoman/edit/{uuid}', 'PedomanController@update')->name('pedomanUpdate');
+Route::get('/pedoman/delete/{uuid}', 'PedomanController@destroy')->name('pedomanDestroy');
 
 // });
