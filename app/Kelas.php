@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Kelas extends Model
 {
     use Uuid;
+
+    public function siswa()
+    {
+        return $this->HasMany(Siswa::class);
+    }
 }
