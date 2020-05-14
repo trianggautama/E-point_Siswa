@@ -12,4 +12,9 @@ class Siswa extends Model
     {
         return $this->BelongsTo(Kelas::class);
     }
+
+    public function wali_siswa()
+    {
+        return $this->HasOne(Wali_siswa::class);
+    }
 }

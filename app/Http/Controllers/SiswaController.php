@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Siswa;
+use App\Wali_siswa;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -24,6 +25,14 @@ class SiswaController extends Controller
         $data->tanggal_lahir = $request->tanggal_lahir;
         $data->point = $request->point;
         $data->save();
+
+        $wali = new Wali_siswa;
+        $wali->siswa_id = $data->id;
+        $wali->nama = $request->nama;
+        $wali->no_hp = $request->no_hp;
+        $wali->alamat = $request->alamat;
+        $wali->status_wali = $request->status_wali;
+        $wali->save();
 
         return redirect()->route('siswaIndex')->with('success', 'Data Berhasil Disimpan');
     }
@@ -51,6 +60,13 @@ class SiswaController extends Controller
         $data->tanggal_lahir = $request->tanggal_lahir;
         $data->point = $request->point;
         $data->update();
+
+        $wali = Wali_siswa::findOrfail($data->wali_siswa->id);
+        $wali->nama = $request->nama;
+        $wali->no_hp = $request->no_hp;
+        $wali->alamat = $request->alamat;
+        $wali->status_wali = $request->status_wali;
+        $wali->update();
 
         return redirect()->route('siswaIndex')->with('success', 'Data Berhasil Diubah');
 
