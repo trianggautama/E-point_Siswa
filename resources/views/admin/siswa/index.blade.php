@@ -37,21 +37,25 @@
                             </thead>
                             <tbody>
                                 @foreach($data as $d)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->NIS}}</td>
-                                        <td>{{$d->nama}}</td>
-                                        <td>{{$d->kelas->kelas}}</td>
-                                        <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
-                                        <td>
-                                            <a href="{{Route('SiswaEdit',['uuid'=>$d->uuid])}}" class="btn btn-primary btn-icon">
-                                                <i data-feather="edit"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-danger btn-icon"  onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')">
-                                                <i data-feather="delete"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->NIS}}</td>
+                                    <td>{{$d->nama}}</td>
+                                    @if($d->kelas->count() > 0)
+                                    <td>{{$d->kelas->kelas}}</td>
+                                    @endif
+                                    <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
+                                    <td>
+                                        <a href="{{Route('siswaEdit',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-primary btn-icon">
+                                            <i data-feather="edit"></i>
+                                        </a>
+                                        <button type="button" class="btn btn-danger btn-icon"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')">
+                                            <i data-feather="delete"></i>
+                                        </button>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -63,7 +67,8 @@
 </div>
 
 <!-- modal -->
-<div class="modal fade bd-example-modal-lg" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content tx-14">
             <div class="modal-header">
@@ -73,7 +78,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('SiswaStore')}}" method="POST">
+                <form action="{{Route('siswaStore')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="NIS">NIS</label>
@@ -87,8 +92,8 @@
                         <label for="Nama">Kelas</label>
                         <select name="jabatan" id="jabatan" class="form-control">
                             <option value="">-- pilih jabatan --</option>
-                            @foreach($kelas->$k)
-                                <option value="{{$k->id}}">{{$k->kelas}}</option>
+                            @foreach($kelas as $k)
+                            <option value="{{$k->id}}">{{$k->kelas}}</option>
                             @endforeach
                         </select>
                     </div>

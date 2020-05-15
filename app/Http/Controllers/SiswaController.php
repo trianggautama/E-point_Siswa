@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
 use App\Siswa;
 use App\Wali_siswa;
 use Illuminate\Http\Request;
@@ -10,9 +11,10 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $data = siswa::orderBy('id', 'desc')->get();
+        $data = Siswa::orderBy('id', 'desc')->get();
+        $kelas = Kelas::orderBy('id', 'desc')->get();
 
-        return view('admin.siswa.index', compact('data'));
+        return view('admin.siswa.index', compact('data', 'kelas'));
     }
 
     public function store(Request $request)
