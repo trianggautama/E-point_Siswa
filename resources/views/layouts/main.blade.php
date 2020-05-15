@@ -85,11 +85,11 @@
                     <a href="" class="nav-link"><i data-feather="users"></i> <span>Siswa</span></a>
                     <ul>
                         <li><a href="{{Route('kelasIndex')}}">Data Kelas</a></li>
-                        <li><a href="">Data Siswa</a></li>
+                        <li><a href="{{Route('siswaIndex')}}">Data Siswa</a></li>
                         <li><a href="#">Data Wali</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="file-text"></i>
+                <li class="nav-item"><a href="" class="nav-link"><i data-feather="file-text"></i>
                         <span>Panduan
                             Poin</span></a></li>
                 <li class="nav-label mg-t-25">Konseling Siswa</li>
