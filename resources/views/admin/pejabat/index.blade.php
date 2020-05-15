@@ -36,20 +36,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>121313121</td>
-                                    <td>Donna Snider</td>
-                                    <td>Staff Pelaksana</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-icon">
-                                            <i data-feather="edit"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-icon">
-                                            <i data-feather="delete"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                @foreach($data as $d)
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$d->NIP}}</td>
+                                        <td>{{$d->nama}}</td>
+                                        <td>{{$d->jabatan}}</td>
+                                        <td>
+                                            <a href="{{Route('pejabatEdit',['uuid'=>$d->uuid])}}" class="btn btn-primary btn-icon">
+                                                <i data-feather="edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-icon"  onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')">
+                                                <i data-feather="delete"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div><!-- df-example -->
@@ -60,11 +62,11 @@
 </div>
 
 <!-- modal -->
-<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade bd-example-modal-lg" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content tx-14">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel2">Modal Title</h6>
+                <h6 class="modal-title" id="exampleModalLabel2">Tambah Data</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -114,6 +116,24 @@
             }
         });
     });
+
+    function Hapus(uuid, nama) {
+        Swal.fire({
+            title: 'Anda Yakin?',
+            text: " Menghapus data Pejabat  '" + nama,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.value) {
+                url = '{{route("pejabatDestroy",'')}}';
+                window.location.href = url + '/' + uuid;
+            }
+        })
+    }
 
 </script>
 @endsection
