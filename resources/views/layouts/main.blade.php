@@ -84,7 +84,7 @@
                 <li class="nav-item with-sub">
                     <a href="" class="nav-link"><i data-feather="users"></i> <span>Siswa</span></a>
                     <ul>
-                        <li><a href="{{Route('userIndex')}}">Data Kelas</a></li>
+                        <li><a href="{{Route('kelasIndex')}}">Data Kelas</a></li>
                         <li><a href="">Data Siswa</a></li>
                         <li><a href="#">Data Wali</a></li>
                     </ul>

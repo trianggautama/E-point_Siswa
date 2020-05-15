@@ -40,7 +40,7 @@ class KelasController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy($uuid)
     {
         $data = Kelas::where('uuid', $uuid)->first()->delete();
 
