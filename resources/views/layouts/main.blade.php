@@ -36,7 +36,7 @@
 
     <aside class="aside aside-fixed">
         <div class="aside-header">
-            <a href="../../index.html" class="aside-logo">dash<span>forge</span></a>
+            <a href="../../index.html" class="aside-logo">E-point</a>
             <a href="" class="aside-menu-link">
                 <i data-feather="menu"></i>
                 <i data-feather="x"></i>
@@ -86,10 +86,11 @@
                     <ul>
                         <li><a href="{{Route('kelasIndex')}}">Data Kelas</a></li>
                         <li><a href="{{Route('siswaIndex')}}">Data Siswa</a></li>
-                        <li><a href="#">Data Wali</a></li>
+                        <!-- <li><a href="#">Data Wali</a></li> -->
                     </ul>
                 </li>
-                <li class="nav-item"><a href="" class="nav-link"><i data-feather="file-text"></i>
+                <li class="nav-item"><a href="{{Route('pedomanIndex')}}" class="nav-link"><i
+                            data-feather="file-text"></i>
                         <span>Panduan
                             Poin</span></a></li>
                 <li class="nav-label mg-t-25">Konseling Siswa</li>
@@ -108,6 +109,7 @@
     <div class="content ht-100v pd-0">
         <div class="content-header">
             <div class="content-search">
+                <p class="pt-3">Aplikasi E-pont Siswa MIN 3 Tanah Laut</p>
             </div>
             <nav class="nav">
                 @guest

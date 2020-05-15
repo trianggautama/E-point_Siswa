@@ -7,10 +7,10 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                        <li class="breadcrumb-item"><a href="#">Siswa</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pedoman</a></li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Data Siswa</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Data Pedoman</h4>
             </div>
             <div class="d-none d-md-block">
                 <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
@@ -28,10 +28,10 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIS</th>
-                                    <th>Nama</th>
-                                    <th>Kelas</th>
-                                    <th>Tempat, Tanggal Lahir</th>
+                                    <th>Kode Pedoman</th>
+                                    <th>uraian</th>
+                                    <th>Bobot Poin</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -39,17 +39,23 @@
                                 @foreach($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->NIS}}</td>
-                                    <td>{{$d->nama}}</td>
-                                    <td>{{$d->kelas->kelas}}</td>
-                                    <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
+                                    <td>{{$d->kode_pedoman}}</td>
+                                    <td>{{$d->uraian}}</td>
+                                    <td>{{$d->bobot_point}} poin</td>
                                     <td>
-                                        <a href="{{Route('siswaEdit',['uuid'=>$d->uuid])}}"
+                                        @if($d->status == 1)
+                                            <p class="text-danger"> Pelanggaran</p>
+                                        @else
+                                            <p class="text-primary"> Prestasi</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{Route('pedomanEdit',['uuid'=>$d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-icon"
-                                            onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')">
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->kode_pedoman}}')">
                                             <i data-feather="delete"></i>
                                         </button>
                                     </td>
@@ -76,61 +82,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('siswaStore')}}" method="POST">
+                <form action="{{Route('pedomanStore')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="NIS">NIS</label>
-                        <input type="text" name="NIS" class="form-control" placeholder="Nomor induk Siswa">
+                        <label for="Kode Pedoman">Kode Pedoman</label>
+                        <input type="text" name="kode_pedoman" class="form-control" placeholder="Nomor induk Siswa">
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Nama</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Nama">
+                        <label for="Bobot Poin">Uraian</label>
+                        <textarea  name="uraian" class="form-control" > </textarea>
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Kelas</label>
-                        <select name="kelas_id" id="kelas_id" class="form-control">
-                            <option value="">-- pilih kelas --</option>
-                            @foreach($kelas as $k)
-                            <option value="{{$k->id}}">{{$k->kelas}}</option>
-                            @endforeach
-                        </select>
+                        <label for="Bobot Poin">Bobot Poin</label>
+                        <input type="number" name="bobot_point" class="form-control" placeholder="Bobot Poin">
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="tempat_lahir">Tempat Lahir</label>
-                                <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="tanggal_lahir">Tanggal Lahir</label>
-                                <input type="date" name="tanggal_lahir" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-            <div class="form-group">
-                <label for="Nama">Nama Wali</label>
-                <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali Siswa">
-            </div>
+            
         <div class="form-group">
-            <label for="Nama">Nomor Telepon Wali Siswa</label>
-            <input type="text" name="no_hp" class="form-control" placeholder="Nomor Telepon">
-        </div>
-        <div class="form-group">
-            <label for="Nama">Status Wali Siswa</label>
-                <select name="status_wali" id="status_wali" class="form-control">
-                    <option value="">-- pilih Status Wali --</option>
-                    <option value="1">Ayah</option>
-                    <option value="2">ibu</option>
-                    <option value="3">Kakak</option>
-                    <option value="4">Kerabat Orangtua</option>
+            <label for="Nama">Status </label>
+                <select name="status" id="status" class="form-control">
+                    <option value="">-- pilih Status  --</option>
+                    <option value="1">Pelanggaran</option>
+                    <option value="2">Prestasi</option>
                 </select>
             </div>
-    <div class="form-group">
-        <label for="Nama">Alamat</label>
-        <textarea name="alamat" class="form-control"></textarea>
-    </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
@@ -157,10 +131,10 @@
         });
     });
 
-    function Hapus(uuid, nama) {
+    function Hapus(uuid, kode) {
         Swal.fire({
             title: 'Anda Yakin?',
-            text: " Menghapus data Siswa  '" + nama,
+            text: " Menghapus data Pedoman Kode  '" + kode,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -169,7 +143,7 @@
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.value) {
-                url = '{{route("siswaDestroy",'')}}';
+                url = '{{route("pedomanDestroy",'')}}';
                 window.location.href = url + '/' + uuid;
             }
         })

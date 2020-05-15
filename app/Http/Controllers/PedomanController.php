@@ -47,7 +47,7 @@ class pedomanController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy($uuid)
     {
         $data = pedoman::where('uuid', $uuid)->first()->delete();
 
