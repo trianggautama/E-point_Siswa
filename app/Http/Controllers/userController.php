@@ -60,7 +60,6 @@ class userController extends Controller
 
     public function update(Request $request, $uuid)
     {
-        dd($request->all());
         $user = user::where('uuid', $uuid)->first();
 
         $user->nama = $request->nama;
@@ -97,7 +96,7 @@ class userController extends Controller
     }
 
     public function destroy($uuid)
-    {
+    {  
         $user = User::where('uuid', $uuid)->first()->delete();
 
         return redirect()->route('userIndex')->with('success', 'Berhasil menghapus data');

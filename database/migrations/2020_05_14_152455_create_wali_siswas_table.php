@@ -21,7 +21,7 @@ class CreateWaliSiswasTable extends Migration
             $table->string('alamat', 50);
             $table->tinyInteger('status_wali');
             $table->timestamps();
-            $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
+            $table->foreign('siswa_id')->references('id')->on('siswas')->onDelete('cascade');
         });
     }
 
