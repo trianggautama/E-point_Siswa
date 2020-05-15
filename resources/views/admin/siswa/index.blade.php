@@ -44,6 +44,10 @@
                                     <td>{{$d->kelas->kelas}}</td>
                                     <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
                                     <td>
+                                        <a href="{{Route('siswaShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-info btn-icon">
+                                            <i data-feather="info"></i>
+                                        </a>
                                         <a href="{{Route('siswaEdit',['uuid'=>$d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
