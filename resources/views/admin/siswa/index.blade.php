@@ -41,9 +41,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
-                                    @if($d->kelas->count() > 0)
                                     <td>{{$d->kelas->kelas}}</td>
-                                    @endif
                                     <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
                                     <td>
                                         <a href="{{Route('siswaEdit',['uuid'=>$d->uuid])}}"
