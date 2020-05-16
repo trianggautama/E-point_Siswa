@@ -36,7 +36,7 @@
 
     <aside class="aside aside-fixed">
         <div class="aside-header">
-            <a href="../../index.html" class="aside-logo">E-point</a>
+            <a href="/" class="aside-logo">E-point</a>
             <a href="" class="aside-menu-link">
                 <i data-feather="menu"></i>
                 <i data-feather="x"></i>
