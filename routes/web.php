@@ -62,4 +62,15 @@ Route::get('/pedoman/edit/{uuid}', 'PedomanController@edit')->name('pedomanEdit'
 Route::put('/pedoman/edit/{uuid}', 'PedomanController@update')->name('pedomanUpdate');
 Route::get('/pedoman/delete/{uuid}', 'PedomanController@destroy')->name('pedomanDestroy');
 
+// point route
+Route::get('/point', 'pointController@index')->name('pointIndex');
+
+// pelanggaran route
+Route::get('/pelanggaran', 'pelanggaranController@index')->name('pelanggaranIndex');
+Route::get('/pelanggaran/edit', 'pelanggaranController@edit')->name('pelanggaranEdit');
+
+
+// prestasi route
+Route::get('/poiprestasi', 'prestasiController@index')->name('prestasiIndex');
+
 // });

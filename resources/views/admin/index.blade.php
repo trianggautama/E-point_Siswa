@@ -14,23 +14,18 @@
                 <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="mail"
-                        class="wd-10 mg-r-5"></i> Email</button>
-                <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</button>
-                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="file"
-                        class="wd-10 mg-r-5"></i> Generate Report</button>
+                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="home"
+                        class="wd-10 mg-r-5"></i>Halaman Depan</button>
             </div>
         </div>
 
         <div class="row row-xs">
             <div class="col-sm-6 col-lg-3">
                 <div class="card card-body">
-                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Conversion Rate</h6>
+                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Siswa</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">0.81%</h3>
-                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">1.2% <i
-                                    class="icon ion-md-arrow-up"></i></span></p>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">200</h3>
+                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">Siswa </span></p>
                     </div>
                     <div class="chart-three">
                         <div id="flotChart3" class="flot-chart ht-30"></div>
@@ -39,11 +34,10 @@
             </div><!-- col -->
             <div class="col-sm-6 col-lg-3 mg-t-10 mg-sm-t-0">
                 <div class="card card-body">
-                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Unique Purchases</h6>
+                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Panduan Peraturan</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">3,137</h3>
-                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-danger">0.7% <i
-                                    class="icon ion-md-arrow-down"></i></span></p>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">70 </h3>
+                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-danger">Peraturan</span></p>
                     </div>
                     <div class="chart-three">
                         <div id="flotChart4" class="flot-chart ht-30"></div>
@@ -52,11 +46,10 @@
             </div><!-- col -->
             <div class="col-sm-6 col-lg-3 mg-t-10 mg-lg-t-0">
                 <div class="card card-body">
-                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Avg. Order Value</h6>
+                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">pelanggaran Siswa</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">$306.20</h3>
-                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-danger">0.3% <i
-                                    class="icon ion-md-arrow-down"></i></span></p>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">30 </h3>
+                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-danger">kasus</span></p>
                     </div>
                     <div class="chart-three">
                         <div id="flotChart5" class="flot-chart ht-30"></div>
@@ -65,11 +58,10 @@
             </div><!-- col -->
             <div class="col-sm-6 col-lg-3 mg-t-10 mg-lg-t-0">
                 <div class="card card-body">
-                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Order Quantity</h6>
+                    <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Prestasi Siswa</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">1,650</h3>
-                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">2.1% <i
-                                    class="icon ion-md-arrow-up"></i></span></p>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">30 </h3>
+                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">prestasi</span></p>
                     </div>
                     <div class="chart-three">
                         <div id="flotChart6" class="flot-chart ht-30"></div>
@@ -81,7 +73,7 @@
             <div class="col-lg-4 col-xl-5 mg-t-10">
                 <div class="card">
                     <div class="card-header pd-t-20 pd-b-0 bd-b-0">
-                        <h6 class="mg-b-5">Account Retention</h6>
+                        <h6 class="mg-b-5">Sampel</h6>
                         <p class="tx-12 tx-color-03 mg-b-0">Number of customers who have active subscription with you.
                         </p>
                     </div><!-- card-header -->
@@ -106,7 +98,7 @@
                 <div class="card mg-b-10">
                     <div class="card-header pd-t-20 d-sm-flex align-items-start justify-content-between bd-b-0 pd-b-0">
                         <div>
-                            <h6 class="mg-b-5">Your Most Recent Earnings</h6>
+                            <h6 class="mg-b-5">Sampel</h6>
                             <p class="tx-13 tx-color-03 mg-b-0">Your sales and referral earnings over the last 30 days
                             </p>
                         </div>
@@ -226,7 +218,7 @@
                     <div class="media">
                         <span class="tx-color-04"><i data-feather="download" class="wd-60 ht-60"></i></span>
                         <div class="media-body mg-l-20">
-                            <h6 class="mg-b-10">Download your earnings in CSV format.</h6>
+                            <h6 class="mg-b-10">Sampel</h6>
                             <p class="tx-color-03 mg-b-0">Open it in a spreadsheet and perform your own calculations,
                                 graphing etc.</p>
                         </div>

@@ -14,13 +14,18 @@
 
     <!-- vendor css -->
     <link href="{{asset('admin/lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('admin/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">    
+    <link href="{{asset('admin/lib/prismjs/themes/prism-vs.css')}}" rel="stylesheet">
+
+
     <!-- Databale -->
     <link href="{{asset('admin/lib/typicons.font/typicons.css')}}" rel="stylesheet">
     <link href="{{asset('admin/lib/prismjs/themes/prism-vs.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('admin/lib/datatables.net-dt/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css')}}">
 
+
+    
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/dashforge.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/dashforge.dashboard.css')}}">
@@ -29,6 +34,9 @@
 
     <!-- Sweetalert -->
     <link rel="stylesheet" href="{{asset('vendor/sweetalert/sweetalert.all.js')}}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
 
 </head>
 
@@ -94,12 +102,12 @@
                         <span>Panduan
                             Poin</span></a></li>
                 <li class="nav-label mg-t-25">Konseling Siswa</li>
-                <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="check-square"></i>
+                <li class="nav-item"><a href="{{Route('pointIndex')}}" class="nav-link"><i data-feather="check-square"></i>
                         <span>Poin
                             Siswa</span></a></li>
-                <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="alert-circle"></i>
+                <li class="nav-item"><a href="{{Route('pelanggaranIndex')}}" class="nav-link"><i data-feather="alert-circle"></i>
                         <span>Pelanggaran Siswa</span></a></li>
-                <li class="nav-item"><a href="../../components" class="nav-link"><i data-feather="award"></i>
+                <li class="nav-item"><a href="{{Route('prestasiIndex')}}" class="nav-link"><i data-feather="award"></i>
                         <span>Prestasi
                             Siswa</span></a></li>
             </ul>
@@ -133,6 +141,9 @@
     <script src="{{asset('admin/lib/jquery.flot/jquery.flot.resize.js')}}"></script>
     <script src="{{asset('admin/lib/chart.js/Chart.bundle.min.js')}}"></script>
 
+
+    <!-- Select2 -->    
+    
     <script src="{{asset('admin/assets/js/dashforge.js')}}"></script>
     <script src="{{asset('admin/assets/js/dashforge.aside.js')}}"></script>
     <script src="{{asset('admin/assets/js/dashforge.sampledata.js')}}"></script>
@@ -147,6 +158,13 @@
 
     <!-- Sweetalert -->
     <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+
 
     @yield('scripts')
     <script>
