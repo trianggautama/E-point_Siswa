@@ -72,5 +72,6 @@ Route::get('/pelanggaran/edit', 'pelanggaranController@edit')->name('pelanggaran
 
 // prestasi route
 Route::get('/poiprestasi', 'prestasiController@index')->name('prestasiIndex');
+Route::get('/prestasi/edit', 'prestasiController@edit')->name('prestasiEdit');
 
 // });

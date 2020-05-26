@@ -119,6 +119,16 @@
 @endsection
 @section('scripts') 
     <script>
-     
+            $(function () {
+        'use strict'
+
+        $('#dataTable').DataTable({
+            language: {
+                searchPlaceholder: 'Search...',
+                Search: '',
+                lengthMenu: '_MENU_ items/page',
+            }
+        });
+    });
     </script>
 @endsection
