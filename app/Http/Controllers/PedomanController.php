@@ -52,6 +52,10 @@ class pedomanController extends Controller
         $data = pedoman::where('uuid', $uuid)->first()->delete();
 
         return redirect()->route('pedomanIndex')->with('success', 'Berhasil menghapus data');
+    }
 
+    public function filter()
+    {
+        return view('admin.pedoman.filter');
     }
 }

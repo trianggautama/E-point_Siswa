@@ -68,6 +68,7 @@ Route::post('/pedoman', 'PedomanController@store')->name('pedomanStore');
 Route::get('/pedoman/edit/{uuid}', 'PedomanController@edit')->name('pedomanEdit');
 Route::put('/pedoman/edit/{uuid}', 'PedomanController@update')->name('pedomanUpdate');
 Route::get('/pedoman/delete/{uuid}', 'PedomanController@destroy')->name('pedomanDestroy');
+Route::get('/pedoman/filter', 'pedomanController@filter')->name('pedomanFilter');
 
 // point route
 Route::get('/point', 'pointController@index')->name('pointIndex');
@@ -84,5 +85,10 @@ Route::get('/prestasi/edit', 'prestasiController@edit')->name('prestasiEdit');
 //Cetak Route
 Route::get('/siswa/cetak', 'reportController@siswaAll')->name('siswaCetak');
 Route::post('/siswa/filter', 'reportController@siswaFilter')->name('siswaFilterCetak');
+Route::get('/wali/cetak', 'reportController@wali')->name('waliCetak');
+Route::get('/pedoman/cetak', 'reportController@pedomanAll')->name('pedomanCetak');
+Route::post('/pedoman/filter', 'reportController@pedomanFilter')->name('pedomanFilterCetak');
+
+
 
 // });
