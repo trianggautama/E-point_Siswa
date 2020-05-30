@@ -54,6 +54,13 @@ Route::get('/siswa/detail/{uuid}', 'SiswaController@show')->name('siswaShow');
 Route::get('/siswa/edit/{uuid}', 'SiswaController@edit')->name('siswaEdit');
 Route::put('/siswa/edit/{uuid}', 'SiswaController@update')->name('siswaUpdate');
 Route::get('/siswa/delete/{uuid}', 'SiswaController@destroy')->name('siswaDestroy');
+Route::get('/siswa/filter', 'SiswaController@filter')->name('siswaFilter');
+
+// wali route
+Route::get('/wali', 'waliController@index')->name('waliIndex');
+Route::get('/wali/edit/{uuid}', 'waliController@edit')->name('waliEdit');
+Route::put('/wali/edit/{uuid}', 'waliController@update')->name('waliUpdate');
+Route::get('/wali/filter', 'waliController@filter')->name('waliFilter');
 
 // pedoman route
 Route::get('/pedoman', 'PedomanController@index')->name('pedomanIndex');
@@ -73,5 +80,9 @@ Route::get('/pelanggaran/edit', 'pelanggaranController@edit')->name('pelanggaran
 // prestasi route
 Route::get('/poiprestasi', 'prestasiController@index')->name('prestasiIndex');
 Route::get('/prestasi/edit', 'prestasiController@edit')->name('prestasiEdit');
+
+//Cetak Route
+Route::get('/siswa/cetak', 'reportController@siswaAll')->name('siswaCetak');
+Route::post('/siswa/filter', 'reportController@siswaFilter')->name('siswaFilterCetak');
 
 // });

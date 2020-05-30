@@ -94,7 +94,7 @@
                     <ul>
                         <li><a href="{{Route('kelasIndex')}}">Data Kelas</a></li>
                         <li><a href="{{Route('siswaIndex')}}">Data Siswa</a></li>
-                        <!-- <li><a href="#">Data Wali</a></li> -->
+                        <li><a href="{{Route('waliIndex')}}">Data Wali Siswa</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a href="{{Route('pedomanIndex')}}" class="nav-link"><i

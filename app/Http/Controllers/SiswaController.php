@@ -80,4 +80,10 @@ class SiswaController extends Controller
         return redirect()->route('siswaIndex')->with('success', 'Berhasil menghapus data');
 
     }
+
+    public function filter()
+    {
+        $kelas = Kelas::orderBy('id', 'desc')->get();
+        return view('admin.siswa.filter', compact('kelas'));
+    }
 }

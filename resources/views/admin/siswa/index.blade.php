@@ -13,8 +13,10 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Siswa</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</button>
+                <a href="{{Route('siswaFilter')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
+                        class="wd-10 mg-r-5"></i> Filter Kelas</a>
+                <a href="{{Route('siswaCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
+                        class="wd-10 mg-r-5"></i> Cetak Data</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
             </div>
