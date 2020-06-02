@@ -97,11 +97,14 @@
                         <li><a href="{{Route('waliIndex')}}">Data Wali Siswa</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{Route('pedomanIndex')}}" class="nav-link"><i
+                <li class="nav-item">
+                <a href="{{Route('pedomanIndex')}}" class="nav-link"><i
                             data-feather="file-text"></i>
                         <span>Panduan
                             Poin</span></a></li>
                 <li class="nav-label mg-t-25">Konseling Siswa</li>
+                <li class="nav-item"><a href="{{Route('konsultasiIndex')}}" class="nav-link"><i data-feather="box"></i>
+                        <span> Konsultasi Siswa</span></a></li>
                 <li class="nav-item"><a href="{{Route('pointIndex')}}" class="nav-link"><i data-feather="check-square"></i>
                         <span>Poin
                             Siswa</span></a></li>
@@ -110,6 +113,8 @@
                 <li class="nav-item"><a href="{{Route('prestasiIndex')}}" class="nav-link"><i data-feather="award"></i>
                         <span>Prestasi
                             Siswa</span></a></li>
+                <!-- <li class="nav-item"><a href="{{Route('prestasiIndex')}}" class="nav-link"><i data-feather="home"></i>
+                        <span>Kunjungan Rumah</span></a></li> -->
             </ul>
         </div>
     </aside>

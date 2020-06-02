@@ -7,10 +7,10 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                        <li class="breadcrumb-item"><a href="#">Prestasi</a></li>
+                        <li class="breadcrumb-item"><a href="#">Konsultasi Siswa</a></li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Data Prestasi</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Data Konsultasi</h4>
             </div>
             <div class="d-none d-md-block">
                 <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
@@ -29,10 +29,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Siswa</th>
-                                    <th>NIS</th>
-                                    <th>Kaeterangan Prestasi</th>
-                                    <th>Penambahan poin</th>
-                                    <th>Tanggal Prestasi</th>
+                                    <th>Kelas</th>
+                                    <th>Uraian</th>
+                                    <th>Tanggal Konseling</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -40,16 +39,15 @@
                                 <tr>
                                     <td>1</td>
                                     <td>John Doe</td>
-                                    <td>123456677</td>
-                                    <td>Membolos</td>
-                                    <td><p class="text-danger">10 poin</p></td>
+                                    <td>2A</td>
+                                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit....</td>
                                     <td>12 Mei 2020</td>
                                     <td>
                                     <a href="#"
                                             class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
-                                    <a href="{{Route('prestasiEdit')}}"
+                                    <a href="{{Route('konsultasiEdit')}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
@@ -90,41 +88,13 @@
                     </select>
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Panduan Prestasi</label>
-                        <select class="selectpicker form-control" data-live-search="true">
-                            @foreach($pedoman as $s)
-                                <option value="{{$s->id}}">{{$s->uraian}}</option>
-                            @endforeach
-                    </select>
+                        <label for="Nama">Uraian</label>
+                        <textarea name="uraian" id="uraian" class="form-control" rows="6"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Tingkat Prestasi</label>
-                        <select class=" form-control" name="" id="">
-                            <option value="Internal Sekolah">Internal Sekolah</option>
-                            <option value="Kabupaten / Kota">Kabupaten / Kota</option>
-                            <option value="Provinsi">Provinsi</option>
-                            <option value="Nasional">Nasional</option>
-                        </select>
+                        <label for="Nama">Tanggal Tanggal Konseling</label>
+                        <input type="date" class="form-control" name="tanggal_pelanggaran" id="tanggal_pelanggaran">
                     </div>
-                    <div class="form-group">
-                        <label for="Nama">Tanggal Prestasi</label>
-                        <input type="date" class="form-control" name="tanggal_Prestasi" id="tanggal_Prestasi">
-                    </div>
-                    <label for="Nama">File Lampiran</label> <br>
-                    <div class="input-group control-group increment" >
-                  <input type="file" name="file[]" class="form-control form-control-sm mr-1">
-                  <div class="input-group-btn"> 
-                  <button class="btn btn-sm btn-primary" id="tambahLampiran"type="button"><i class="glyphicon glyphicon-plus"></i>+ lampiran</button>
-                </div>
-              </div>
-              <div class="clone d-none">
-                <div class="control-group input-group" style="margin-top:10px">
-                  <input type="file" name="file[]" class="form-control form-control form-control-sm mr-1">
-                  <div class="input-group-btn"> 
-                    <button class="btn btn-sm btn-default" type="button"><i class="fas fa-trash"></i> Hapus</button>
-                  </div>
-                </div>
-              </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
@@ -146,16 +116,17 @@
         $("body").on("click",".btn-default",function(){ 
           $(this).parents(".control-group").remove();
         });
-            $(function () {
-        'use strict'
 
-        $('#dataTable').DataTable({
-            language: {
-                searchPlaceholder: 'Search...',
-                Search: '',
-                lengthMenu: '_MENU_ items/page',
-            }
-        });
-    });
+        $(function () {
+            'use strict'
+
+            $('#dataTable').DataTable({
+                language: {
+                    searchPlaceholder: 'Search...',
+                    Search: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+         });
     </script>
 @endsection

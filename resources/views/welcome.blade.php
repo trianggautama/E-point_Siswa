@@ -123,43 +123,43 @@
                 <div class="col-lg-6">
                     <div class="section-title pb-10">
                         <h4 class="title">Visi dan Misi</h4>
-                        <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
+                        <p class="text">Siswa yang Mampu Membaca Al-Qur'an, Beribadah, Berakhlakul Karimah, Terampil, Berilmu Pengetahuan dan Mampu Mengaktualisasikan Diri dalam Kehidupan Masyarakat.</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="services-content mt-40 d-sm-flex">
                                 <div class="services-icon">
-                                    <i class="lni-bolt"></i>
+                                    <i class="lni-arrow-top-right"></i>
                                 </div>
                                 <div class="services-content media-body">
-                                    <h4 class="services-title">Startup</h4>
-                                    <p class="text">Short description for the ones</br> who look for something new.</p>
+                                    <h4 class="services-title">1</h4>
+                                    <p class="text">Meningkatkan pelaksanaan pendidikan.</p>
                                 </div>
                             </div> <!-- services content -->
                         </div>
                         <div class="col-md-6">
                             <div class="services-content mt-40 d-sm-flex">
                                 <div class="services-icon">
-                                    <i class="lni-bar-chart"></i>
+                                    <i class="lni-book"></i>
                                 </div>
                                 <div class="services-content media-body">
-                                    <h4 class="services-title">SaaS Business</h4>
-                                    <p class="text">Short description for the ones</br> who look for something new.</p>
+                                    <h4 class="services-title">2</h4>
+                                    <p class="text">Meningkatkan pelaksanaan bimbingan dan penyuluhan.</p>
                                 </div>
                             </div> <!-- services content -->
                         </div>
                         <div class="col-md-6">
                             <div class="services-content mt-40 d-sm-flex">
                                 <div class="services-icon">
-                                    <i class="lni-brush"></i>
+                                    <i class="lni-handshake"></i>
                                 </div>
                                 <div class="services-content media-body">
-                                    <h4 class="services-title">Agency</h4>
-                                    <p class="text">Short description for the ones</br> who look for something new.</p>
+                                    <h4 class="services-title">3</h4>
+                                    <p class="text">Meningkatkan hubungan kerja sama dengan orang tua siswa dan masyarakat.</p>
                                 </div>
                             </div> <!-- services content -->
                         </div>
@@ -169,8 +169,8 @@
                                     <i class="lni-bulb"></i>
                                 </div>
                                 <div class="services-content media-body">
-                                    <h4 class="services-title">App Landing</h4>
-                                    <p class="text">Short description for the ones</br> who look for something new.</p>
+                                    <h4 class="services-title">4</h4>
+                                    <p class="text">Meningkatkan tata usaha, rumah tangga sekolah, perpustakaan dan laboratorium.</p>
                                 </div>
                             </div> <!-- services content -->
                         </div>
@@ -244,12 +244,7 @@
                 <div class="col-lg-6">
                     <div class="call-action-content text-center">
                         <h2 class="call-title">MIN 3 Tanah Laut</h2>
-                        <p class="text">You let us know whenever you want us to update anything or think something can be optimised.</p>
-                        <div class="call-newsletter">
-                            <i class="lni-envelope"></i>
-                            <input type="text" placeholder="john@email.com">
-                            <button type="submit">SUBSCRIBE</button>
-                        </div>
+                        <p class="text">Berdirinya  Sekolah MIN 3 Tanah Laut adalah atas desakan warga Pabahanan Kecamatan Pelaihari sekitar lingkungan tersebut rata-rata berprofesi Wiraswasta, Petani, Pegawai Negeri Sipil dan Aparat Negara. Madrasah ini pun diresmikan  sebagai lembaga pendidikan dengan nama sekolah pada awalnya Madrasah Ibtidaiyah Negeri Pabahanan menjadi  Madrasah Ibtidaiyah Negeri 3 Tanah Laut yang sampai akhirnya.</p>
                     </div> <!-- slider-content -->
                 </div>
             </div> <!-- row -->
@@ -291,58 +286,21 @@
                             <div class="footer-logo d-flex align-items-end">
                                 <a class="mt-30" href="index.html"><img src="{{asset('depan/images/logo.svg')}}" alt="Logo"></a>
 
-                                <ul class="social mt-30">
-                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                                    <li><a href="#"><i class="lni-instagram-original"></i></a></li>
-                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                                </ul>
                             </div> <!-- footer logo -->
                             
                         </div> <!-- footer logo support -->
                     </div>
                 </div> <!-- row -->
                 <div class="row">
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer-link">
-                            <h6 class="footer-title">Company</h6>
-                            <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Career</a></li>
-
-                            </ul>
-                        </div> <!-- footer link -->
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer-link">
-                            <h6 class="footer-title">Product & Services</h6>
-                            <ul>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Business</a></li>
-                                <li><a href="#">Developer</a></li>
-                            </ul>
-                        </div> <!-- footer link -->
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-5">
-                        <div class="footer-link">
-                            <h6 class="footer-title">Help & Suuport</h6>
-                            <ul>
-                                <li><a href="#">Support Center</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                            </ul>
+                            <h6 class="footer-title">Alamat</h6>
+                            <p>Jl. Padang Raya No.25 Pabahanan Kec. Pelaihari Kab. Tanah Laut</p>
                         </div> <!-- footer link -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-7">
                         <div class="footer-newsletter">
                             <h6 class="footer-title">Subscribe Newsletter</h6>
-                            <div class="newsletter">
-                                <form action="#">
-                                    <input type="text" placeholder="Your Email">
-                                    <button type="submit"><i class="lni-angle-double-right"></i></button>
-                                </form>
-                            </div>
                             <p class="text">Subscribe weekly newsletter to stay upto date. We don’t send spam.</p>
                         </div> <!-- footer newsletter -->
                     </div>

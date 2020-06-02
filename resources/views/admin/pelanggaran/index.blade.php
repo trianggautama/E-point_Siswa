@@ -101,10 +101,21 @@
                         <label for="Nama">Tanggal pelanggaran</label>
                         <input type="date" class="form-control" name="tanggal_pelanggaran" id="tanggal_pelanggaran">
                     </div>
-                    <div class="form-group">
-                        <label for="Nama">Lampiran Bukti</label>
-                        <input type="file" class="form-control" name="lampiran" id="lampiran">
-                    </div>
+                    <label for="Nama">File Lampiran</label> <br>
+                    <div class="input-group control-group increment" >
+                  <input type="file" name="file[]" class="form-control form-control-sm mr-1">
+                  <div class="input-group-btn"> 
+                  <button class="btn btn-sm btn-primary" id="tambahLampiran"type="button"><i class="glyphicon glyphicon-plus"></i>+ lampiran</button>
+                </div>
+              </div>
+              <div class="clone d-none">
+                <div class="control-group input-group" style="margin-top:10px">
+                  <input type="file" name="file[]" class="form-control form-control form-control-sm mr-1">
+                  <div class="input-group-btn"> 
+                    <button class="btn btn-sm btn-default" type="button"><i class="fas fa-trash"></i> Hapus</button>
+                  </div>
+                </div>
+              </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
@@ -119,16 +130,24 @@
 @endsection
 @section('scripts') 
     <script>
-            $(function () {
-        'use strict'
-
-        $('#dataTable').DataTable({
-            language: {
-                searchPlaceholder: 'Search...',
-                Search: '',
-                lengthMenu: '_MENU_ items/page',
-            }
+        $("#tambahLampiran").click(function(){ 
+          var html = $(".clone").html();
+          $(".increment").after(html);
         });
-    });
+        $("body").on("click",".btn-default",function(){ 
+          $(this).parents(".control-group").remove();
+        });
+
+        $(function () {
+            'use strict'
+
+            $('#dataTable').DataTable({
+                language: {
+                    searchPlaceholder: 'Search...',
+                    Search: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+         });
     </script>
 @endsection

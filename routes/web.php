@@ -70,6 +70,13 @@ Route::put('/pedoman/edit/{uuid}', 'PedomanController@update')->name('pedomanUpd
 Route::get('/pedoman/delete/{uuid}', 'PedomanController@destroy')->name('pedomanDestroy');
 Route::get('/pedoman/filter', 'pedomanController@filter')->name('pedomanFilter');
 
+// pedoman route
+Route::get('/konsultasi', 'konsultasiController@index')->name('konsultasiIndex');
+Route::post('/konsultasi', 'konsultasiController@store')->name('konsultasiStore');
+Route::get('/konsultasi/edit', 'konsultasiController@edit')->name('konsultasiEdit');
+Route::put('/konsultasi/edit/{uuid}', 'konsultasiController@update')->name('konsultasiUpdate');
+Route::get('/konsultasi/delete/{uuid}', 'konsultasiController@destroy')->name('konsultasiDestroy');
+
 // point route
 Route::get('/point', 'pointController@index')->name('pointIndex');
 
