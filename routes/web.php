@@ -84,6 +84,7 @@ Route::get('/point', 'pointController@index')->name('pointIndex');
 // pelanggaran route
 Route::get('/pelanggaran', 'pelanggaranController@index')->name('pelanggaranIndex');
 Route::post('/pelanggaran', 'pelanggaranController@store')->name('pelanggaranStore');
+Route::get('/pelanggaran/detail/{uuid}', 'pelanggaranController@show')->name('pelanggaranShow');
 Route::get('/pelanggaran/edit/{uuid}', 'pelanggaranController@edit')->name('pelanggaranEdit');
 Route::put('/pelanggaran/edit/{uuid}', 'pelanggaranController@update')->name('pelanggaranUpdate');
 Route::get('/pelanggaran/delete/{uuid}', 'pelanggaranController@destroy')->name('pelanggaranDestroy');
@@ -91,6 +92,7 @@ Route::get('/pelanggaran/delete/{uuid}', 'pelanggaranController@destroy')->name(
 // prestasi route
 Route::get('/prestasi', 'prestasiController@index')->name('prestasiIndex');
 Route::post('/prestasi', 'prestasiController@store')->name('prestasiStore');
+Route::get('/prestasi/detail/{uuid}', 'prestasiController@show')->name('prestasiShow');
 Route::get('/prestasi/edit/{uuid}', 'prestasiController@edit')->name('prestasiEdit');
 Route::put('/prestasi/edit/{uuid}', 'prestasiController@update')->name('prestasiUpdate');
 Route::get('/prestasi/delete/{uuid}', 'prestasiController@destroy')->name('prestasiDestroy');

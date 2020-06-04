@@ -44,18 +44,19 @@
                                     <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
                                     <td>
-                                        <p class="text-danger">{{$d->pedoman->bobot_point}} poin</p>
+                                        <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
                                     <td>{{$d->tanggal_prestasi}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-white btn-icon">
+                                        <a href="{{Route('prestasiShow',['uuid'=>$d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
                                         <a href="{{Route('prestasiEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-icon">
+                                        <button type="button" class="btn btn-danger btn-icon"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->siswa->nama}}')">
                                             <i data-feather="delete"></i>
                                         </button>
                                     </td>
@@ -142,6 +143,25 @@
         $("body").on("click",".btn-default",function(){ 
           $(this).parents(".control-group").remove();
         });
+
+        function Hapus(uuid, nama) {
+        Swal.fire({
+            title: 'Anda Yakin?',
+            text: " Menghapus data Konsultasi  '" + nama,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.value) {
+                url = '{{route("prestasiDestroy",'')}}';
+                window.location.href = url + '/' + uuid;
+            }
+        })
+    }
+
             $(function () {
         'use strict'
 

@@ -26,6 +26,12 @@ class prestasiController extends Controller
         return view('admin.prestasi.edit', compact('siswa', 'pedoman', 'data'));
     }
 
+    public function show($uuid)
+    {
+        $data = Prestasi::where('uuid', $uuid)->first();
+        return view('admin.prestasi.show', compact('data'));
+    }
+
     public function store(Request $req)
     {
         $data = Prestasi::create($req->all());
