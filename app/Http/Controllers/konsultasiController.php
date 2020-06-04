@@ -23,6 +23,12 @@ class konsultasiController extends Controller
         return redirect()->back()->withSuccess('Data berhasil disimpan');
     }
 
+    public function show($uuid)
+    {
+        $data = Konsultasi::where('uuid', $uuid)->first();
+        return view('admin.konsultasi.show', compact('data'));
+    }
+
     public function edit($uuid)
     {
         $data = Konsultasi::where('uuid', $uuid)->first();

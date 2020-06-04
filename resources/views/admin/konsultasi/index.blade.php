@@ -41,17 +41,18 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->kelas->kelas}}</td>
-                                    <td>{{$d->uraian}}</td>
+                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->format('d F Y')}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-white btn-icon">
+                                        <a href="{{Route('konsultasiShow',['uuid' => $d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
                                         <a href="{{Route('konsultasiEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-icon">
+                                        <button type="button" class="btn btn-danger btn-icon"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->siswa->nama}}')">
                                             <i data-feather="delete"></i>
                                         </button>
                                     </td>
@@ -117,7 +118,23 @@
         $("body").on("click",".btn-default",function(){ 
           $(this).parents(".control-group").remove();
         });
-
+        function Hapus(uuid, nama) {
+        Swal.fire({
+            title: 'Anda Yakin?',
+            text: " Menghapus data Konsultasi  '" + nama,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.value) {
+                url = '{{route("konsultasiDestroy",'')}}';
+                window.location.href = url + '/' + uuid;
+            }
+        })
+    }
         $(function () {
             'use strict'
 

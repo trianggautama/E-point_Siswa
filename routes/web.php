@@ -73,6 +73,7 @@ Route::get('/pedoman/filter', 'pedomanController@filter')->name('pedomanFilter')
 // konsultasi route
 Route::get('/konsultasi', 'konsultasiController@index')->name('konsultasiIndex');
 Route::post('/konsultasi', 'konsultasiController@store')->name('konsultasiStore');
+Route::get('/konsultasi/detail/{uuid}', 'konsultasiController@show')->name('konsultasiShow');
 Route::get('/konsultasi/edit/{uuid}', 'konsultasiController@edit')->name('konsultasiEdit');
 Route::put('/konsultasi/edit/{uuid}', 'konsultasiController@update')->name('konsultasiUpdate');
 Route::get('/konsultasi/delete/{uuid}', 'konsultasiController@destroy')->name('konsultasiDestroy');
