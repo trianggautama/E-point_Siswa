@@ -44,7 +44,7 @@
                                     <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
                                     <td>
-                                        <p class="text-danger">{{$d->pedoman->bobot_point}}</p>
+                                        <p class="text-danger">{{$d->pedoman->bobot_point}} poin</p>
                                     </td>
                                     <td>{{$d->tanggal_pelanggaran}}</td>
                                     <td>
@@ -121,13 +121,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary tx-13"><i data-feather="save"
+                                class="wd-10 mg-r-5"></i>
+                            Simpan</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
-                    Simpan</button>
-            </div>
-            </form>
         </div>
     </div>
 </div>

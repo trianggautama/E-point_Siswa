@@ -14,4 +14,9 @@ class Pedoman extends Model
         return $this->hasMany(Pelanggaran::class);
     }
 
+    public function prestasi()
+    {
+        return $this->hasMany(Prestasi::class);
+    }
+
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLampiransTable extends Migration
+class CreatePrestasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateLampiransTable extends Migration
      */
     public function up()
     {
-        Schema::create('lampirans', function (Blueprint $table) {
+        Schema::create('prestasis', function (Blueprint $table) {
             $table->id();
             $table->string('uuid', 36);
-            $table->foreignId('pelanggaran_id')->onDelete('restrict');
-            $table->string('file', 50)->nullable();
+            $table->foreignId('siswa_id')->constrained()->onDelete('restrict');
+            $table->foreignId('pedoman_id')->constrained()->onDelete('restrict');
+            $table->date('tanggal_prestasi');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateLampiransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lampirans');
+        Schema::dropIfExists('prestasis');
     }
 }

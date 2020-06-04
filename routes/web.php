@@ -88,8 +88,11 @@ Route::put('/pelanggaran/edit/{uuid}', 'pelanggaranController@update')->name('pe
 Route::get('/pelanggaran/delete/{uuid}', 'pelanggaranController@destroy')->name('pelanggaranDestroy');
 
 // prestasi route
-Route::get('/poiprestasi', 'prestasiController@index')->name('prestasiIndex');
-Route::get('/prestasi/edit', 'prestasiController@edit')->name('prestasiEdit');
+Route::get('/prestasi', 'prestasiController@index')->name('prestasiIndex');
+Route::post('/prestasi', 'prestasiController@store')->name('prestasiStore');
+Route::get('/prestasi/edit/{uuid}', 'prestasiController@edit')->name('prestasiEdit');
+Route::put('/prestasi/edit/{uuid}', 'prestasiController@update')->name('prestasiUpdate');
+Route::get('/prestasi/delete/{uuid}', 'prestasiController@destroy')->name('prestasiDestroy');
 
 //Cetak Route
 Route::get('/siswa/cetak', 'reportController@siswaAll')->name('siswaCetak');

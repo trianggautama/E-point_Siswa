@@ -14,4 +14,9 @@ class Lampiran extends Model
         return $this->belongsTo(Pelanggaran::class);
     }
 
+    public function prestasi()
+    {
+        return $this->belongsTo(Prestasi::class);
+    }
+
 }
