@@ -15,6 +15,7 @@ class CreateWaliSiswasTable extends Migration
     {
         Schema::create('wali_siswas', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid', 36);
             $table->unsignedBigInteger('siswa_id');
             $table->string('nama', 50);
             $table->string('no_hp', 25);

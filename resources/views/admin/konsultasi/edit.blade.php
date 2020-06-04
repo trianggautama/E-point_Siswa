@@ -22,21 +22,24 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                        <label for="Nama">Siswa</label>
-                        <select class="selectpicker form-control" data-live-search="true">
-                            @foreach($siswa as $s)
-                                <option value="{{$s->id}}">{{$s->nama}}</option>
-                            @endforeach
-                    </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="Nama">Uraian</label>
-                        <textarea name="uraian" id="uraian" class="form-control" rows="6"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="Nama">Tanggal Tanggal Konseling</label>
-                        <input type="date" class="form-control" name="tanggal_pelanggaran" id="tanggal_pelanggaran">
-                    </div>
+                            <label for="Nama">Siswa</label>
+                            <select class="selectpicker form-control" name="siswa_id" data-live-search="true">
+                                @foreach($siswa as $s)
+                                <option value="{{$s->id}}" {{$s->id == $data->siswa_id ? 'selected' : ''}}>{{$s->nama}}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Nama">Uraian</label>
+                            <textarea name="uraian" id="uraian" class="form-control"
+                                rows="6">{{$data->uraian}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Nama">Tanggal Tanggal Konseling</label>
+                            <input type="date" class="form-control" name="tanggal_konseling"
+                                value="{{$data->tanggal_konseling}}" id="tanggal_konseling">
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="save"

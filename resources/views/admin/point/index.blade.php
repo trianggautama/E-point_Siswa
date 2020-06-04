@@ -38,16 +38,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>12134567</td>
-                                  <td>John Doe</td>
-                                  <td>3</td>
-                                  <td>85 Point</td>
-                                  <td>
-                                      -
-                                  </td>
-                              </tr>
+                                @foreach ($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->NIS}}</td>
+                                    <td>{{$d->nama}}</td>
+                                    <td>{{$d->kelas->kelas}}</td>
+                                    <td>{{$d->point}}</td>
+                                    <td>
+                                        -
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div><!-- df-example -->

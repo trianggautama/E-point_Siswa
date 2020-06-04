@@ -18,4 +18,9 @@ class Siswa extends Model
     {
         return $this->HasOne(Wali_siswa::class);
     }
+
+    public function konsultasi()
+    {
+        return $this->HasMany(Konsultasi::class);
+    }
 }

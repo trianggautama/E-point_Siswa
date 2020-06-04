@@ -70,10 +70,10 @@ Route::put('/pedoman/edit/{uuid}', 'PedomanController@update')->name('pedomanUpd
 Route::get('/pedoman/delete/{uuid}', 'PedomanController@destroy')->name('pedomanDestroy');
 Route::get('/pedoman/filter', 'pedomanController@filter')->name('pedomanFilter');
 
-// pedoman route
+// konsultasi route
 Route::get('/konsultasi', 'konsultasiController@index')->name('konsultasiIndex');
 Route::post('/konsultasi', 'konsultasiController@store')->name('konsultasiStore');
-Route::get('/konsultasi/edit', 'konsultasiController@edit')->name('konsultasiEdit');
+Route::get('/konsultasi/edit/{uuid}', 'konsultasiController@edit')->name('konsultasiEdit');
 Route::put('/konsultasi/edit/{uuid}', 'konsultasiController@update')->name('konsultasiUpdate');
 Route::get('/konsultasi/delete/{uuid}', 'konsultasiController@destroy')->name('konsultasiDestroy');
 
@@ -82,8 +82,10 @@ Route::get('/point', 'pointController@index')->name('pointIndex');
 
 // pelanggaran route
 Route::get('/pelanggaran', 'pelanggaranController@index')->name('pelanggaranIndex');
-Route::get('/pelanggaran/edit', 'pelanggaranController@edit')->name('pelanggaranEdit');
-
+Route::post('/pelanggaran', 'pelanggaranController@store')->name('pelanggaranStore');
+Route::get('/pelanggaran/edit/{uuid}', 'pelanggaranController@edit')->name('pelanggaranEdit');
+Route::put('/pelanggaran/edit/{uuid}', 'pelanggaranController@update')->name('pelanggaranUpdate');
+Route::get('/pelanggaran/delete/{uuid}', 'pelanggaranController@destroy')->name('pelanggaranDestroy');
 
 // prestasi route
 Route::get('/poiprestasi', 'prestasiController@index')->name('prestasiIndex');
@@ -95,7 +97,5 @@ Route::post('/siswa/filter', 'reportController@siswaFilter')->name('siswaFilterC
 Route::get('/wali/cetak', 'reportController@wali')->name('waliCetak');
 Route::get('/pedoman/cetak', 'reportController@pedomanAll')->name('pedomanCetak');
 Route::post('/pedoman/filter', 'reportController@pedomanFilter')->name('pedomanFilterCetak');
-
-
 
 // });

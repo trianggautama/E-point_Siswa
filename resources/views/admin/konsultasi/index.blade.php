@@ -36,18 +36,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($data as $d)
                                 <tr>
-                                    <td>1</td>
-                                    <td>John Doe</td>
-                                    <td>2A</td>
-                                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit....</td>
-                                    <td>12 Mei 2020</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->siswa->kelas->kelas}}</td>
+                                    <td>{{$d->uraian}}</td>
+                                    <td>{{carbon\carbon::parse($d->tanggal_konseling)->format('d F Y')}}</td>
                                     <td>
-                                    <a href="#"
-                                            class="btn btn-white btn-icon">
+                                        <a href="#" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
-                                    <a href="{{Route('konsultasiEdit')}}"
+                                        <a href="{{Route('konsultasiEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
@@ -56,6 +56,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div><!-- df-example -->
@@ -77,15 +78,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('siswaStore')}}" method="POST">
-                    @csrf 
+                <form action="{{Route('konsultasiStore')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="Nama">Siswa</label>
-                        <select class="selectpicker form-control" data-live-search="true">
+                        <select class="selectpicker form-control" name="siswa_id" data-live-search="true">
                             @foreach($siswa as $s)
-                                <option value="{{$s->id}}">{{$s->nama}}</option>
+                            <option value="{{$s->id}}">{{$s->nama}}</option>
                             @endforeach
-                    </select>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Nama">Uraian</label>
@@ -93,23 +94,23 @@
                     </div>
                     <div class="form-group">
                         <label for="Nama">Tanggal Tanggal Konseling</label>
-                        <input type="date" class="form-control" name="tanggal_pelanggaran" id="tanggal_pelanggaran">
+                        <input type="date" class="form-control" name="tanggal_konseling" id="tanggal_konseling">
                     </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
-        Simpan</button>
-</div>
-</form>
-</div>
-</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
+                    Simpan</button>
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
 </div>
 @endsection
-@section('scripts') 
-    <script>
-        $("#tambahLampiran").click(function(){ 
+@section('scripts')
+<script>
+    $("#tambahLampiran").click(function(){ 
           var html = $(".clone").html();
           $(".increment").after(html);
         });
@@ -128,5 +129,5 @@
                 }
             });
          });
-    </script>
+</script>
 @endsection

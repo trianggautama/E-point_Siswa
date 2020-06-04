@@ -30,26 +30,28 @@
                                     <th>No</th>
                                     <th>Nama Siswa</th>
                                     <th>NIS</th>
-                                    <th>Kaeterangan Pelanggaran</th>
+                                    <th>Keterangan Pelanggaran</th>
                                     <th>Pengurangan poin</th>
                                     <th>Tanggal pelanggaran</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($data as $d)
                                 <tr>
-                                    <td>1</td>
-                                    <td>John Doe</td>
-                                    <td>123456677</td>
-                                    <td>Membolos</td>
-                                    <td><p class="text-danger">10 poin</p></td>
-                                    <td>12 Mei 2020</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->siswa->NIS}}</td>
+                                    <td>{{$d->pedoman->uraian}}</td>
                                     <td>
-                                    <a href="#"
-                                            class="btn btn-white btn-icon">
+                                        <p class="text-danger">{{$d->pedoman->bobot_point}}</p>
+                                    </td>
+                                    <td>{{$d->tanggal_pelanggaran}}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
-                                    <a href="{{Route('pelanggaranEdit')}}"
+                                        <a href="{{Route('pelanggaranEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
@@ -58,6 +60,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div><!-- df-example -->
@@ -79,58 +82,60 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('siswaStore')}}" method="POST">
-                    @csrf 
+                <form action="{{Route('pelanggaranStore')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label for="Nama">Siswa</label>
-                        <select class="selectpicker form-control" data-live-search="true">
+                        <select name="siswa_id" class="selectpicker form-control" data-live-search="true">
                             @foreach($siswa as $s)
-                                <option value="{{$s->id}}">{{$s->nama}}</option>
+                            <option value="{{$s->id}}">{{$s->nama}}</option>
                             @endforeach
-                    </select>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Nama">Panduan pelanggaran</label>
-                        <select class="selectpicker form-control" data-live-search="true">
+                        <select name="pedoman_id" class="selectpicker form-control" data-live-search="true">
                             @foreach($pedoman as $s)
-                                <option value="{{$s->id}}">{{$s->uraian}}</option>
+                            <option value="{{$s->id}}">{{$s->uraian}}</option>
                             @endforeach
-                    </select>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Nama">Tanggal pelanggaran</label>
                         <input type="date" class="form-control" name="tanggal_pelanggaran" id="tanggal_pelanggaran">
                     </div>
                     <label for="Nama">File Lampiran</label> <br>
-                    <div class="input-group control-group increment" >
-                  <input type="file" name="file[]" class="form-control form-control-sm mr-1">
-                  <div class="input-group-btn"> 
-                  <button class="btn btn-sm btn-primary" id="tambahLampiran"type="button"><i class="glyphicon glyphicon-plus"></i>+ lampiran</button>
-                </div>
-              </div>
-              <div class="clone d-none">
-                <div class="control-group input-group" style="margin-top:10px">
-                  <input type="file" name="file[]" class="form-control form-control form-control-sm mr-1">
-                  <div class="input-group-btn"> 
-                    <button class="btn btn-sm btn-default" type="button"><i class="fas fa-trash"></i> Hapus</button>
-                  </div>
-                </div>
-              </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
-        Simpan</button>
-</div>
-</form>
-</div>
-</div>
+                    <div class="input-group control-group increment">
+                        <input type="file" name="file[]" class="form-control form-control-sm mr-1" required>
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-primary" id="tambahLampiran" type="button"><i
+                                    class="glyphicon glyphicon-plus"></i>+ lampiran</button>
+                        </div>
+                    </div>
+                    <div class="clone d-none">
+                        <div class="control-group input-group" style="margin-top:10px">
+                            <input type="file" name="file[]" class="form-control form-control form-control-sm mr-1">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-default" type="button"><i class="fas fa-trash"></i>
+                                    Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
+                    Simpan</button>
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
 </div>
 @endsection
-@section('scripts') 
-    <script>
-        $("#tambahLampiran").click(function(){ 
+@section('scripts')
+<script>
+    $("#tambahLampiran").click(function(){ 
           var html = $(".clone").html();
           $(".increment").after(html);
         });
@@ -149,5 +154,5 @@
                 }
             });
          });
-    </script>
+</script>
 @endsection

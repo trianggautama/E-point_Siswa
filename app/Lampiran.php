@@ -5,13 +5,13 @@ namespace App;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
-class Pedoman extends Model
+class Lampiran extends Model
 {
     use Uuid;
 
     public function pelanggaran()
     {
-        return $this->hasMany(Pelanggaran::class);
+        return $this->belongsTo(Pelanggaran::class);
     }
 
 }
