@@ -10,6 +10,7 @@ use App\Kelas;
 use App\Pelanggaran;
 use App\Prestasi;
 use App\Wali_siswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class reportController extends Controller
