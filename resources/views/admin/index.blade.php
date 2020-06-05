@@ -7,15 +7,15 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Sales Monitoring</li>
+                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Admin</li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Selamat Datang di beranda Admin</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="home"
-                        class="wd-10 mg-r-5"></i>Halaman Depan</button>
+                <a href="/" class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="home"
+                        class="wd-10 mg-r-5"></i>Halaman Depan</a>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
                 <div class="card card-body">
                     <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Siswa</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">200</h3>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">{{$siswa->count()}}</h3>
                         <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">Siswa </span></p>
                     </div>
                     <div class="chart-three">
@@ -36,7 +36,7 @@
                 <div class="card card-body">
                     <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Panduan Peraturan</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">70 </h3>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">{{$pedoman->count()}}</h3>
                         <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-danger">Peraturan</span></p>
                     </div>
                     <div class="chart-three">
@@ -48,7 +48,7 @@
                 <div class="card card-body">
                     <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">pelanggaran Siswa</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">30 </h3>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">{{$pelanggaran->count()}}</h3>
                         <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-danger">kasus</span></p>
                     </div>
                     <div class="chart-three">
@@ -60,8 +60,8 @@
                 <div class="card card-body">
                     <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Prestasi Siswa</h6>
                     <div class="d-flex d-lg-block d-xl-flex align-items-end">
-                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">30 </h3>
-                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">prestasi</span></p>
+                        <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">{{$prestasi->count()}}</h3>
+                        <p class="tx-11 tx-color-03 mg-b-0"><span class="tx-medium tx-success">kasus</span></p>
                     </div>
                     <div class="chart-three">
                         <div id="flotChart6" class="flot-chart ht-30"></div>
@@ -69,30 +69,30 @@
                 </div>
             </div><!-- col -->
             <!-- disini -->
-
+<!-- 
             <div class="col-lg-4 col-xl-5 mg-t-10">
                 <div class="card">
                     <div class="card-header pd-t-20 pd-b-0 bd-b-0">
                         <h6 class="mg-b-5">Sampel</h6>
                         <p class="tx-12 tx-color-03 mg-b-0">Number of customers who have active subscription with you.
                         </p>
-                    </div><!-- card-header -->
+                    </div>
                     <div class="card-body pd-20">
                         <div class="chart-two mg-b-20">
                             <div id="flotChart2" class="flot-chart"></div>
-                        </div><!-- chart-two -->
+                        </div>
                         <div class="row">
                             <div class="col-sm">
                                 <h4 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">$1,680<small>.50</small></h4>
                                 <p class="tx-11 tx-uppercase tx-spacing-1 tx-semibold mg-b-10 tx-primary">Expansions</p>
-                            </div><!-- col -->
+                            </div>
                             <div class="col-sm mg-t-20 mg-sm-t-0">
                                 <h4 class="tx-normal tx-rubik tx-spacing--1 mg-b-5">$1,520<small>.00</small></h4>
                                 <p class="tx-11 tx-uppercase tx-spacing-1 tx-semibold mg-b-10 tx-pink">Cancellations</p>
-                            </div><!-- col -->
-                        </div><!-- row -->
-                    </div><!-- card-body -->
-                </div><!-- card -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-8 col-xl-7 mg-t-10">
                 <div class="card mg-b-10">
@@ -108,7 +108,7 @@
                                 <button class="btn btn-white btn-xs">Period</button>
                             </div>
                         </div>
-                    </div><!-- card-header -->
+                    </div>
                     <div class="card-body pd-y-30">
                         <div class="d-sm-flex">
                             <div class="media">
@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- card-body -->
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-dashboard mg-b-0">
                             <thead>
@@ -210,17 +210,16 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div><!-- table-responsive -->
-                </div><!-- card -->
-            </div><!-- col -->
+                    </div>
+                </div>
+            </div> -->
             <div class="col-md-12 col-xl-12 mg-t-10">
                 <div class="card card-body ht-lg-100">
                     <div class="media">
-                        <span class="tx-color-04"><i data-feather="download" class="wd-60 ht-60"></i></span>
+                        <span class="tx-color-04"><i data-feather="info" class="wd-60 ht-60"></i></span>
                         <div class="media-body mg-l-20">
-                            <h6 class="mg-b-10">Sampel</h6>
-                            <p class="tx-color-03 mg-b-0">Open it in a spreadsheet and perform your own calculations,
-                                graphing etc.</p>
+                            <h6 class="mg-b-10">Selamat Datang</h6>
+                            <p class="tx-color-03 mg-b-0">Selamat Datang Admin</p>
                         </div>
                     </div><!-- media -->
                 </div>

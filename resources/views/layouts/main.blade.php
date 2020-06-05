@@ -130,7 +130,15 @@
                 @else
                 <a href="" class="nav-link  " data-toggle="tooltip" title="You have 4 new notifications"><i
                         data-feather="bell"></i></a>
-                <a href="" class="nav-link" data-toggle="tooltip" title="Sign out"><i data-feather="log-out"></i></a>
+                <a class="nav-link" data-toggle="tooltip" title="Sign out" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i data-feather="log-out"></i>{{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                 @endguest
             </nav>
         </div><!-- content-header -->
