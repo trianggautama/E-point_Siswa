@@ -134,13 +134,13 @@
                       <br>
                       <br>
                       <div class="ttd">
-                      <p> Pabahanan,{{$tgl}}</p>
-                       <h6>Mengetahui</h6>
-                      <h5>Kepala Madrasah Ibtidayah Negeri 3 Tanah Laut </h5>
+                        <p style="margin:0px"> Pabahanan,{{$tgl}}</p>
+                       <h6 style="margin:0px">Mengetahui</h6>
+                      <h5 style="margin:0px">Kepala Madrasah Ibtidayah Negeri 3 Tanah Laut </h5>
                       <br>
                       <br>
-                      <h5 style="text-decoration:underline;">Jamiatul Jannah, S.Pd.I</h5>
-                      <h5>NIP. 19630311 199002 2 001</h5>
+                      <h5 style="text-decoration:underline; margin:0px">Jamiatul Jannah, S.Pd.I</h5>
+                      <h5 style="margin:0px">NIP. 19630311 199002 2 001</h5>
                       </div>
                     </div>
              </div>
