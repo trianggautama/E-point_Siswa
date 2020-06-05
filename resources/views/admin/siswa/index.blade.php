@@ -54,7 +54,10 @@
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
-
+                                        <button type="button" class="btn btn-danger btn-icon"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')">
+                                            <i data-feather="delete"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 @endforeach
