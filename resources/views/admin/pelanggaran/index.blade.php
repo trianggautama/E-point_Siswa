@@ -13,8 +13,10 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Pelanggaran</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</button>
+            <a href="{{Route('pelanggaranCetak')}}"class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
+                        class="wd-10 mg-r-5"></i> Print</a>
+                <a href="{{Route('pelanggaranFilter')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
+                        data-feather="filter" class="wd-10 mg-r-5"></i> Filter Pelanggaran</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
             </div>
@@ -44,7 +46,7 @@
                                     <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
                                     <td>
-                                        <p class="text-danger">{{$d->pedoman->bobot_point}} poin</p>
+                                        <p class="text-danger">- {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
                                     <td>{{$d->tanggal_pelanggaran}}</td>
                                     <td>

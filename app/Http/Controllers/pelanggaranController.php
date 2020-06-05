@@ -86,4 +86,10 @@ class pelanggaranController extends Controller
         $data->delete();
         return redirect()->back()->withSuccess('Data berhasil dihapus');
     }
+
+    public function filter()
+    {
+        $pedoman = Pedoman::where('status', 1)->get();
+        return view('admin.pelanggaran.filter', compact('pedoman'));
+    }
 }

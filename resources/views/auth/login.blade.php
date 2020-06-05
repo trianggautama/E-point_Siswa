@@ -52,11 +52,11 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class=" text-md-left">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class=" text-md-left">Username</label>
 
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

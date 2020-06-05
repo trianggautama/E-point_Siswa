@@ -43,7 +43,13 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->kode_pedoman}}</td>
                                     <td>{{$d->uraian}}</td>
-                                    <td>{{$d->bobot_point}} poin</td>
+                                    <td>
+                                    @if($d->status == 1)
+                                            <p class="text-danger">- {{$d->bobot_point}}</p>
+                                        @else
+                                            <p class="text-success">+ {{$d->bobot_point}}</p>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if($d->status == 1)
                                             <p class="text-danger"> Pelanggaran</p>

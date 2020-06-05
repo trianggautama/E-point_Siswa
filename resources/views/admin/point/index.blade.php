@@ -13,12 +13,10 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data point Siswa</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Filter Kelas</button>
-                <button class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Filter Waktu</button>
-                <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</button>
+                <a href="{{Route('poinFilterKelas')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i data-feather="printer"
+                        class="wd-10 mg-r-5"></i> Filter Kelas</a>
+                <a href="{{Route('poinCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
+                        class="wd-10 mg-r-5" target="_blank"></i> Print</a>
             </div>
         </div>
 
