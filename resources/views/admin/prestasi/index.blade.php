@@ -30,8 +30,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Siswa</th>
                                     <th>NIS</th>
+                                    <th>Nama Siswa</th>
                                     <th>Keterangan Prestasi</th>
                                     <th>Penambahan poin</th>
                                     <th>Tanggal Prestasi</th>
@@ -42,8 +42,8 @@
                                 @foreach($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->NIS}}</td>
+                                    <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
                                     <td>
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>

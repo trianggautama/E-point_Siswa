@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Pelanggaran;
+use App\Prestasi;
 use App\Siswa;
 use App\Wali_siswa;
 use Illuminate\Http\Request;
@@ -42,8 +44,10 @@ class SiswaController extends Controller
     public function show($uuid)
     {
         $data = siswa::where('uuid', $uuid)->first();
+        $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->get();
+        $prestasi = Prestasi::where('siswa_id', $data->id)->get();
 
-        return view('admin.siswa.show', compact('data'));
+        return view('admin.siswa.show', compact('data','pelanggaran','prestasi'));
     }
 
     public function edit($uuid)

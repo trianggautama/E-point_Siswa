@@ -53,7 +53,7 @@
         <div class="aside-body">
             <div class="aside-loggedin">
                 <div class="d-flex align-items-center justify-content-start">
-                    <a href="" class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle"
+                    <a href="" class="avatar"><img src="{{asset('images/user/'. Auth::user()->foto)}}" class="rounded-circle"
                             alt=""></a>
                     <div class="aside-alert-link">
                         <a href="" class="new" data-toggle="tooltip" title="You have 4 new notifications"><i
@@ -64,19 +64,19 @@
                 <div class="aside-loggedin-user">
                     <a href="#loggedinMenu" class="d-flex align-items-center justify-content-between mg-b-2"
                         data-toggle="collapse">
-                        <h6 class="tx-semibold mg-b-0">Nama User</h6>
+                        <h6 class="tx-semibold mg-b-0">{{Auth::user()->nama}}</h6>
                         <i data-feather="chevron-down"></i>
                     </a>
-                    <p class="tx-color-03 tx-12 mg-b-0">Jabatan</p>
+                    <p class="tx-color-03 tx-12 mg-b-0">Admin</p>
                 </div>
                 <div class="collapse" id="loggedinMenu">
                     <ul class="nav nav-aside mg-b-0">
-                        <li class="nav-item"><a href="" class="nav-link"><i data-feather="edit"></i> <span>Edit
+                        <!-- <li class="nav-item"><a href="" class="nav-link"><i data-feather="edit"></i> <span>Edit
                                     Profile</span></a>
                         </li>
                         <li class="nav-item"><a href="" class="nav-link"><i data-feather="user"></i> <span>View
                                     Profile</span></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div><!-- aside-loggedin -->
