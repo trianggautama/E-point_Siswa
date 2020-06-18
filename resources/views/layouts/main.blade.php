@@ -152,7 +152,6 @@
     <script src="{{asset('admin/lib/jquery.flot/jquery.flot.js')}}"></script>
     <script src="{{asset('admin/lib/jquery.flot/jquery.flot.stack.js')}}"></script>
     <script src="{{asset('admin/lib/jquery.flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{asset('admin/lib/chart.js/Chart.bundle.min.js')}}"></script>
 
 
     <!-- Select2 -->    
@@ -173,96 +172,10 @@
     <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{asset('vendor/select/bootstrap-select.min.js')}}"></script>
-
-
+<script src="{{asset('vendor/chart/Chart.min.js')}}"></script>
 
 
     @yield('scripts')
-    <script>
-        $(function () {
-
-            $.plot('#flotChart2', [{
-                data: [
-                    [0, 55],
-                    [1, 38],
-                    [2, 20],
-                    [3, 70],
-                    [4, 50],
-                    [5, 15],
-                    [6, 30],
-                    [7, 50],
-                    [8, 40],
-                    [9, 55],
-                    [10, 60],
-                    [11, 40],
-                    [12, 32],
-                    [13, 17],
-                    [14, 28],
-                    [15, 36],
-                    [16, 53],
-                    [17, 66],
-                    [18, 58],
-                    [19, 46]
-                ],
-                color: '#69b2f8'
-            }, {
-                data: [
-                    [0, 80],
-                    [1, 80],
-                    [2, 80],
-                    [3, 80],
-                    [4, 80],
-                    [5, 80],
-                    [6, 80],
-                    [7, 80],
-                    [8, 80],
-                    [9, 80],
-                    [10, 80],
-                    [11, 80],
-                    [12, 80],
-                    [13, 80],
-                    [14, 80],
-                    [15, 80],
-                    [16, 80],
-                    [17, 80],
-                    [18, 80],
-                    [19, 80]
-                ],
-                color: '#f0f1f5'
-            }], {
-                series: {
-                    stack: 0,
-                    bars: {
-                        show: true,
-                        lineWidth: 0,
-                        barWidth: .5,
-                        fill: 1
-                    }
-                },
-                grid: {
-                    borderWidth: 0,
-                    borderColor: '#edeff6'
-                },
-                yaxis: {
-                    show: false,
-                    max: 80
-                },
-                xaxis: {
-                    ticks: [
-                        [0, 'Jan'],
-                        [4, 'Feb'],
-                        [8, 'Mar'],
-                        [12, 'Apr'],
-                        [16, 'May'],
-                        [19, 'Jun']
-                    ],
-                    color: '#fff',
-                }
-            });
-
-        })
-
-    </script>
 </body>
 
 </html>

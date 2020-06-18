@@ -41,6 +41,7 @@ Route::get('/pejabat/delete/{uuid}', 'PejabatController@destroy')->name('pejabat
 // kelas route
 Route::get('/kelas', 'KelasController@index')->name('kelasIndex');
 Route::post('/kelas', 'KelasController@store')->name('kelasStore');
+Route::get('/kelas/detail/{uuid}', 'KelasController@show')->name('kelasShow');
 Route::get('/kelas/edit/{uuid}', 'KelasController@edit')->name('kelasEdit');
 Route::put('/kelas/edit/{uuid}', 'KelasController@update')->name('kelasUpdate');
 Route::get('/kelas/delete/{uuid}', 'KelasController@destroy')->name('kelasDestroy');

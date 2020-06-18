@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Pelanggaran;
+use App\Prestasi;
+use App\Siswa;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -21,6 +24,21 @@ class KelasController extends Controller
         $data->save();
 
         return redirect()->route('kelasIndex')->with('success', 'Data Berhasil Disimpan');
+    }
+
+    public function show($uuid)
+    {
+        $data = Kelas::where('uuid', $uuid)->first();
+        $siswa = Siswa::where('kelas_id',$data->id)->get();
+        $nama = $siswa->pluck('nama');
+        $prestasi = $siswa->map(function($item){
+            return Prestasi::where('siswa_id',$item->id)->count();
+        });
+
+        $pelanggaran = $siswa->map(function($item){
+            return Pelanggaran::where('siswa_id',$item->id)->count();
+        });
+        return view('admin.kelas.show', compact('data','siswa','nama','prestasi','pelanggaran'));
     }
 
     public function edit($uuid)
