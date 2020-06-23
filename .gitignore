@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/admin/images
+/public/lampiran
 /storage/*.key
 /vendor
 .env
