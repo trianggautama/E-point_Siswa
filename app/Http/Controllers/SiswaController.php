@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Lampiran;
 use App\Pelanggaran;
 use App\Prestasi;
 use App\Siswa;
 use App\Wali_siswa;
+use File;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -80,8 +82,25 @@ class SiswaController extends Controller
     public function destroy($uuid)
     {
         $data = siswa::where('uuid', $uuid)->first();
-        $prestasi = Prestasi::where('siswa_id', $data->id)->delete();
-        $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->delete();
+        $prestasi = Prestasi::where('siswa_id', $data->id)->get();
+        $prestasi = $prestasi->map(function ($item) {
+
+            $lampiran = Lampiran::where('file', 'like', '%' . 'prestasi_' . $item->siswa->NIS . '%')->get();
+            $lampiran = $lampiran->map(function ($item) {
+                File::delete('lampiran/' . $item->file);
+            });
+        });
+        $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->get();
+        $pelanggaran = $pelanggaran->map(function ($item) {
+
+            $lampiran = Lampiran::where('file', 'like', '%' . $item->siswa->NIS . '%')->get();
+            $lampiran = $lampiran->map(function ($item) {
+                File::delete('lampiran/' . $item->file);
+            });
+        });
+
+        $data->prestasi()->delete();
+        $data->pelanggaran()->delete();
         $data->delete();
 
         return redirect()->route('siswaIndex')->with('success', 'Berhasil menghapus data');

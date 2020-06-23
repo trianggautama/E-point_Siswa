@@ -23,4 +23,14 @@ class Siswa extends Model
     {
         return $this->HasMany(Konsultasi::class);
     }
+
+    public function pelanggaran()
+    {
+        return $this->HasMany(Pelanggaran::class);
+    }
+
+    public function prestasi()
+    {
+        return $this->HasMany(Prestasi::class);
+    }
 }
