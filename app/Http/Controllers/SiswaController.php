@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Pelanggaran;
+use App\Prestasi;
 use App\Siswa;
 use App\Wali_siswa;
 use Illuminate\Http\Request;
@@ -17,7 +19,7 @@ class SiswaController extends Controller
     }
 
     public function store(Request $request)
-    {   
+    {
 
         $data = new siswa;
         $data->kelas_id = $request->kelas_id;
@@ -50,7 +52,7 @@ class SiswaController extends Controller
     {
         $data = siswa::where('uuid', $uuid)->first();
         $kelas = Kelas::all();
-        return view('admin.siswa.edit', compact('data','kelas'));
+        return view('admin.siswa.edit', compact('data', 'kelas'));
     }
 
     public function update(Request $request, $uuid)
@@ -75,7 +77,10 @@ class SiswaController extends Controller
 
     public function destroy($uuid)
     {
-        $data = siswa::where('uuid', $uuid)->first()->delete();
+        $data = siswa::where('uuid', $uuid)->first();
+        $prestasi = Prestasi::where('siswa_id', $data->id)->first()->delete();
+        $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->first()->delete();
+        $data->delete();
 
         return redirect()->route('siswaIndex')->with('success', 'Berhasil menghapus data');
 
