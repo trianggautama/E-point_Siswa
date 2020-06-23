@@ -7,11 +7,11 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-">
-                        <li class="breadcrumb-item"><a href="#">Data Pedoman</a></li>
+                        <li class="breadcrumb-item"><a href="#">Data Siswa</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Filter</li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">filter Pedoman</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Filter Siswa</h4>
             </div>
         </div>
 
@@ -21,18 +21,20 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="Nama">Status </label>
-                                <select name="status" id="status" class="form-control">
-                                    <option value="">-- pilih Status  --</option>
-                                    <option value="1">Pelanggaran</option>
-                                    <option value="2">Prestasi</option>
-                                </select>
-                            </div>
+                            <label for="Nama">Kelas</label>
+                            <select name="kelas_id" id="kelas_id" class="form-control">
+                                <option value="">-- pilih kelas --</option>
+                                @foreach($kelas as $k)
+                                <option value="{{$k->id}}" >{{$k->kelas}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                       
                         <div class="modal-footer">
-                            <a href="{{Route('pedomanIndex')}}" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</a>
+                            <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="printer"
                                     class="wd-10 mg-r-5"></i>
-                                cetak</button>
+                                Cetak Data</button>
                         </div>
                     </form>
                 </div>

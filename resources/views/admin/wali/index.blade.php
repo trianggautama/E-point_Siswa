@@ -7,10 +7,10 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                        <li class="breadcrumb-item"><a href="#">Siswa</a></li>
+                        <li class="breadcrumb-item"><a href="#">Wali Siswa</a></li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Data Siswa</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Data Wali Siswa</h4>
             </div>
             <div class="d-none d-md-block">
                 <a href="{{Route('waliCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"

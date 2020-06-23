@@ -89,50 +89,36 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA WALI SISWA </h2>
+            <h2 style="text-align:center; text-transform:uppercase;">DATA PRESTASI {{$pedoman->uraian}} </h2>
             <table id="dataTable" class="table text-center">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIS</th>
                                     <th>Nama Siswa</th>
-                                    <th>Nama Wali</th>
-                                    <th>Status Wali</th>
-                                    <th>No Hp</th>
-                                    <!-- <th>Aksi</th> -->
+                                    <th>NIS</th>
+                                    <th>Keterangan Prestasi</th>
+                                    <th>Penambahan poin</th>
+                                    <th>Tanggal Prestasi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
-                                    <td>{{$d->nama}}</td>
-                                    <td> 
-                                         @if($data->status_wali = 1)
-                                            <p class="mg-b-0">Ayah</p>
-                                        @elseif($data->status_wali = 2)
-                                            <p class="mg-b-0">Ibu</p>
-                                        @elseif($data->status_wali = 3)
-                                            <p class="mg-b-0">Kakak</p>
-                                        @else
-                                            <p class="mg-b-0">Kerabat Orang Tua</p>
-                                        @endif
+                                    <td>{{$d->siswa->NIS}}</td>
+                                    <td>{{$d->pedoman->uraian}}</td>
+                                    <td>
+                                        <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{$d->no_hp}}</td>
-                                    <!-- <td>
-                                        <a href="{{Route('siswaEdit',['uuid'=>$d->uuid])}}"
-                                            class="btn btn-primary btn-icon">
-                                            <i data-feather="edit"></i>
-                                        </a>
-                                    </td> -->
+                                    <td>{{$d->tanggal_prestasi}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                       <br>
                       <br>
+                      <div class="ttd">
                       <div class="ttd">
                         <p style="margin:0px"> Pabahanan,{{$tgl}}</p>
                        <h6 style="margin:0px">Mengetahui</h6>

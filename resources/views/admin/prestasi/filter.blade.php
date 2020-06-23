@@ -7,11 +7,11 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-">
-                        <li class="breadcrumb-item"><a href="#">Data Pedoman</a></li>
+                        <li class="breadcrumb-item"><a href="#">Data Pelanggaran</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Filter</li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">filter Pedoman</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Filter Pelanggaran</h4>
             </div>
         </div>
 
@@ -21,13 +21,13 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="Nama">Status </label>
-                                <select name="status" id="status" class="form-control">
-                                    <option value="">-- pilih Status  --</option>
-                                    <option value="1">Pelanggaran</option>
-                                    <option value="2">Prestasi</option>
-                                </select>
-                            </div>
+                        <label for="Nama">Daftar Prestasi</label>
+                            <select name="pedoman_id" class="selectpicker form-control" data-live-search="true">
+                                @foreach($pedoman as $s)
+                                <option value="{{$s->id}}">{{$s->uraian}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="modal-footer">
                             <a href="{{Route('pedomanIndex')}}" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</a>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="printer"

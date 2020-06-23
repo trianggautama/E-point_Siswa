@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
 use App\Siswa;
 
 class pointController extends Controller
@@ -10,5 +11,11 @@ class pointController extends Controller
     {
         $data = Siswa::orderBy('nama', 'asc')->get();
         return view('admin.point.index', compact('data'));
+    }
+
+    public function filterKelas()
+    {
+        $kelas = Kelas::orderBy('kelas', 'asc')->get();
+        return view('admin.point.filterKelas', compact('kelas'));
     }
 }

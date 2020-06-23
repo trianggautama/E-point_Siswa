@@ -13,14 +13,15 @@
                 <h4 class="mg-b-0 tx-spacing--1">Detail Siswa</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-secondary btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</button>
             </div>
         </div>
 
         <div class="row row-xs">
             <div class="col-md-12 col-xl-12 mg-t-5">
-              <div class="card">
+
+              <div class="row">
+                <div class="col-md-6">
+                <div class="card">
                 <div class="card-header">
                     Detail Siswa
                 </div>
@@ -46,19 +47,17 @@
                             <p class="mg-b-0">{{$data->tempat_lahir}}, {{$data->tanggal_lahir}}</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="alert alert-success mg-10" role="alert">
-                            <h4 class="alert-heading">Poin Siswa</h4>
-                            <p>{{$data->point}}</p>
-                            <div class="text-right">
-                                <a href="" class="btn btn-success"> Detail Transaksi Point </a>
-                            </div>
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Poin Siswa : {{$data->point}}</h4>
                         </div>
                     </div>
                 </div>
                 </div>
               </div>
-              <div class="card mg-t-10">
+                </div>
+                <div class="col-md-6">
+                <div class="card ">
                 <div class="card-header">
                     Data Wali Siswa
                 </div>
@@ -95,6 +94,72 @@
                     </div>
                 </div>
               </div>
+                </div>
+              </div>
+                <div class="card card-body mg-t-10">
+                    <h3>Pelanggaran Siswa</h3>
+                    <hr> 
+                    <div data-label="Example" class="df-example demo-table">
+                        <table id="dataTable" class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>NIS</th>
+                                    <th>Nama Siswa</th>
+                                    <th>Keterangan Pelanggaran</th>
+                                    <th>Pengurangan poin</th>
+                                    <th>Tanggal pelanggaran</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($pelanggaran as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->siswa->NIS}}</td>
+                                    <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->pedoman->uraian}}</td>
+                                    <td>
+                                        <p class="text-danger">- {{$d->pedoman->bobot_point}} poin</p>
+                                    </td>
+                                    <td>{{$d->tanggal_pelanggaran}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div><!-- df-example -->
+                </div>
+                <div class="card card-body mg-t-10">
+                    <h3>prestasi Siswa</h3>
+                    <hr> 
+                    <div data-label="Example" class="df-example demo-table">
+                    <table  class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>NIS</th>
+                                    <th>Nama Siswa</th>
+                                    <th>Keterangan Prestasi</th>
+                                    <th>Penambahan poin</th>
+                                    <th>Tanggal Prestasi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($prestasi as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->siswa->NIS}}</td>
+                                    <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->pedoman->uraian}}</td>
+                                    <td>
+                                        <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
+                                    </td>
+                                    <td>{{$d->tanggal_prestasi}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div><!-- df-example -->
+                </div>
             </div>
         </div><!-- row -->
     </div><!-- container -->
@@ -106,7 +171,7 @@
     $(function () {
         'use strict'
 
-        $('#dataTable').DataTable({
+        $('.table').DataTable({
             language: {
                 searchPlaceholder: 'Search...',
                 sSearch: '',

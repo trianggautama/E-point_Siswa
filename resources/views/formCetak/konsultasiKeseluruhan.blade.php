@@ -89,44 +89,25 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA WALI SISWA </h2>
+            <h2 style="text-align:center;">DATA KONSULTASI SISWA KESELURUHAN </h2>
             <table id="dataTable" class="table text-center">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIS</th>
                                     <th>Nama Siswa</th>
-                                    <th>Nama Wali</th>
-                                    <th>Status Wali</th>
-                                    <th>No Hp</th>
-                                    <!-- <th>Aksi</th> -->
+                                    <th>Kelas</th>
+                                    <th>Uraian</th>
+                                    <th>Tanggal Konseling</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data as $d)
+                                @foreach ($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
-                                    <td>{{$d->nama}}</td>
-                                    <td> 
-                                         @if($data->status_wali = 1)
-                                            <p class="mg-b-0">Ayah</p>
-                                        @elseif($data->status_wali = 2)
-                                            <p class="mg-b-0">Ibu</p>
-                                        @elseif($data->status_wali = 3)
-                                            <p class="mg-b-0">Kakak</p>
-                                        @else
-                                            <p class="mg-b-0">Kerabat Orang Tua</p>
-                                        @endif
-                                    </td>
-                                    <td>{{$d->no_hp}}</td>
-                                    <!-- <td>
-                                        <a href="{{Route('siswaEdit',['uuid'=>$d->uuid])}}"
-                                            class="btn btn-primary btn-icon">
-                                            <i data-feather="edit"></i>
-                                        </a>
-                                    </td> -->
+                                    <td>{{$d->siswa->kelas->kelas}}</td>
+                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
+                                    <td>{{carbon\carbon::parse($d->tanggal_konseling)->format('d F Y')}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

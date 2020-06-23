@@ -12,20 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+Route::get('/', 'adminController@depan')->name('depan');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/index', 'adminController@index')->name('index');
 Route::get('/pejabat', 'adminController@pejabatIndex')->name('pejabatIndex');
 
-// Route::group(['middleware' => ['auth']], function () {
-// user route
 Route::get('/user', 'UserController@index')->name('userIndex');
 Route::post('/user', 'UserController@store')->name('userStore');
 Route::get('/user/profil', 'UserController@profil')->name('userProfil');
@@ -43,6 +41,7 @@ Route::get('/pejabat/delete/{uuid}', 'PejabatController@destroy')->name('pejabat
 // kelas route
 Route::get('/kelas', 'KelasController@index')->name('kelasIndex');
 Route::post('/kelas', 'KelasController@store')->name('kelasStore');
+Route::get('/kelas/detail/{uuid}', 'KelasController@show')->name('kelasShow');
 Route::get('/kelas/edit/{uuid}', 'KelasController@edit')->name('kelasEdit');
 Route::put('/kelas/edit/{uuid}', 'KelasController@update')->name('kelasUpdate');
 Route::get('/kelas/delete/{uuid}', 'KelasController@destroy')->name('kelasDestroy');
@@ -73,26 +72,33 @@ Route::get('/pedoman/filter', 'pedomanController@filter')->name('pedomanFilter')
 // konsultasi route
 Route::get('/konsultasi', 'konsultasiController@index')->name('konsultasiIndex');
 Route::post('/konsultasi', 'konsultasiController@store')->name('konsultasiStore');
+Route::get('/konsultasi/detail/{uuid}', 'konsultasiController@show')->name('konsultasiShow');
 Route::get('/konsultasi/edit/{uuid}', 'konsultasiController@edit')->name('konsultasiEdit');
 Route::put('/konsultasi/edit/{uuid}', 'konsultasiController@update')->name('konsultasiUpdate');
 Route::get('/konsultasi/delete/{uuid}', 'konsultasiController@destroy')->name('konsultasiDestroy');
 
 // point route
 Route::get('/point', 'pointController@index')->name('pointIndex');
+Route::get('/point/filter/kelas', 'pointController@filterKelas')->name('poinFilterKelas');
+
 
 // pelanggaran route
 Route::get('/pelanggaran', 'pelanggaranController@index')->name('pelanggaranIndex');
 Route::post('/pelanggaran', 'pelanggaranController@store')->name('pelanggaranStore');
+Route::get('/pelanggaran/detail/{uuid}', 'pelanggaranController@show')->name('pelanggaranShow');
 Route::get('/pelanggaran/edit/{uuid}', 'pelanggaranController@edit')->name('pelanggaranEdit');
 Route::put('/pelanggaran/edit/{uuid}', 'pelanggaranController@update')->name('pelanggaranUpdate');
 Route::get('/pelanggaran/delete/{uuid}', 'pelanggaranController@destroy')->name('pelanggaranDestroy');
+Route::get('/pelanggaran/filter', 'pelanggaranController@filter')->name('pelanggaranFilter');
 
 // prestasi route
 Route::get('/prestasi', 'prestasiController@index')->name('prestasiIndex');
 Route::post('/prestasi', 'prestasiController@store')->name('prestasiStore');
+Route::get('/prestasi/detail/{uuid}', 'prestasiController@show')->name('prestasiShow');
 Route::get('/prestasi/edit/{uuid}', 'prestasiController@edit')->name('prestasiEdit');
 Route::put('/prestasi/edit/{uuid}', 'prestasiController@update')->name('prestasiUpdate');
 Route::get('/prestasi/delete/{uuid}', 'prestasiController@destroy')->name('prestasiDestroy');
+Route::get('/prestasi/filter', 'prestasiController@filter')->name('prestasiFilter');
 
 //Cetak Route
 Route::get('/siswa/cetak', 'reportController@siswaAll')->name('siswaCetak');
@@ -100,5 +106,12 @@ Route::post('/siswa/filter', 'reportController@siswaFilter')->name('siswaFilterC
 Route::get('/wali/cetak', 'reportController@wali')->name('waliCetak');
 Route::get('/pedoman/cetak', 'reportController@pedomanAll')->name('pedomanCetak');
 Route::post('/pedoman/filter', 'reportController@pedomanFilter')->name('pedomanFilterCetak');
+Route::get('/konsultasi/cetak', 'reportController@konsultasiAll')->name('konsultasiCetak');
+Route::get('/poin/cetak', 'reportController@poinAll')->name('poinCetak');
+Route::post('/point/filter/kelas', 'reportController@poinFilterKelas')->name('poinFilterKelasCetak');
+Route::get('/pelanggaran/cetak', 'reportController@pelanggaranAll')->name('pelanggaranCetak');
+Route::post('/pelanggaran/filter', 'reportController@pelanggaranFilter')->name('pelanggaranFilterCetak');
+Route::get('/prestasi/cetak', 'reportController@prestasiAll')->name('prestasiCetak');
+Route::post('/prestasi/filter', 'reportController@prestasifilter')->name('prestasiFilterCetak');
 
-// });
+});

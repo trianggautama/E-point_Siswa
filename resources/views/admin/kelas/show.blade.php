@@ -10,13 +10,7 @@
                         <li class="breadcrumb-item"><a href="#">Siswa</a></li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Data point Siswa</h4>
-            </div>
-            <div class="d-none d-md-block">
-                <a href="{{Route('poinFilterKelas')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Filter Kelas</a>
-                <a href="{{Route('poinCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5" target="_blank"></i> Print</a>
+                <h4 class="mg-b-0 tx-spacing--1">Data Siswa Kelas {{$data->kelas}}</h4>
             </div>
         </div>
 
@@ -31,21 +25,19 @@
                                     <th>NIS</th>
                                     <th>Nama</th>
                                     <th>Kelas</th>
-                                    <th>point</th>
-                                    <th>Aksi</th>
+                                    <th>Tempat, Tanggal Lahir</th>
+                                    <th>Point</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $d)
+                                @foreach($siswa as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
                                     <td>{{$d->kelas->kelas}}</td>
-                                    <td>{{$d->point}}</td>
-                                    <td>
-                                        -
-                                    </td>
+                                    <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
+                                    <td><p class="text-success">{{$d->point}}</p></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -53,6 +45,26 @@
                     </div><!-- df-example -->
                 </div>
             </div>
+        <div class="col-md-12 mg-t-10">
+        <div class="card">
+            <div class="card-header">
+            Rincian Data Prestasi
+            </div>
+            <div class="card-body">
+                <canvas id="prestasiChart" width="200" height="50"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mg-t-10">
+        <div class="card">
+            <div class="card-header">
+            Rincian Data Pelanggaran
+            </div>
+            <div class="card-body">
+                <canvas id="pelanggaranChart" width="200" height="50"></canvas>
+            </div>
+          </div>
+        </div>
         </div><!-- row -->
     </div><!-- container -->
 </div>
@@ -90,5 +102,54 @@
         })
     }
 
+     // grafik perkelas
+     var ctx = document.getElementById('prestasiChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar', 
+    data: {
+        labels: {!! $nama !!},
+        datasets: [{
+            label: 'Data Prestasi',
+            data: {!! $prestasi !!},
+            backgroundColor: '#57aefa' ,
+            borderColor: '#4287f5',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+ // grafik perkelas
+ var ctx = document.getElementById('pelanggaranChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar', 
+    data: {
+        labels: {!! $nama !!},
+        datasets: [{
+            label: 'Data Pelanggaran',
+            data: {!! $pelanggaran !!},
+            backgroundColor: '#7b47ff' ,
+            borderColor: '#4f1bd1',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 </script>
 @endsection

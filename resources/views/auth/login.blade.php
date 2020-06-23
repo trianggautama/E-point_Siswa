@@ -22,7 +22,7 @@
     <header class="navbar navbar-header navbar-header-fixed">
       <a href="#" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
       <div class="navbar-brand">
-        <a href="/" class="df-logo">dash<span>forge</span></a>
+      <img src="{{asset('images/logo.png')}}" alt="Logo" width="50px" class="mg-r-10"> <b> E-point Siswa</b>
       </div><!-- navbar-brand -->
       <div id="navbarMenu" class="navbar-menu-wrapper">
         <div class="navbar-menu-header">
@@ -31,11 +31,11 @@
         </div><!-- navbar-menu-header -->
       </div><!-- navbar-menu-wrapper -->
       <div class="navbar-right">
-        <a href="#" class="btn btn-buy"><i data-feather="home"></i> <span>Halaman Depan</span></a>
+        <a href="/" class="btn btn-buy"><i data-feather="home"></i> <span>Halaman Depan</span></a>
       </div><!-- navbar-right -->
     </header><!-- navbar -->
 
-    <div class="content content-fixed content-auth mg-t-50 pd-t-100">
+    <div class="content content-fixed content-auth mg-t-50 pd-t-150">
       <div class="container">
         <div class="media align-items-stretch justify-content-center ht-100p pos-relative">
           <div class="media-body align-items-center d-none d-lg-flex">
@@ -45,18 +45,18 @@
           </div><!-- media-body -->
           <div class="sign-wrapper mg-lg-l-50 mg-xl-l-60">
             <div class="wd-100p">
-              <h3 class="tx-color-01 mg-b-5">Sign In</h3>
-              <p class="tx-color-03 tx-16 mg-b-40">Welcome back! Please signin to continue.</p>
+              <h3 class="tx-color-01 mg-b-5">halaman Login</h3>
+              <p class="tx-color-03 tx-16 mg-b-40">Selamat Datang di Aplikasi E-point Silahkan Login</p>
 
               <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class=" text-md-left">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class=" text-md-left">Username</label>
 
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -104,20 +104,6 @@
         </div><!-- media -->
       </div><!-- container -->
     </div><!-- content -->
-
-    <footer class="footer">
-      <div>
-        <span>&copy; 2019 DashForge v1.0.0. </span>
-        <span>Created by <a href="http://themepixels.me">ThemePixels</a></span>
-      </div>
-      <div>
-        <nav class="nav">
-          <a href="https://themeforest.net/licenses/standard" class="nav-link">Licenses</a>
-          <a href="../../change-log.html" class="nav-link">Change Log</a>
-          <a href="https://discordapp.com/invite/RYqkVuw" class="nav-link">Get Help</a>
-        </nav>
-      </div>
-    </footer>
 
     <script src="{{asset('admin/lib/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admin/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

@@ -39,6 +39,10 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td> {{$d->kelas}} </td>
                                     <td>
+                                        <a href="{{Route('kelasShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-warning btn-icon">
+                                            <i data-feather="info"></i>
+                                        </a>
                                         <a href="{{Route('kelasEdit',['uuid'=>$d->uuid])}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>

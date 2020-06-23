@@ -101,7 +101,7 @@
                             <h3 class="header-title">E-Point</h3>
                             <p class="text">Aplikasi Manajemen E-Point  Prestasi dan Pelanggaran  Siswa pada  MIN 3 Tanah Laut</p>
                             <ul class="header-btn">
-                                <li><a class="main-btn btn-two " href="#">Poin Siswa <i class="lni-play"></i></a></li>
+                                <li><a class="main-btn btn-two " href="#pricing">Poin Siswa <i class="lni-play"></i></a></li>
                             </ul>
                         </div> <!-- header content -->
                     </div>
@@ -203,26 +203,28 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                    <div class="card">
                        <div class="card-body">
-                            <table id="dataTable" class="table text-center">
-                                <thead>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>NIS</td>
-                                        <td>Nama</td>
-                                        <td>Kelas</td>
-                                        <td>Poin</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>123113</td>
-                                        <td>Tri Angga</td>
-                                        <td>4</td>
-                                        <td>85</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                       <table id="dataTable" class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>NIS</th>
+                                    <th>Nama</th>
+                                    <th>Kelas</th>
+                                    <th>point</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->NIS}}</td>
+                                    <td>{{$d->nama}}</td>
+                                    <td>{{$d->kelas->kelas}}</td>
+                                    <td>{{$d->point}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                        </div>
                    </div>
                 </div>

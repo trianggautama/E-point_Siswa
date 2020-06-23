@@ -26,6 +26,12 @@ class prestasiController extends Controller
         return view('admin.prestasi.edit', compact('siswa', 'pedoman', 'data'));
     }
 
+    public function show($uuid)
+    {
+        $data = Prestasi::where('uuid', $uuid)->first();
+        return view('admin.prestasi.show', compact('data'));
+    }
+
     public function store(Request $req)
     {
         $data = Prestasi::create($req->all());
@@ -79,5 +85,11 @@ class prestasiController extends Controller
         $siswa->update();
         $data->delete();
         return redirect()->back()->withSuccess('Data berhasil dihapus');
+    }
+
+    public function filter()
+    {
+        $pedoman = Pedoman::where('status', 2)->get();
+        return view('admin.pelanggaran.filter', compact('pedoman'));
     }
 }

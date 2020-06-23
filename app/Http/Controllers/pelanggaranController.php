@@ -18,6 +18,12 @@ class pelanggaranController extends Controller
         return view('admin.pelanggaran.index', compact('siswa', 'pedoman', 'data'));
     }
 
+    public function show($uuid)
+    {
+        $data = Pelanggaran::where('uuid', $uuid)->first();
+        return view('admin.pelanggaran.show', compact('data'));
+    }
+
     public function edit($uuid)
     {
         $data = Pelanggaran::where('uuid', $uuid)->first();
@@ -79,5 +85,11 @@ class pelanggaranController extends Controller
         $siswa->update();
         $data->delete();
         return redirect()->back()->withSuccess('Data berhasil dihapus');
+    }
+
+    public function filter()
+    {
+        $pedoman = Pedoman::where('status', 1)->get();
+        return view('admin.pelanggaran.filter', compact('pedoman'));
     }
 }
