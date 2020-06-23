@@ -26,6 +26,7 @@
                                     <th>Nama</th>
                                     <th>Kelas</th>
                                     <th>Tempat, Tanggal Lahir</th>
+                                    <th>Point</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,6 +37,7 @@
                                     <td>{{$d->nama}}</td>
                                     <td>{{$d->kelas->kelas}}</td>
                                     <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
+                                    <td><p class="text-success">{{$d->point}}</p></td>
                                 </tr>
                                 @endforeach
                             </tbody>

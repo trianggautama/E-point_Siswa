@@ -29,7 +29,7 @@ class KelasController extends Controller
     public function show($uuid)
     {
         $data = Kelas::where('uuid', $uuid)->first();
-        $siswa = Siswa::where('kelas_id',$data->id)->get();
+        $siswa = Siswa::orderBy('point', 'desc')->where('kelas_id',$data->id)->get();
         $nama = $siswa->pluck('nama');
         $prestasi = $siswa->map(function($item){
             return Prestasi::where('siswa_id',$item->id)->count();
