@@ -101,6 +101,7 @@ class SiswaController extends Controller
 
         $data->prestasi()->delete();
         $data->pelanggaran()->delete();
+        $data->konsultasi()->delete();
         $data->delete();
 
         return redirect()->route('siswaIndex')->with('success', 'Berhasil menghapus data');
