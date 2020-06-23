@@ -14,7 +14,7 @@
 
     <!-- vendor css -->
     <link href="{{asset('admin/lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('admin/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">    
+    <link href="{{asset('admin/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/lib/prismjs/themes/prism-vs.css')}}" rel="stylesheet">
 
 
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{asset('admin/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css')}}">
 
 
-    
+
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/dashforge.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/dashforge.dashboard.css')}}">
@@ -33,7 +33,7 @@
     <link id="dfSkin" rel="stylesheet" href="{{asset('admin/assets/css/skin.gradient1.css')}}">
 
     <!-- Sweetalert -->
-    <link rel="stylesheet" href="{{asset('vendor/sweetalert/sweetalert.all.js')}}">
+    <link rel="stylesheet" href="{{asset('vendor/sweetalert/sweetalert.all.css')}}">
 
     <link rel="stylesheet" href="{{asset('vendor/select/bootstrap-select.min.css')}}">
 
@@ -53,8 +53,8 @@
         <div class="aside-body">
             <div class="aside-loggedin">
                 <div class="d-flex align-items-center justify-content-start">
-                    <a href="" class="avatar"><img src="{{asset('images/user/'. Auth::user()->foto)}}" class="rounded-circle"
-                            alt=""></a>
+                    <a href="" class="avatar"><img src="{{asset('images/user/'. Auth::user()->foto)}}"
+                            class="rounded-circle" alt=""></a>
                     <div class="aside-alert-link">
                         <a href="" class="new" data-toggle="tooltip" title="You have 4 new notifications"><i
                                 data-feather="bell"></i></a>
@@ -98,17 +98,18 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                <a href="{{Route('pedomanIndex')}}" class="nav-link"><i
-                            data-feather="file-text"></i>
+                    <a href="{{Route('pedomanIndex')}}" class="nav-link"><i data-feather="file-text"></i>
                         <span>Panduan
                             Poin</span></a></li>
                 <li class="nav-label mg-t-25">Konseling Siswa</li>
                 <li class="nav-item"><a href="{{Route('konsultasiIndex')}}" class="nav-link"><i data-feather="box"></i>
                         <span> Konsultasi Siswa</span></a></li>
-                <li class="nav-item"><a href="{{Route('pointIndex')}}" class="nav-link"><i data-feather="check-square"></i>
+                <li class="nav-item"><a href="{{Route('pointIndex')}}" class="nav-link"><i
+                            data-feather="check-square"></i>
                         <span>Poin
                             Siswa</span></a></li>
-                <li class="nav-item"><a href="{{Route('pelanggaranIndex')}}" class="nav-link"><i data-feather="alert-circle"></i>
+                <li class="nav-item"><a href="{{Route('pelanggaranIndex')}}" class="nav-link"><i
+                            data-feather="alert-circle"></i>
                         <span>Pelanggaran Siswa</span></a></li>
                 <li class="nav-item"><a href="{{Route('prestasiIndex')}}" class="nav-link"><i data-feather="award"></i>
                         <span>Prestasi
@@ -130,15 +131,14 @@
                 @else
                 <a href="" class="nav-link  " data-toggle="tooltip" title="You have 4 new notifications"><i
                         data-feather="bell"></i></a>
-                <a class="nav-link" data-toggle="tooltip" title="Sign out" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                <a class="nav-link" data-toggle="tooltip" title="Sign out" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i data-feather="log-out"></i>{{ __('Logout') }}
-                                    </a>
+                    <i data-feather="log-out"></i>{{ __('Logout') }}
+                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
                 @endguest
             </nav>
         </div><!-- content-header -->
@@ -154,8 +154,8 @@
     <script src="{{asset('admin/lib/jquery.flot/jquery.flot.resize.js')}}"></script>
 
 
-    <!-- Select2 -->    
-    
+    <!-- Select2 -->
+
     <script src="{{asset('admin/assets/js/dashforge.js')}}"></script>
     <script src="{{asset('admin/assets/js/dashforge.aside.js')}}"></script>
     <script src="{{asset('admin/assets/js/dashforge.sampledata.js')}}"></script>
@@ -170,9 +170,9 @@
 
     <!-- Sweetalert -->
     <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="{{asset('vendor/select/bootstrap-select.min.js')}}"></script>
-<script src="{{asset('vendor/chart/Chart.min.js')}}"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{{asset('vendor/select/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('vendor/chart/Chart.min.js')}}"></script>
 
 
     @yield('scripts')
