@@ -80,8 +80,8 @@ class SiswaController extends Controller
     public function destroy($uuid)
     {
         $data = siswa::where('uuid', $uuid)->first();
-        $prestasi = Prestasi::where('siswa_id', $data->id)->first()->delete();
-        $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->first()->delete();
+        $prestasi = Prestasi::where('siswa_id', $data->id)->delete();
+        $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->delete();
         $data->delete();
 
         return redirect()->route('siswaIndex')->with('success', 'Berhasil menghapus data');
