@@ -66,7 +66,7 @@ class pelanggaranController extends Controller
             $lampiran = new Lampiran;
             $img = $req->file('file');
             $FotoExt = $img->getClientOriginalExtension();
-            $FotoName = 'pelanggaran_' . $pelanggaran_id . '_' . $data->siswa->id . '_' . $data->id++;
+            $FotoName = 'pelanggaran_' . $pelanggaran_id . '_' . $data->siswa->id . '_' . $count++;
             // $FotoName = 'pelanggaran_' . $data->siswa->id . '_' . $count++;
             $file = $FotoName . '.' . $FotoExt;
             $img->move('lampiran', $file);
