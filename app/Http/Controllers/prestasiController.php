@@ -40,7 +40,8 @@ class prestasiController extends Controller
             foreach ($req->file('file') as $d) {
                 $lampiran = new Lampiran;
                 $FotoExt = $d->getClientOriginalExtension();
-                $FotoName = 'prestasi_' . $data->siswa->NIS . '_' . $data->id++;
+                $FotoName = 'prestasi_' . $prestasi_id . '_' . $data->siswa->id . '_' . $data->id++;
+                // $FotoName = 'prestasi_' . $data->siswa->id . '_' . $data->id++;
                 $file = $FotoName . '.' . $FotoExt;
                 $d->move('lampiran', $file);
 
@@ -65,7 +66,7 @@ class prestasiController extends Controller
             $lampiran = new Lampiran;
             $img = $req->file('file');
             $FotoExt = $img->getClientOriginalExtension();
-            $FotoName = 'prestasi_' . $data->siswa->NIS . '_' . $count++;
+            $FotoName = 'prestasi_' . $prestasi_id . '_' . $data->siswa->id . '_' . $data->id++;
             $file = $FotoName . '.' . $FotoExt;
             $img->move('lampiran', $file);
             $lampiran->file = $file;

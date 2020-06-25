@@ -40,7 +40,7 @@ class pelanggaranController extends Controller
             foreach ($req->file('file') as $d) {
                 $lampiran = new Lampiran;
                 $FotoExt = $d->getClientOriginalExtension();
-                $FotoName = 'pelanggaran_' . $data->siswa->NIS . '_' . $data->id++;
+                $FotoName = 'pelanggaran_' . $pelanggaran_id . '_' . $data->siswa->id . '_' . $data->id++;
                 $file = $FotoName . '.' . $FotoExt;
                 $d->move('lampiran', $file);
 
@@ -59,13 +59,15 @@ class pelanggaranController extends Controller
     public function update(Request $req, $uuid)
     {
         $data = Pelanggaran::where('uuid', $uuid)->first();
+        $pelanggaran_id = $data->id;
         $count = $data->lampiran()->count();
         $data->fill($req->all())->save();
         if ($req->file != null) {
             $lampiran = new Lampiran;
             $img = $req->file('file');
             $FotoExt = $img->getClientOriginalExtension();
-            $FotoName = 'pelanggaran_' . $data->siswa->NIS . '_' . $count++;
+            $FotoName = 'pelanggaran_' . $pelanggaran_id . '_' . $data->siswa->id . '_' . $data->id++;
+            // $FotoName = 'pelanggaran_' . $data->siswa->id . '_' . $count++;
             $file = $FotoName . '.' . $FotoExt;
             $img->move('lampiran', $file);
             $lampiran->file = $file;
