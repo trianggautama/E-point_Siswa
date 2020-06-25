@@ -51,9 +51,31 @@
                         <input type="date" class="form-control" name="tanggal_Prestasi" id="tanggal_Prestasi">
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Lampiran Bukti</label>
-                        <input type="file" class="form-control" name="lampiran" id="lampiran">
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">File Lampiran</label> <br>
+                            @foreach($data->lampiran as $l)
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="btn btn-sm btn-secondary" href="{{asset('lampiran/'.$l->file)}}" target="_blank"> <i data-feather="paperclip"></i> {{$l->file}}</a>
+                                <a class="btn btn-secondary text-white" data-toggle="tooltip" data-placement="top" title="Hapus Lampiran"><i data-feather="delete"></i></a>
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="input-group control-group increment">
+                        <input type="file" name="file[]" class="form-control form-control-sm mr-1" required>
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-primary" id="tambahLampiran" type="button"><i
+                                    class="glyphicon glyphicon-plus"></i>+ lampiran</button>
+                        </div>
                     </div>
+                    <div class="clone d-none">
+                        <div class="control-group input-group" style="margin-top:10px">
+                            <input type="file" name="file[]" class="form-control form-control form-control-sm mr-1">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-default" type="button"><i class="fas fa-trash"></i>
+                                    Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="save"
@@ -70,6 +92,16 @@
 @endsection
 @section('scripts')
 <script>
+
+$   ("#tambahLampiran").click(function(){ 
+          var html = $(".clone").html();
+          $(".increment").after(html);
+        });
+        $("body").on("click",".btn-default",function(){ 
+          $(this).parents(".control-group").remove();
+        });
+
+
     $(function () {
         'use strict'
 
