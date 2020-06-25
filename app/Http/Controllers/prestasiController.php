@@ -66,7 +66,7 @@ class prestasiController extends Controller
             $lampiran = new Lampiran;
             $img = $req->file('file');
             $FotoExt = $img->getClientOriginalExtension();
-            $FotoName = 'prestasi_' . $prestasi_id . '_' . $data->siswa->id . '_' . $data->id++;
+            $FotoName = 'prestasi_' . $prestasi_id . '_' . $data->siswa->id . '_' . $count++;
             $file = $FotoName . '.' . $FotoExt;
             $img->move('lampiran', $file);
             $lampiran->file = $file;
