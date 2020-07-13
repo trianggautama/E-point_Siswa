@@ -137,4 +137,14 @@ class reportController extends Controller
 
         return $pdf->stream('Laporan Data Filter Prestasi Siswa.pdf');
     }
+
+    public function prestasiSiswa($uuid)
+    {
+        $data         = Siswa::where('uuid',$uuid)->first();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.prestasiSiswa', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Data Prestasi dan Pelanggaran Siswa.pdf');
+    }
 }

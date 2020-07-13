@@ -18,4 +18,10 @@ class pointController extends Controller
         $kelas = Kelas::orderBy('kelas', 'asc')->get();
         return view('admin.point.filterKelas', compact('kelas'));
     }
+
+    public function show($uuid)
+    {
+        $data = Siswa::where('uuid',$uuid)->first();
+        return view('admin.point.show', compact('data'));
+    }
 }

@@ -44,7 +44,10 @@
                                     <td>{{$d->kelas->kelas}}</td>
                                     <td>{{$d->point}}</td>
                                     <td>
-                                        -
+                                    <a href="{{Route('pointShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-warning btn-icon">
+                                            <i data-feather="info"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -98,7 +98,7 @@
         <div class="col-md-12 mg-t-10">
         <div class="card">
             <div class="card-header">
-            Rincian Data Prestasi
+                Rincian Data Prestasi
             </div>
             <div class="card-body">
                 <canvas id="myChart" width="200" height="50"></canvas>

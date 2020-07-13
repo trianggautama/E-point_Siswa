@@ -80,6 +80,8 @@ Route::get('/konsultasi/delete/{uuid}', 'konsultasiController@destroy')->name('k
 // point route
 Route::get('/point', 'pointController@index')->name('pointIndex');
 Route::get('/point/filter/kelas', 'pointController@filterKelas')->name('poinFilterKelas');
+Route::get('/point/{uuid}', 'pointController@show')->name('pointShow');
+
 
 
 // pelanggaran route
@@ -113,5 +115,6 @@ Route::get('/pelanggaran/cetak', 'reportController@pelanggaranAll')->name('pelan
 Route::post('/pelanggaran/filter', 'reportController@pelanggaranFilter')->name('pelanggaranFilterCetak');
 Route::get('/prestasi/cetak', 'reportController@prestasiAll')->name('prestasiCetak');
 Route::post('/prestasi/filter', 'reportController@prestasifilter')->name('prestasiFilterCetak');
+Route::get('/prestasi/siswa/cetak/{uuid}', 'reportController@prestasiSiswa')->name('prestasiSiswaCetak');
 
 });
