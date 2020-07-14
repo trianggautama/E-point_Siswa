@@ -8,10 +8,10 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
                         <li class="breadcrumb-item"><a href="#">Pegawai</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Pejabat Struktural</li>
+                        <li class="breadcrumb-item active" aria-current="page">Guru</li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Pejabat Struktural</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Guru</h4>
             </div>
             <div class="d-none d-md-block">
                 <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"

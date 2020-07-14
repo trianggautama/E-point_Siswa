@@ -86,7 +86,7 @@
                     <a href="" class="nav-link"><i data-feather="user"></i> <span>Pegawai</span></a>
                     <ul>
                         <li><a href="{{Route('userIndex')}}">Admin</a></li>
-                        <li><a href="{{Route('pejabatIndex')}}">Pejabat Struktural</a></li>
+                        <li><a href="{{Route('pejabatIndex')}}">Guru</a></li>
                     </ul>
                 </li>
                 <li class="nav-item with-sub">
