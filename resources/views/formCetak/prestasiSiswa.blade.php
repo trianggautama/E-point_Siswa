@@ -96,7 +96,7 @@
                         </tr>
                         <tr>
                             <td>NIS</td>
-                            <td>:{{$data->nis}}</td>
+                            <td>:{{$data->NIS}}</td>
                         </tr>
                         <tr>
                             <td>Kelas</td>
@@ -104,7 +104,7 @@
                         </tr>
                         <tr>
                             <td>Tempat, tanggal lahir</td>
-                            <td>: {{$data->tempat_lahir}}, {{$data->tanggal_lahir}}</td>
+                            <td>:{{$data->tempat_lahir}}, {{carbon\carbon::parse($data->tanggal_lahir)->translatedFormat('d F Y')}} </td>
                         </tr>
                     </table>
                     <br>
@@ -123,14 +123,14 @@
                             <tbody>
                                 @foreach($data->prestasi as $d)
                                 <tr>
-                                    <td>{{$loop->iteration}}</td>
+                                    <td style="text-align: center;">{{$loop->iteration}}</td>
                                     <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
-                                    <td>
+                                    <td style="text-align: center;">
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{$d->tanggal_prestasi}}</td>
+                                    <td style="text-align: center;">{{carbon\carbon::parse($d->tanggal_prestasi)->translatedFormat('d F Y')}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -146,19 +146,19 @@
                                     <th>Keterangan Pelanggaran</th>
                                     <th>Pengurangan poin</th>
                                     <th>Tanggal pelanggaran</th>
-                                </tr>
+                                </tr> 
                             </thead>
                             <tbody>
                                 @foreach($data->pelanggaran as $d)
                                 <tr>
-                                    <td>{{$loop->iteration}}</td>
+                                    <td style="text-align: center;">{{$loop->iteration}}</td>
                                     <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
-                                    <td>
+                                    <td style="text-align: center;">
                                         <p class="text-danger">- {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{$d->tanggal_pelanggaran}}</td>
+                                    <td style="text-align: center;">{{carbon\carbon::parse($d->tanggal_pelanggaran)->translatedFormat('d F Y')}} </td>
                                 </tr>
                                 @endforeach
                             </tbody>

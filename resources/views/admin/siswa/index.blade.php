@@ -44,7 +44,7 @@
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
                                     <td>{{$d->kelas->kelas}}</td>
-                                    <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
+                                    <td>{{$d->tempat_lahir}}, {{carbon\carbon::parse($d->tanggal_lahir)->translatedFormat('d F Y')}} </td>
                                     <td>
                                         <a href="{{Route('siswaShow',['uuid'=>$d->uuid])}}"
                                             class="btn btn-info btn-icon">

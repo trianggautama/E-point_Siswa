@@ -48,7 +48,7 @@
                                     <td>
                                         <p class="text-danger">- {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{$d->tanggal_pelanggaran}}</td>
+                                    <td>{{carbon\carbon::parse($d->tanggal_pelanggaran)->translatedFormat('d F Y')}} </td>
                                     <td>
                                         <a href="{{Route('pelanggaranShow',['uuid'=>$d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>

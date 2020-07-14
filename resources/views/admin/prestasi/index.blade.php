@@ -48,7 +48,7 @@
                                     <td>
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{$d->tanggal_prestasi}}</td>
+                                    <td>{{carbon\carbon::parse($d->tanggal_prestasi)->translatedFormat('d F Y')}} </td>
                                     <td>
                                         <a href="{{Route('prestasiShow',['uuid'=>$d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>

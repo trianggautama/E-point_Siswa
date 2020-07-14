@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tempat, Tanggal lahir</label>
-                            <p class="mg-b-0">{{$data->tempat_lahir}}, {{$data->tanggal_lahir}}</p>
+                            <p class="mg-b-0">{{$data->tempat_lahir}}, {{carbon\carbon::parse($data->tanggal_lahir)->translatedFormat('d F Y')}} </p>
                         </div>
                         </div>
                         </div>
