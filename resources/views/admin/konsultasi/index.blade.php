@@ -87,7 +87,7 @@
                         <label for="Nama">Nama Guru</label>
                         <select class="selectpicker form-control" name="pejabat_struktural_id" data-live-search="true">
                             @foreach($guru as $g)
-                            <option value="{{$g->id}}">{{$s->nama}}</option>
+                            <option value="{{$g->id}}">{{$g->nama}}</option>
                             @endforeach
                         </select>
                     </div>
