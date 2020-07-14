@@ -21,7 +21,7 @@ class Konsultasi extends Model
 
     public function pejabat()
     {
-        return $this->belongsTo(Pejabat_struktural::class);
+        return $this->belongsTo(Pejabat_struktural::class,'pejabat_struktural_id');
     }
 
 }

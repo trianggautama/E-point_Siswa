@@ -43,6 +43,10 @@
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tanggal Konseling</label>
                             <p class="mg-b-0">{{$data->created_at->format('d-m-Y')}}</p>
                         </div>
+                        <div class="form-group">
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Nama Guru</label>
+                            <p class="mg-b-0">{{$data->pejabat->nama}}</p>
+                        </div>
                     </div>
                     <div class="col-md-8">
 
