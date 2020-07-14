@@ -27,7 +27,7 @@
                             <input type="text" name="nama" class="form-control" placeholder="Nama" value="{{$data->nama}}">
                         </div>
                         <div class="form-group">
-                            <label for="Nama">NIP</label>
+                            <label for="Nama">NIP / NUPTK</label>
                             <input type="text" name="NIP" class="form-control" placeholder="NIP" value="{{$data->NIP}}">
                         </div>
                         <div class="form-group">

@@ -29,7 +29,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIP</th>
+                                    <th>NIP / NUPTK</th>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Aksi</th>
@@ -79,7 +79,7 @@
                         <input type="text" name="nama" class="form-control" placeholder="Nama">
                     </div>
                     <div class="form-group">
-                        <label for="Nama">NIP</label>
+                        <label for="Nama">NIP / NUPTK</label>
                         <input type="text" name="NIP" class="form-control" placeholder="NIP">
                     </div>
                     <div class="form-group">
