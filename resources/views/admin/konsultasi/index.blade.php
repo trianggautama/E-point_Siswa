@@ -44,7 +44,7 @@
                                     <td>{{$d->siswa->kelas->kelas}}</td>
                                     <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
-                                    <td>Nama Guru</td>
+                                    <td>{{$d->guru->nama}}</td>
                                     <td>
                                         <a href="{{Route('konsultasiShow',['uuid' => $d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
@@ -85,9 +85,9 @@
                     @csrf
                     <div class="form-group">
                         <label for="Nama">Nama Guru</label>
-                        <select class="selectpicker form-control" name="siswa_id" data-live-search="true">
-                            @foreach($guru as $s)
-                            <option value="{{$s->id}}">{{$s->nama}}</option>
+                        <select class="selectpicker form-control" name="pejabat_struktural_id" data-live-search="true">
+                            @foreach($guru as $g)
+                            <option value="{{$g->id}}">{{$s->nama}}</option>
                             @endforeach
                         </select>
                     </div>

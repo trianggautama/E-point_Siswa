@@ -35,7 +35,8 @@ class konsultasiController extends Controller
     {
         $data = Konsultasi::where('uuid', $uuid)->first();
         $siswa = Siswa::all();
-        return view('admin.konsultasi.edit', compact('data', 'siswa'));
+        $guru = Pejabat_struktural::all();
+        return view('admin.konsultasi.edit', compact('data', 'siswa','guru'));
     }
 
     public function update(Request $req, $uuid)

@@ -10,12 +10,18 @@ class Konsultasi extends Model
     use Uuid;
 
     protected $fillable = [
-        'siswa_id', 'uraian', 'tanggal_konseling',
+        'siswa_id', 'uraian', 'tanggal_konseling','pejabat_struktural_id',
     ];
 
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);
+    }
+
+
+    public function pejabat()
+    {
+        return $this->belongsTo(Pejabat_struktural::class);
     }
 
 }
