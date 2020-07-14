@@ -37,6 +37,8 @@
                                 <option value="Kepala Sekolah" {{  $data->jabatan == "Kepala Sekolah" ? 'selected' : ''}}>Kepala Sekolah</option>
                                 <option value="Wakil Kepala Sekolah" {{  $data->jabatan == "Wakil Kepala Sekolah" ? 'selected' : ''}}>Wakil Kepala Sekolah</option>
                                 <option value="Kepala Bimbingan Konseling" {{  $data->jabatan == "Kepala Bimbingan Konseling" ? 'selected' : ''}}>Kepala BK</option>
+                                <option value="Guru/ Staff" {{  $data->jabatan == "Guru/ Staff"" ? 'selected' : ''}}>Guru/ Staff"</option>
+
                             </select>
                         </div>
                         <div class="modal-footer">

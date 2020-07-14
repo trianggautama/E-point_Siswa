@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Konsultasi;
+use App\Pejabat_struktural;
 use App\Siswa;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class konsultasiController extends Controller
     {
         $data = Konsultasi::orderBy('id', 'desc')->get();
         $siswa = Siswa::all();
-        return view('admin.konsultasi.index', compact('siswa', 'data'));
+        $guru = Pejabat_struktural::all();
+        return view('admin.konsultasi.index', compact('siswa', 'data','guru'));
     }
 
     public function store(Request $req)

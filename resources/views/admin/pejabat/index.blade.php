@@ -89,6 +89,7 @@
                             <option value="Kepala Sekolah">Kepala Sekolah</option>
                             <option value="Wakil Kepala Sekolah">Wakil Kepala Sekolah</option>
                             <option value="Kepala Bimbingan Konseling">Kepala BK</option>
+                            <option value="Guru/ Staff">Guru/ Staff</option>
                         </select>
                     </div>
                     <div class="modal-footer">

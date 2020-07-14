@@ -22,6 +22,14 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
+                            <label for="Nama">Nama Guru</label>
+                            <select class="selectpicker form-control" name="siswa_id" data-live-search="true">
+                                @foreach($guru as $s)
+                                <option value="{{$s->id}}">{{$s->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="Nama">Siswa</label>
                             <select class="selectpicker form-control" name="siswa_id" data-live-search="true">
                                 @foreach($siswa as $s)
