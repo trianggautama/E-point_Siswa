@@ -11,7 +11,7 @@ class konsultasiController extends Controller
 {
     public function index()
     {
-        $data = Konsultasi::orderBy('id', 'desc')->get();
+        $data = Konsultasi::with('pejabat')->orderBy('id', 'desc')->get();
         $siswa = Siswa::all();
         $guru = Pejabat_struktural::all();
         return view('admin.konsultasi.index', compact('siswa', 'data','guru'));
