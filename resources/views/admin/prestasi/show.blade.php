@@ -146,20 +146,40 @@
                     <input type="hidden" name="prestasi_id" value="{{$data->id}}" id="">
                     <div class="form-group">
                         <label for="Nama">Nama Kejuaraan / Lomba</label>
-                        <input type="text" class="form-control" name="nama_kejuaraan" id="nama_kejuaraan">
+                        <input type="text" class="form-control" name="nama_kejuaraan" @if(isset($data->detail_prestasi))
+                        value="{{$data->detail_prestasi->nama_kejuaraan}}"
+                        @endif
+                        id="nama_kejuaraan">
                     </div>
                     <div class="form-group">
                         <label for="Nama">Penyelenggara</label>
-                        <input type="text" class="form-control" name="penyelenggara" id="penyelenggara">
+                        <input type="text" class="form-control" name="penyelenggara" @if(isset($data->detail_prestasi))
+                        value="{{$data->detail_prestasi->penyelenggara}}"
+                        @endif id="penyelenggara">
                     </div>
                     <div class="form-group">
                         <label for="Nama">Tingkat</label>
                         <select name="tingkat" id="" class="form-control">
-                            <option value="">Internal Sekolah</option>
-                            <option value="kabupaten Kota">kabupaten Kota</option>
-                            <option value="Provinsi">Provinsi</option>
-                            <option value="Nasional">Nasional</option>
-                            <option value="Internasional">Internasional</option>
+                            <option value="Internal Sekolah" @if(isset($data->detail_prestasi))
+                                {{$data->detail_prestasi->tingkat == 'Internal Sekolah' ? 'selected' : ''}}
+                                @endif
+                                >Internal Sekolah</option>
+                            <option value="kabupaten Kota" @if(isset($data->detail_prestasi))
+                                {{$data->detail_prestasi->tingkat == 'kabupaten Kota' ? 'selected' : ''}}
+                                @endif
+                                >kabupaten Kota</option>
+                            <option value="Provinsi" @if(isset($data->detail_prestasi))
+                                {{$data->detail_prestasi->tingkat == 'Provinsi' ? 'selected' : ''}}
+                                @endif
+                                >Provinsi</option>
+                            <option value="Nasional" @if(isset($data->detail_prestasi))
+                                {{$data->detail_prestasi->tingkat == 'Nasional' ? 'selected' : ''}}
+                                @endif
+                                >Nasional</option>
+                            <option value="Internasional" @if(isset($data->detail_prestasi))
+                                {{$data->detail_prestasi->tingkat == 'Internasional' ? 'selected' : ''}}
+                                @endif
+                                >Internasional</option>
                         </select>
                     </div>
                     <div class="modal-footer">
