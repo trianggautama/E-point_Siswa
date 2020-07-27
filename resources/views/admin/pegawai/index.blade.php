@@ -40,9 +40,21 @@
                                 @foreach($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td> {{$d->pegawai->nip}} </td>
+                                    <td>
+                                        @if(isset($d->pegawai))
+                                        {{$d->pegawai->NIP}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
                                     <td>{{$d->nama}}</td>
-                                    <td>{{$d->pegawai->jabatan}}</td>
+                                    <td>
+                                        @if(isset($d->pegawai))
+                                        {{$d->pegawai->jabatan}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
                                     <td>{{$d->username}}</td>
                                     <td>
                                         <a href="{{Route('userEdit',['uuid'=>$d->uuid])}}"
