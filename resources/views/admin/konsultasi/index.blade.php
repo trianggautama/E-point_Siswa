@@ -13,8 +13,8 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Konsultasi</h4>
             </div>
             <div class="d-none d-md-block">
-                <a href="{{Route('konsultasiCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</a>
+                <a href="{{Route('konsultasiCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"
+                    target="_blank"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
             </div>
@@ -40,13 +40,15 @@
                                 @foreach ($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->nama}}</td> 
+                                    <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->kelas->kelas}}</td>
-                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
+                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}
+                                    </td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
-                                    <td>{{$d->pejabat_struktural_id}}</td>
+                                    <td>{{$d->pejabat->nama}}</td>
                                     <td>
-                                        <a href="{{Route('konsultasiShow',['uuid' => $d->uuid])}}" class="btn btn-white btn-icon">
+                                        <a href="{{Route('konsultasiShow',['uuid' => $d->uuid])}}"
+                                            class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
                                         <a href="{{Route('konsultasiEdit',['uuid' => $d->uuid])}}"
