@@ -40,11 +40,11 @@
                                 @foreach ($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->siswa->nama}}</td> 
                                     <td>{{$d->siswa->kelas->kelas}}</td>
                                     <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
-                                    <td>{{$d->pejabat->nama}}</td>
+                                    <td>{{$d->pejabat_struktural_id}}</td>
                                     <td>
                                         <a href="{{Route('konsultasiShow',['uuid' => $d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
