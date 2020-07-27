@@ -23,6 +23,11 @@ class Prestasi extends Model
         return $this->belongsTo(Pedoman::class);
     }
 
+    public function detail_prestasi()
+    {
+        return $this->hasOne(Detail_prestasi::class);
+    }
+
     public function lampiran()
     {
         return $this->hasMany(Lampiran::class);

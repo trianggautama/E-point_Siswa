@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Detail_prestasi;
 use App\Lampiran;
 use App\Pedoman;
 use App\Prestasi;
@@ -92,5 +93,18 @@ class prestasiController extends Controller
     {
         $pedoman = Pedoman::where('status', 2)->get();
         return view('admin.pelanggaran.filter', compact('pedoman'));
+    }
+
+    public function detailStore(Request $req)
+    {
+        $data = Detail_prestasi::where('prestasi_id', $req->prestasi_id)->first();
+
+        if (isset($data)) {
+            $data->fill($req->all())->save();
+            return back()->withSuccess('Data berhasil diubah');
+        } else {
+            $data = Detail_prestasi::create($req->all());
+            return back()->withSuccess('Data berhasil disimpan');
+        }
     }
 }
