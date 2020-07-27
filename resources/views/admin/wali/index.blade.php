@@ -42,11 +42,11 @@
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->nama}}</td>
                                     <td>
-                                        @if($d->status_wali = 1)
+                                        @if($d->status_wali == 1)
                                         <p class="mg-b-0">Ayah</p>
-                                        @elseif($d->status_wali = 2)
+                                        @elseif($d->status_wali == 2)
                                         <p class="mg-b-0">Ibu</p>
-                                        @elseif($d->status_wali = 3)
+                                        @elseif($d->status_wali == 3)
                                         <p class="mg-b-0">Kakak</p>
                                         @else
                                         <p class="mg-b-0">Kerabat Orang Tua</p>
