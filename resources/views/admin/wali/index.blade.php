@@ -13,8 +13,8 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Wali Siswa</h4>
             </div>
             <div class="d-none d-md-block">
-                <a href="{{Route('waliCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Cetak Data</a>
+                <a href="{{Route('waliCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"
+                    target="_blank"><i data-feather="printer" class="wd-10 mg-r-5"></i> Cetak Data</a>
             </div>
         </div>
 
@@ -41,15 +41,15 @@
                                     <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->nama}}</td>
-                                    <td> 
-                                         @if($data->status_wali = 1)
-                                            <p class="mg-b-0">Ayah</p>
-                                        @elseif($data->status_wali = 2)
-                                            <p class="mg-b-0">Ibu</p>
-                                        @elseif($data->status_wali = 3)
-                                            <p class="mg-b-0">Kakak</p>
+                                    <td>
+                                        @if($d->status_wali = 1)
+                                        <p class="mg-b-0">Ayah</p>
+                                        @elseif($d->status_wali = 2)
+                                        <p class="mg-b-0">Ibu</p>
+                                        @elseif($d->status_wali = 3)
+                                        <p class="mg-b-0">Kakak</p>
                                         @else
-                                            <p class="mg-b-0">Kerabat Orang Tua</p>
+                                        <p class="mg-b-0">Kerabat Orang Tua</p>
                                         @endif
                                     </td>
                                     <td>{{$d->no_hp}}</td>
