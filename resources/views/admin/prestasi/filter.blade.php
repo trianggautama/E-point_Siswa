@@ -18,7 +18,7 @@
         <div class="row row-xs">
             <div class="col-md-12 col-xl-12 mg-t-5">
                 <div class="card card-body ">
-                    <form action="" method="POST">
+                    <form action="" method="POST" target="_blank">
                         @csrf
                         <div class="form-group">
                         <label for="Nama">Daftar Prestasi</label>
