@@ -122,7 +122,7 @@ class reportController extends Controller
         $data         = Prestasi::all();
         $tgl= Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.prestasiKeseluruhan', ['data'=>$data,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'portrait');
+        $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Data Prestasi Siswa.pdf');
     }
@@ -133,7 +133,7 @@ class reportController extends Controller
         $tgl= Carbon::now()->format('d-m-Y');
         $data         = Prestasi::where('pedoman_id',$request->pedoman_id)->get();
         $pdf          = PDF::loadView('formCetak.prestasiFilter', ['data'=>$data,'pedoman'=>$pedoman,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'portrait');
+        $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Data Filter Prestasi Siswa.pdf');
     }
@@ -143,7 +143,7 @@ class reportController extends Controller
         $data         = Siswa::where('uuid',$uuid)->first();
         $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.prestasiSiswa', ['data'=>$data,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'portrait');
+        $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Data Prestasi dan Pelanggaran Siswa.pdf');
     }

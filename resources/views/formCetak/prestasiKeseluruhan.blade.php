@@ -34,7 +34,7 @@
      .header{
          margin-bottom: 0px;
          text-align: center;
-         height: 150px;
+         height: 110px;
          padding: 0px;
      }
      .pemko{
@@ -86,8 +86,8 @@
             </div>
             <br>
     </div>
-    <hr style="margin-top:1px;">
     <div class="container">
+    <hr style="margin-top:1px;">
         <div class="isi">
             <h2 style="text-align:center;">DATA PRESTASI SISWA </h2>
             <table id="dataTable" class="table text-center">
@@ -99,6 +99,9 @@
                                     <th>Keterangan Prestasi</th>
                                     <th>Penambahan poin</th>
                                     <th>Tanggal Prestasi</th>
+                                    <th>Nama Kejuaraan</th>
+                                    <th>Penyelenggara</th>
+                                    <th>Tingkat</th>   
                                 </tr>
                             </thead>
                             <tbody>
@@ -112,6 +115,27 @@
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
                                     <td>{{$d->tanggal_prestasi}}</td>
+                                    <td> 
+                                        @if(isset($d->detail_prestasi))
+                                        {{$d->detail_prestasi->nama_kejuaraan}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
+                                    <td> 
+                                        @if(isset($d->detail_prestasi))
+                                        {{$d->detail_prestasi->penyelenggara}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
+                                    <td> 
+                                        @if(isset($d->detail_prestasi))
+                                        {{$d->detail_prestasi->tingkat}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

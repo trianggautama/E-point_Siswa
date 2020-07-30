@@ -13,7 +13,7 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Prestasi</h4>
             </div>
             <div class="d-none d-md-block">
-                <a href="{{Route('prestasiCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
+                <a href="{{Route('prestasiCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
                         class="wd-10 mg-r-5"></i> Print</a>
                 <a href="{{Route('prestasiFilter')}}" class="btn btn-sm pd-x-15 btn-secondary btn-uppercase mg-l-5"><i data-feather="filter"
                         class="wd-10 mg-r-5"></i> Filter Data</a>
