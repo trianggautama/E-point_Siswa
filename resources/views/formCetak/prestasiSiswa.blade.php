@@ -113,8 +113,6 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIS</th>
-                                    <th>Nama Siswa</th>
                                     <th>Keterangan Prestasi</th>
                                     <th>Penambahan poin</th>
                                     <th>Tanggal Prestasi</th>
@@ -127,28 +125,26 @@
                                 @foreach($data->prestasi as $d)
                                 <tr>
                                     <td style="text-align: center;">{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->NIS}}</td>
-                                    <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
                                     <td style="text-align: center;">
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
                                     <td style="text-align: center;">{{carbon\carbon::parse($d->tanggal_prestasi)->translatedFormat('d F Y')}}</td>
-                                    <td> 
+                                    <td style="text-align: center;"> 
                                         @if(isset($d->detail_prestasi))
                                         {{$d->detail_prestasi->nama_kejuaraan}}
                                         @else
                                         -
                                         @endif
                                     </td>
-                                    <td> 
+                                    <td style="text-align: center;"> 
                                         @if(isset($d->detail_prestasi))
                                         {{$d->detail_prestasi->penyelenggara}}
                                         @else
                                         -
                                         @endif
                                     </td>
-                                    <td> 
+                                    <td style="text-align: center;"> 
                                         @if(isset($d->detail_prestasi))
                                         {{$d->detail_prestasi->tingkat}}
                                         @else
@@ -165,8 +161,6 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIS</th>
-                                    <th>Nama Siswa</th>
                                     <th>Keterangan Pelanggaran</th>
                                     <th>Pengurangan poin</th>
                                     <th>Tanggal pelanggaran</th>
@@ -176,8 +170,6 @@
                                 @foreach($data->pelanggaran as $d)
                                 <tr>
                                     <td style="text-align: center;">{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->NIS}}</td>
-                                    <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->pedoman->uraian}}</td>
                                     <td style="text-align: center;">
                                         <p class="text-danger">- {{$d->pedoman->bobot_point}} poin</p>
