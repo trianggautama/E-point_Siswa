@@ -34,7 +34,8 @@
                                     <th>Nama Siswa</th>
                                     <th>Keterangan Prestasi</th>
                                     <th>Penambahan poin</th>
-                                    <th>Tanggal Prestasi</th>
+                                    <th>Nama Kejuaraan</th>
+                                    <th>Penyelenggara</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -48,7 +49,20 @@
                                     <td>
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{carbon\carbon::parse($d->tanggal_prestasi)->translatedFormat('d F Y')}} </td>
+                                    <td> 
+                                        @if(isset($d->detail_prestasi))
+                                        {{$d->detail_prestasi->nama_kejuaraan}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
+                                    <td> 
+                                        @if(isset($d->detail_prestasi))
+                                        {{$d->detail_prestasi->penyelenggara}}
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{Route('prestasiShow',['uuid'=>$d->uuid])}}" class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
