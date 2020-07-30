@@ -7,11 +7,11 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-">
-                        <li class="breadcrumb-item"><a href="#">Data Pelanggaran</a></li>
+                        <li class="breadcrumb-item"><a href="#">Data Prestasi</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Filter</li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Filter Pelanggaran</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Filter Prestasi</h4>
             </div>
         </div>
 

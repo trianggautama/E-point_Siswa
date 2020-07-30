@@ -7,21 +7,21 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-">
-                        <li class="breadcrumb-item"><a href="#">Data Pelanggaran</a></li>
+                        <li class="breadcrumb-item"><a href="#">Data </a></li>
                         <li class="breadcrumb-item active" aria-current="page">Filter</li>
                     </ol>
                 </nav>
-                <h4 class="mg-b-0 tx-spacing--1">Filter Pelanggaran</h4>
+                <h4 class="mg-b-0 tx-spacing--1">Filter Data</h4>
             </div>
         </div>
 
         <div class="row row-xs">
             <div class="col-md-12 col-xl-12 mg-t-5">
                 <div class="card card-body ">
-                    <form action="" method="POST">
+                    <form action="" method="POST" target="_blank">
                         @csrf
                         <div class="form-group">
-                        <label for="Nama">Daftar Pelanggaran</label>
+                        <label for="Nama">Daftar Pedoman</label>
                             <select name="pedoman_id" class="selectpicker form-control" data-live-search="true">
                                 @foreach($pedoman as $s)
                                 <option value="{{$s->id}}">{{$s->uraian}}</option>
