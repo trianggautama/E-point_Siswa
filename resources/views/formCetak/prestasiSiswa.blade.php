@@ -100,7 +100,7 @@
                         </tr>
                         <tr>
                             <td>Kelas</td>
-                            <td>: Kelas {{$data->kelas->kelas}}</td>
+                            <td>: {{$data->kelas->kelas}}</td>
                         </tr>
                         <tr>
                             <td>Tempat, tanggal lahir</td>
