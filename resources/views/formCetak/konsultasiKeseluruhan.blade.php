@@ -96,7 +96,7 @@
                                     <th>No</th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
-                                    <th>Uraian</th>
+                                    <th>Uraian dan Saran</th>
                                     <th>Tanggal Konseling</th>
                                 </tr>
                             </thead>
