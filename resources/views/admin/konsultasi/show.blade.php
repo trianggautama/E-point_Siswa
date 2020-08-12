@@ -51,7 +51,7 @@
                     <div class="col-md-8">
 
                         <div class="form-group">
-                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">uraian</label>
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Uraian dan saran</label>
                             <p class="mg-b-0 text-justify">{{$data->uraian}}</p>
                         </div>
                     </div>
