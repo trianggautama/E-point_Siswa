@@ -10,7 +10,7 @@ class Konsultasi extends Model
     use Uuid;
 
     protected $fillable = [
-        'siswa_id', 'uraian', 'tanggal_konseling', 'pejabat_struktural_id',
+        'siswa_id', 'uraian', 'tanggal_konseling', 'pejabat_struktural_id', 'saran',
     ];
 
     public function siswa()

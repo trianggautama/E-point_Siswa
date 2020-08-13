@@ -19,6 +19,7 @@ class CreateKonsultasisTable extends Migration
             $table->foreignId('siswa_id')->constrained()->onDelete('restrict');
             $table->foreignId('pejabat_struktural_id')->constrained()->onDelete('restrict');
             $table->text('uraian');
+            $table->text('saran');
             $table->date('tanggal_konseling');
             $table->timestamps();
         });

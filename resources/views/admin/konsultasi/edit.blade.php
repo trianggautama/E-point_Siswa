@@ -23,9 +23,11 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="Nama">Nama Guru</label>
-                            <select class="selectpicker form-control" name="pejabat_struktural_id" data-live-search="true">
+                            <select class="selectpicker form-control" name="pejabat_struktural_id"
+                                data-live-search="true">
                                 @foreach($guru as $g)
-                                <option value="{{$g->id}}"  {{$g->id == $data->pejabat_struktural_id ? 'selected' : ''}}>{{$g->nama}}</option>
+                                <option value="{{$g->id}}" {{$g->id == $data->pejabat_struktural_id ? 'selected' : ''}}>
+                                    {{$g->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -45,8 +47,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Nama">Saran</label>
-                            <textarea name="saran" id="saran" class="form-control"
-                                rows="6">...</textarea>
+                            <textarea name="saran" id="saran" class="form-control" rows="6">{{$data->saran}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="Nama">Tanggal Tanggal Konseling</label>
