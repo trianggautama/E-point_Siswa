@@ -70,7 +70,7 @@ class reportController extends Controller
         $data         = Konsultasi::all();
         $tgl= Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.konsultasiKeseluruhan', ['data'=>$data,'tgl'=>$tgl]);
-        $pdf->setPaper('a4', 'portrait');
+        $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Data Konsultasi Siswa.pdf');
     }

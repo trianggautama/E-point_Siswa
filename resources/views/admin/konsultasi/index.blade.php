@@ -29,10 +29,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Siswa</th>
-                                    <th>Kelas</th>
                                     <th>Uraian</th>
                                     <th>Saran</th>
-                                    <th>Tanggal Konseling</th>
+                                    <th>Tanggal </th>
                                     <th>Nama Guru</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -42,10 +41,9 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->siswa->nama}}</td>
-                                    <td>{{$d->siswa->kelas->kelas}}</td>
-                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}
+                                    <td width="250px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}
                                     </td>
-                                    <td width="300px">{{$d->saran}}</td>
+                                    <td width="250px" >@if($d->saran) {{ \Illuminate\Support\Str::limit($d->saran, 150, $end='...') }} @else - @endif</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
                                     <td>{{$d->pejabat->nama}}</td>
                                     <td>

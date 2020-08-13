@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Saran</label>
-                            <p class="mg-b-0 text-justify">...</p>
+                            <p class="mg-b-0 text-justify">@if($data->saran) {{$data->saran}} @else - @endif</p>
                         </div>
                     </div>
                 </div>

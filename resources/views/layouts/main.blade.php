@@ -67,7 +67,7 @@
                         <h6 class="tx-semibold mg-b-0">{{Auth::user()->nama}}</h6>
                         <i data-feather="chevron-down"></i>
                     </a>
-                    <p class="tx-color-03 tx-12 mg-b-0">Admin</p>
+                    <p class="tx-color-03 tx-12 mg-b-0">Admin Aplikasi</p>
                 </div>
                 <div class="collapse" id="loggedinMenu">
                     <ul class="nav nav-aside mg-b-0">
@@ -129,8 +129,6 @@
                 @guest
                 <a class="nav-link" href="{{ route('login') }}"><i data-feather="log-in"></i>{{ __('Login') }}</a>
                 @else
-                <a href="" class="nav-link  " data-toggle="tooltip" title="You have 4 new notifications"><i
-                        data-feather="bell"></i></a>
                 <a class="nav-link" data-toggle="tooltip" title="Sign out" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i data-feather="log-out"></i>{{ __('Logout') }}

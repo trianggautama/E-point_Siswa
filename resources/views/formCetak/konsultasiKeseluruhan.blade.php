@@ -34,7 +34,7 @@
      .header{
          margin-bottom: 0px;
          text-align: center;
-         height: 150px;
+         height: 110px;
          padding: 0px;
      }
      .pemko{
@@ -108,7 +108,7 @@
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->kelas->kelas}}</td>
                                     <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
-                                    <td width="300px">...</td>
+                                    <td width="300px">@if($d->saran) {{ \Illuminate\Support\Str::limit($d->saran, 150, $end='...') }} @else - @endif</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
                                 </tr>
                                 @endforeach
