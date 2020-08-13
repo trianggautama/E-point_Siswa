@@ -30,7 +30,8 @@
                                     <th>No</th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
-                                    <th>Uraian dan Saran</th>
+                                    <th>Uraian</th>
+                                    <th>Saran</th>
                                     <th>Tanggal Konseling</th>
                                     <th>Nama Guru</th>
                                     <th>Aksi</th>
@@ -42,8 +43,8 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->kelas->kelas}}</td>
-                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}
-                                    </td>
+                                    <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
+                                    <td width="300px">...</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
                                     <td>{{$d->pejabat->nama}}</td>
                                     <td>
@@ -104,6 +105,10 @@
                     <div class="form-group">
                         <label for="Nama">Uraian</label>
                         <textarea name="uraian" id="uraian" class="form-control" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama">Saran</label>
+                        <textarea name="saran" id="saran" class="form-control" rows="6"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="Nama">Tanggal Tanggal Konseling</label>

@@ -96,7 +96,8 @@
                                     <th>No</th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
-                                    <th>Uraian dan Saran</th>
+                                    <th>Uraian</th>
+                                    <th>Saran</th>
                                     <th>Tanggal Konseling</th>
                                 </tr>
                             </thead>
@@ -107,6 +108,7 @@
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->kelas->kelas}}</td>
                                     <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
+                                    <td width="300px">...</td>
                                     <td>{{carbon\carbon::parse($d->tanggal_konseling)->translatedFormat('d F Y')}}</td>
                                 </tr>
                                 @endforeach

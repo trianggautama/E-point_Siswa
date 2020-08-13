@@ -44,6 +44,11 @@
                                 rows="6">{{$data->uraian}}</textarea>
                         </div>
                         <div class="form-group">
+                            <label for="Nama">Saran</label>
+                            <textarea name="saran" id="saran" class="form-control"
+                                rows="6">...</textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="Nama">Tanggal Tanggal Konseling</label>
                             <input type="date" class="form-control" name="tanggal_konseling"
                                 value="{{$data->tanggal_konseling}}" id="tanggal_konseling">
