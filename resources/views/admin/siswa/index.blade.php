@@ -13,7 +13,7 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Siswa</h4>
             </div>
             <div class="d-none d-md-block">
-                <a href="{{Route('siswaFilter')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
+                <a href="{{Route('siswaFilter')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
                         class="wd-10 mg-r-5"></i> Filter Kelas</a>
                 <a href="{{Route('siswaCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
                         class="wd-10 mg-r-5"></i> Cetak Data</a>

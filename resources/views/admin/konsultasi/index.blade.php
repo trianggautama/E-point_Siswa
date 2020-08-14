@@ -29,6 +29,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Siswa</th>
+                                    <th>NIS</th>
                                     <th>Uraian</th>
                                     <th>Saran</th>
                                     <th>Tanggal </th>
@@ -41,6 +42,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->siswa->NIS}}</td>
                                     <td width="250px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}
                                     </td>
                                     <td width="250px" >@if($d->saran) {{ \Illuminate\Support\Str::limit($d->saran, 150, $end='...') }} @else - @endif</td>

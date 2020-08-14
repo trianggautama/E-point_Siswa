@@ -101,6 +101,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/prestasi/filter', 'prestasiController@filter')->name('prestasiFilter');
 
 //Cetak Route
+    Route::get('/pegawai/cetak', 'reportController@pegawaiAll')->name('pegawaiCetak');
     Route::get('/siswa/cetak', 'reportController@siswaAll')->name('siswaCetak');
     Route::post('/siswa/filter', 'reportController@siswaFilter')->name('siswaFilterCetak');
     Route::get('/wali/cetak', 'reportController@wali')->name('waliCetak');

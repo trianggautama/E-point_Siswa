@@ -7,14 +7,25 @@ use App\Pedoman;
 use PDF;
 use App\Siswa;
 use App\Kelas;
+use App\Pejabat_struktural;
 use App\Pelanggaran;
 use App\Prestasi;
 use App\Wali_siswa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+ 
 class reportController extends Controller
 {
+    public function pegawaiAll()
+    {
+        $data         = Pejabat_struktural::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.pegawaiKeseluruhan', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Data Pegawai.pdf');
+    }
+
     public function siswaAll()
     {
         $data         = siswa::all();
