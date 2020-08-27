@@ -94,6 +94,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>NIS</th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
                                     <th>Uraian</th>
@@ -105,6 +106,7 @@
                                 @foreach ($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
                                     <td>{{$d->siswa->kelas->kelas}}</td>
                                     <td width="300px">{{ \Illuminate\Support\Str::limit($d->uraian, 150, $end='...') }}</td>
