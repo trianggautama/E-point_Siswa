@@ -31,7 +31,7 @@
                         </div>
                        
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
+                            <a href="{{route('pointIndex')}}" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</a>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="printer"
                                     class="wd-10 mg-r-5"></i>
                                 Cetak Data</button>
