@@ -95,6 +95,11 @@ class prestasiController extends Controller
         return view('admin.pelanggaran.filter', compact('pedoman'));
     }
 
+    public function filterWaktu()
+    {
+        return view('admin.pelanggaran.filterWaktu');
+    }
+
     public function detailStore(Request $req)
     {
         $data = Detail_prestasi::where('prestasi_id', $req->prestasi_id)->first();

@@ -49,7 +49,12 @@ class konsultasiController extends Controller
     public function destroy($uuid)
     {
         $data = Konsultasi::where('uuid', $uuid)->first()->delete();
-        return redirect()->back()->withSuccess('Data berhasil dihapus');
+        return redirect()->back()->withSuccess('Data berhasil dihapus'); 
+    }
+
+    public function filterWaktu()
+    {
+        return view('admin.konsultasi.filterWaktu');
     }
 
 }

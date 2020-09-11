@@ -94,4 +94,9 @@ class pelanggaranController extends Controller
         $pedoman = Pedoman::where('status', 1)->get();
         return view('admin.pelanggaran.filter', compact('pedoman'));
     }
+
+    public function filterWaktu()
+    {
+        return view('admin.pelanggaran.filterWaktu');
+    }
 }

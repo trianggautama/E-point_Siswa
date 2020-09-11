@@ -75,6 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/konsultasi/edit/{uuid}', 'konsultasiController@edit')->name('konsultasiEdit');
     Route::put('/konsultasi/edit/{uuid}', 'konsultasiController@update')->name('konsultasiUpdate');
     Route::get('/konsultasi/delete/{uuid}', 'konsultasiController@destroy')->name('konsultasiDestroy');
+    Route::get('/konsultasi/filterWaktu', 'konsultasiController@filterWaktu')->name('konsultasiFilterWaktu');
 
 // point route
     Route::get('/point', 'pointController@index')->name('pointIndex');
@@ -89,6 +90,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/pelanggaran/edit/{uuid}', 'pelanggaranController@update')->name('pelanggaranUpdate');
     Route::get('/pelanggaran/delete/{uuid}', 'pelanggaranController@destroy')->name('pelanggaranDestroy');
     Route::get('/pelanggaran/filter', 'pelanggaranController@filter')->name('pelanggaranFilter');
+    Route::get('/pelanggaran/filterWaktu', 'pelanggaranController@filterWaktu')->name('pelanggaranFilterWaktu');
+
 
 // prestasi route
     Route::get('/prestasi', 'prestasiController@index')->name('prestasiIndex');
@@ -99,6 +102,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/prestasi/edit/{uuid}', 'prestasiController@update')->name('prestasiUpdate');
     Route::get('/prestasi/delete/{uuid}', 'prestasiController@destroy')->name('prestasiDestroy');
     Route::get('/prestasi/filter', 'prestasiController@filter')->name('prestasiFilter');
+    Route::get('/prestasi/filterWaktu', 'prestasiController@filterWaktu')->name('prestasiFilterWaktu'); 
+
 
 //Cetak Route
     Route::get('/pegawai/cetak', 'reportController@pegawaiAll')->name('pegawaiCetak');
@@ -115,5 +120,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/prestasi/cetak', 'reportController@prestasiAll')->name('prestasiCetak');
     Route::post('/prestasi/filter', 'reportController@prestasifilter')->name('prestasiFilterCetak');
     Route::get('/prestasi/siswa/cetak/{uuid}', 'reportController@prestasiSiswa')->name('prestasiSiswaCetak');
+    Route::post('/pelanggaran/filterWaktu', 'reportController@pelanggaranFilterWaktu')->name('pelanggaranFilterWaktuCetak'); 
+    Route::post('/prestasi/filterWaktu', 'reportController@prestasiFilterWaktu')->name('prestasiFilterWaktuCetak'); 
+    Route::post('/konsultasi/filterWaktu', 'reportController@konsultasiFilterWaktu')->name('konsultasiFilterWaktuCetak');
 
 });

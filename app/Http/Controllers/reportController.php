@@ -158,4 +158,40 @@ class reportController extends Controller
 
         return $pdf->stream('Laporan Data Prestasi dan Pelanggaran Siswa.pdf');
     }
+
+    public function pelanggaranFilterWaktu(Request $request)
+    {
+        $tgl_awal     = $request->tgl_awal;
+        $tgl_akhir    = $request->tgl_akhir;
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $data         = Pelanggaran::whereBetween('tanggal_pelanggaran', [$tgl_awal, $tgl_akhir])->get();
+        $pdf          = PDF::loadView('formCetak.pelanggaranFilterWaktu', ['data'=>$data,'tgl'=>$tgl,'tgl_awal'=>$tgl_awal,'tgl_akhir'=>$tgl_akhir]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Data Filter Pelanggaran Siswa filter Waktu.pdf');
+    }
+
+    public function prestasiFilterWaktu(Request $request)
+    {
+        $tgl_awal     = $request->tgl_awal;
+        $tgl_akhir    = $request->tgl_akhir;
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $data         = Prestasi::whereBetween('tanggal_prestasi', [$tgl_awal, $tgl_akhir])->get();
+        $pdf          = PDF::loadView('formCetak.prestasiFilterWaktu', ['data'=>$data,'tgl'=>$tgl,'tgl_awal'=>$tgl_awal,'tgl_akhir'=>$tgl_akhir]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Data Filter Prestasi Siswa filter Waktu.pdf');
+    }
+
+    public function konsultasiFilterWaktu(Request $request)
+    {
+        $tgl_awal     = $request->tgl_awal;
+        $tgl_akhir    = $request->tgl_akhir;
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $data         = Konsultasi::whereBetween('tanggal_konseling', [$tgl_awal, $tgl_akhir])->get();
+        $pdf          = PDF::loadView('formCetak.konsultasiFilterWaktu', ['data'=>$data,'tgl'=>$tgl,'tgl_awal'=>$tgl_awal,'tgl_akhir'=>$tgl_akhir]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Data Filter konsultasi Siswa filter Waktu.pdf');
+    }
 }

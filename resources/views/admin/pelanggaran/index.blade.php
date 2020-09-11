@@ -17,6 +17,8 @@
                         class="wd-10 mg-r-5"></i> Print</a>
                 <a href="{{Route('pelanggaranFilter')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
                         data-feather="filter" class="wd-10 mg-r-5"></i> Filter Pelanggaran</a>
+            <a href="{{Route('pelanggaranFilterWaktu')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
+                        data-feather="filter" class="wd-10 mg-r-5"></i> Filter Waktu</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
             </div>
