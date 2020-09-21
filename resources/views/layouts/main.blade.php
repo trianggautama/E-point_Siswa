@@ -89,6 +89,8 @@
                         <li><a href="{{Route('pejabatIndex')}}">Guru</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{Route('tahunAjaranIndex')}}" class="nav-link"><i data-feather="file-text"></i><span>Tahun Ajaran</span></a></li>
                 <li class="nav-item with-sub">
                     <a href="" class="nav-link"><i data-feather="users"></i> <span>Siswa</span></a>
                     <ul>

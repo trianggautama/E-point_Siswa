@@ -37,6 +37,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/pejabat/edit/{uuid}', 'PejabatController@update')->name('pejabatUpdate');
     Route::get('/pejabat/delete/{uuid}', 'PejabatController@destroy')->name('pejabatDestroy');
 
+
+// pejabat route
+    Route::get('/tahunAjaran', 'TahunAjaranController@index')->name('tahunAjaranIndex');
+    Route::post('/tahunAjaran', 'TahunAjaranController@store')->name('tahunAjaranStore');
+    Route::get('/tahunAjaran/edit/{uuid}', 'TahunAjaranController@edit')->name('tahunAjaranEdit');
+    Route::put('/tahunAjaran/edit/{uuid}', 'TahunAjaranController@update')->name('tahunAjaranUpdate');
+    Route::get('/tahunAjaran/delete/{uuid}', 'TahunAjaranController@destroy')->name('tahunAjaranDestroy');
+
 // kelas route
     Route::get('/kelas', 'KelasController@index')->name('kelasIndex');
     Route::post('/kelas', 'KelasController@store')->name('kelasStore');

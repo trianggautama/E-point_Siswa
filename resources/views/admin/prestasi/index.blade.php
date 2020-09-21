@@ -140,6 +140,13 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Nama">Tahun Ajaran</label>
+                        <select class=" form-control" name="tahun_ajaran" >
+                            <option value="">ambil tahun ajaran sekarang</option>
+                        </select>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary tx-13"><i data-feather="save"

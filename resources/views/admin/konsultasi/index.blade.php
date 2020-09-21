@@ -117,6 +117,12 @@
                         <label for="Nama">Tanggal Tanggal Konseling</label>
                         <input type="date" class="form-control" name="tanggal_konseling" id="tanggal_konseling">
                     </div>
+                    <div class="form-group">
+                        <label for="Nama">Tahun Ajaran</label>
+                        <select class=" form-control" name="tahun_ajaran" >
+                            <option value="">ambil tahun ajaran sekarang</option>
+                        </select>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>

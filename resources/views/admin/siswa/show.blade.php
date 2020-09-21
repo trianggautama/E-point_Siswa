@@ -47,9 +47,22 @@
                             <p class="mg-b-0">{{$data->tempat_lahir}}, {{carbon\carbon::parse($data->tanggal_lahir)->translatedFormat('d F Y')}} </p>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Poin Siswa : {{$data->point}}</h4>
+                </div>
+                <hr>
+                <div class="text-right pl-3 mb-4">
+                    <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
+                    </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
+                            <p class="mg-b-0">1. Kelas X</p>
+                        </div>
+                    </div>  
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tahun Ajaran</label>
+                            <p class="mg-b-0">2020/2021</p>
                         </div>
                     </div>
                 </div>
@@ -91,6 +104,13 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <br>
+                            <h4 class="alert-heading">Poin Siswa : {{$data->point}}</h4>
+                            <br>
+                        </div>
+                    </div
                     </div>
                 </div>
               </div>
@@ -165,6 +185,40 @@
     </div><!-- container -->
 </div>
 
+
+<div class="modal fade bd-example-modal-lg" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content tx-14">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel2">Tambah Kelas</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{Route('siswaStore')}}" method="POST">
+                    @csrf
+            <div class="form-group">
+                <label for="Nama">Kelas</label>
+                <select name="status_wali" id="status_wali" class="form-control">
+                    <option value="">-- pilih Kelas --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Nama">Tahun Ajaran</label>
+                <select name="status_wali" id="status_wali" class="form-control">
+                    <option value="">-- pilih tahun ajaran --</option>
+                </select>
+            </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
+        Simpan</button>
+</div>
+</form>
+</div>
 @endsection
 @section('scripts')
 <script>
