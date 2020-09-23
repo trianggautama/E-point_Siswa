@@ -32,21 +32,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($data as $d)
                                 <tr>
-                                    <td>1</td>
-                                    <td> 2020/2021 </td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->tahun_ajaran}}</td>
                                     <td>
-                                        <a href="{{Route('tahunAjaranEdit','cjisbjic')}}"
+                                        <a href="{{Route('tahunAjaranEdit',$d->uuid)}}"
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-icon"
-                                            onclick="Hapus()">
+                                        <button type="button" class="btn btn-danger btn-icon" onclick="Hapus()">
                                             <i data-feather="delete"></i>
                                         </button>
 
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div><!-- df-example -->
@@ -72,17 +73,18 @@
                     @csrf
                     <div class="form-group">
                         <label for="Nama">Tahun Ajaran</label>
-                        <input type="text" name="tahun Ajaran" class="form-control" placeholder="2020/2021">
+                        <input type="text" name="tahun Ajaran" class="form-control" placeholder="2020/2021" required>
                     </div>
-                </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>Simpan</button>
-                    </div>
-                </form>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary tx-13"><i data-feather="save"
+                        class="wd-10 mg-r-5"></i>Simpan</button>
+            </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 @endsection
 @section('scripts')

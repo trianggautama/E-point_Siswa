@@ -37,7 +37,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/pejabat/edit/{uuid}', 'PejabatController@update')->name('pejabatUpdate');
     Route::get('/pejabat/delete/{uuid}', 'PejabatController@destroy')->name('pejabatDestroy');
 
-
 // pejabat route
     Route::get('/tahunAjaran', 'TahunAjaranController@index')->name('tahunAjaranIndex');
     Route::post('/tahunAjaran', 'TahunAjaranController@store')->name('tahunAjaranStore');
@@ -53,7 +52,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/kelas/edit/{uuid}', 'KelasController@update')->name('kelasUpdate');
     Route::get('/kelas/delete/{uuid}', 'KelasController@destroy')->name('kelasDestroy');
 
-// siswa route
+    // kelas siswa route
+    Route::post('/kelasSiswa', 'SiswaController@kelasSiswaStore')->name('kelasSiswaStore');
+    Route::get('/kelasSiswa/delete/{uuid}', 'SiswaController@kelasSiswadestroy')->name('kelasSiswaDestroy');
+
+    // siswa route
     Route::get('/siswa', 'SiswaController@index')->name('siswaIndex');
     Route::post('/siswa', 'SiswaController@store')->name('siswaStore');
     Route::get('/siswa/detail/{uuid}', 'SiswaController@show')->name('siswaShow');
@@ -100,7 +103,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pelanggaran/filter', 'pelanggaranController@filter')->name('pelanggaranFilter');
     Route::get('/pelanggaran/filterWaktu', 'pelanggaranController@filterWaktu')->name('pelanggaranFilterWaktu');
 
-
 // prestasi route
     Route::get('/prestasi', 'prestasiController@index')->name('prestasiIndex');
     Route::post('/prestasi', 'prestasiController@store')->name('prestasiStore');
@@ -110,8 +112,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/prestasi/edit/{uuid}', 'prestasiController@update')->name('prestasiUpdate');
     Route::get('/prestasi/delete/{uuid}', 'prestasiController@destroy')->name('prestasiDestroy');
     Route::get('/prestasi/filter', 'prestasiController@filter')->name('prestasiFilter');
-    Route::get('/prestasi/filterWaktu', 'prestasiController@filterWaktu')->name('prestasiFilterWaktu'); 
-
+    Route::get('/prestasi/filterWaktu', 'prestasiController@filterWaktu')->name('prestasiFilterWaktu');
 
 //Cetak Route
     Route::get('/pegawai/cetak', 'reportController@pegawaiAll')->name('pegawaiCetak');
@@ -128,8 +129,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/prestasi/cetak', 'reportController@prestasiAll')->name('prestasiCetak');
     Route::post('/prestasi/filter', 'reportController@prestasifilter')->name('prestasiFilterCetak');
     Route::get('/prestasi/siswa/cetak/{uuid}', 'reportController@prestasiSiswa')->name('prestasiSiswaCetak');
-    Route::post('/pelanggaran/filterWaktu', 'reportController@pelanggaranFilterWaktu')->name('pelanggaranFilterWaktuCetak'); 
-    Route::post('/prestasi/filterWaktu', 'reportController@prestasiFilterWaktu')->name('prestasiFilterWaktuCetak'); 
+    Route::post('/pelanggaran/filterWaktu', 'reportController@pelanggaranFilterWaktu')->name('pelanggaranFilterWaktuCetak');
+    Route::post('/prestasi/filterWaktu', 'reportController@prestasiFilterWaktu')->name('prestasiFilterWaktuCetak');
     Route::post('/konsultasi/filterWaktu', 'reportController@konsultasiFilterWaktu')->name('konsultasiFilterWaktuCetak');
 
 });

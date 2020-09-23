@@ -13,10 +13,10 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Siswa</h4>
             </div>
             <div class="d-none d-md-block">
-                <a href="{{Route('siswaFilter')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Filter Kelas</a>
-                <a href="{{Route('siswaCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Cetak Data</a>
+                <a href="{{Route('siswaFilter')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i
+                        data-feather="printer" class="wd-10 mg-r-5"></i> Filter Kelas</a>
+                <a href="{{Route('siswaCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"
+                    target="_blank"><i data-feather="printer" class="wd-10 mg-r-5"></i> Cetak Data</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
             </div>
@@ -43,8 +43,9 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
-                                    <td>ambil data kelas siswa paling akhir</td>
-                                    <td>{{$d->tempat_lahir}}, {{carbon\carbon::parse($d->tanggal_lahir)->translatedFormat('d F Y')}} </td>
+                                    <td>{{$d->kelas}}</td>
+                                    <td>{{$d->tempat_lahir}},
+                                        {{carbon\carbon::parse($d->tanggal_lahir)->translatedFormat('d F Y')}} </td>
                                     <td>
                                         <a href="{{Route('siswaShow',['uuid'=>$d->uuid])}}"
                                             class="btn btn-info btn-icon">
@@ -115,37 +116,37 @@
                             </div>
                         </div>
                     </div>
-            <div class="form-group">
-                <label for="Nama">Nama Wali</label>
-                <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali Siswa">
+                    <div class="form-group">
+                        <label for="Nama">Nama Wali</label>
+                        <input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali Siswa">
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama">Nomor Telepon Wali Siswa</label>
+                        <input type="text" name="no_hp" class="form-control" placeholder="Nomor Telepon">
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama">Status Wali Siswa</label>
+                        <select name="status_wali" id="status_wali" class="form-control">
+                            <option value="">-- pilih Status Wali --</option>
+                            <option value="1">Ayah</option>
+                            <option value="2">ibu</option>
+                            <option value="3">Kakak</option>
+                            <option value="4">Kerabat Orangtua</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nama">Alamat</label>
+                        <textarea name="alamat" class="form-control"></textarea>
+                    </div>
             </div>
-        <div class="form-group">
-            <label for="Nama">Nomor Telepon Wali Siswa</label>
-            <input type="text" name="no_hp" class="form-control" placeholder="Nomor Telepon">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
+                    Simpan</button>
+            </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="Nama">Status Wali Siswa</label>
-                <select name="status_wali" id="status_wali" class="form-control">
-                    <option value="">-- pilih Status Wali --</option>
-                    <option value="1">Ayah</option>
-                    <option value="2">ibu</option>
-                    <option value="3">Kakak</option>
-                    <option value="4">Kerabat Orangtua</option>
-                </select>
-            </div>
-    <div class="form-group">
-        <label for="Nama">Alamat</label>
-        <textarea name="alamat" class="form-control"></textarea>
     </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary tx-13"><i data-feather="save" class="wd-10 mg-r-5"></i>
-        Simpan</button>
-</div>
-</form>
-</div>
-</div>
 </div>
 </div>
 @endsection

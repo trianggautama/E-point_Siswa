@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Kelas_siswa;
 use App\Lampiran;
 use App\Pelanggaran;
 use App\Prestasi;
 use App\Siswa;
+use App\Tahun_ajaran;
 use App\Wali_siswa;
 use File;
 use Illuminate\Http\Request;
@@ -16,6 +18,19 @@ class SiswaController extends Controller
     public function index()
     {
         $data = Siswa::orderBy('id', 'desc')->get();
+        $data = $data->map(function ($item) {
+            if (isset($item->kelas_siswa)) {
+                $id = $item->kelas_siswa->last();
+                // dd($id);
+                if (isset($id)) {
+                    $kelas = Kelas::findOrFail($id->kelas_id);
+                    $item['kelas'] = $kelas->kelas;
+                } else {
+                    $item['kelas'] = 'Kelas belum diinput';
+                }
+            }
+            return $item;
+        });
         $kelas = Kelas::orderBy('id', 'desc')->get();
         return view('admin.siswa.index', compact('data', 'kelas'));
     }
@@ -48,8 +63,11 @@ class SiswaController extends Controller
         $data = siswa::where('uuid', $uuid)->first();
         $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->get();
         $prestasi = Prestasi::where('siswa_id', $data->id)->get();
+        $kelas = Kelas::orderBy('kelas', 'asc')->get();
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
+        $kelas_siswa = Kelas_siswa::all();
 
-        return view('admin.siswa.show', compact('data', 'pelanggaran', 'prestasi'));
+        return view('admin.siswa.show', compact('data', 'pelanggaran', 'prestasi', 'kelas', 'tahun_ajaran', 'kelas_siswa'));
     }
 
     public function edit($uuid)
@@ -114,5 +132,19 @@ class SiswaController extends Controller
     {
         $kelas = Kelas::orderBy('id', 'desc')->get();
         return view('admin.siswa.filter', compact('kelas'));
+    }
+
+    public function kelasSiswaStore(Request $req)
+    {
+        $data = Kelas_siswa::create($req->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
+    }
+
+    public function kelasSiswaDestroy($uuid)
+    {
+        $data = Kelas_siswa::where('uuid', $uuid)->first()->delete();
+
+        return back();
     }
 }
