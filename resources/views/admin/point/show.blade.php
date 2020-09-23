@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
-                            <p class="mg-b-0">Kelas {{$data->kelas->kelas}}</p>
+                            <p class="mg-b-0">Kelas {{$data->kelas_siswa->last()->kelas->kelas}}</p>
                         </div>
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tempat, Tanggal lahir</label>

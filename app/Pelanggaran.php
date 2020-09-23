@@ -28,4 +28,9 @@ class Pelanggaran extends Model
         return $this->hasMany(Lampiran::class);
     }
 
+    public function tahun_ajaran()
+    {
+        return $this->belongsTo(Tahun_ajaran::class);
+    }
+
 }

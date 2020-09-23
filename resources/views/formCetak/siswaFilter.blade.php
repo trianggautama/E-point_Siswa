@@ -89,7 +89,7 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA SISWA KELAS {{$data->first()->kelas->kelas}}</h2>
+            <h2 style="text-align:center;">DATA SISWA KELAS {{$kelas->kelas}}</h2>
             <table id="dataTable" class="table text-center">
                             <thead>
                                 <tr>
@@ -106,7 +106,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
-                                    <td>{{$d->kelas->kelas}}</td>
+                                    <td>{{$d->kelas_siswa->last()->kelas->kelas}}</td>
                                     <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
                                 </tr>
                                 @endforeach

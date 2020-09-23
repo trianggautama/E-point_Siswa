@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Kelas_siswa;
 use App\Pelanggaran;
 use App\Prestasi;
 use App\Siswa;
+use App\Tahun_ajaran;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -29,7 +31,16 @@ class KelasController extends Controller
     public function show($uuid)
     {
         $data = Kelas::where('uuid', $uuid)->first();
-        $siswa = Siswa::orderBy('point', 'desc')->where('kelas_id',$data->id)->get();
+
+        $tahun_ajaran = Tahun_ajaran::latest()->first();
+
+        $siswa = Siswa::whereHas('kelas_siswa', function($query)use($data,$tahun_ajaran)
+        {
+            $query->where('kelas_id',$data->id)->where('tahun_ajaran_id',$tahun_ajaran->id);
+        })->with('kelas_siswa')
+          ->orderBy('point', 'desc')
+          ->get();
+
         $nama = $siswa->pluck('nama');
         $prestasi = $siswa->map(function($item){
             return Prestasi::where('siswa_id',$item->id)->count();

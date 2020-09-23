@@ -43,8 +43,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label
-                                        class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
-                                    <p class="mg-b-0">Kelas {{$data->siswa->kelas->kelas}}</p>
+                                        class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas (Sekarang)</label>
+                                    <p class="mg-b-0">Kelas {{$data->siswa->kelas_siswa->last()->kelas->kelas}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label

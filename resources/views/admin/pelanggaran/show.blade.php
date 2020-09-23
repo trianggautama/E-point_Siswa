@@ -36,12 +36,12 @@
                             <p class="mg-b-0">{{$data->siswa->NIS}}</p>
                         </div>
                         <div class="form-group">
-                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
-                            <p class="mg-b-0">Kelas {{$data->siswa->kelas->kelas}}</p>
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas (Sekarang)</label>
+                            <p class="mg-b-0">Kelas {{$data->siswa->kelas_siswa->last()->kelas->kelas}} </p> 
                         </div>
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tanggal Pelanggaran</label>
-                            <p class="mg-b-0">{{$data->tanggal_pelanggaran}}</p>
+                            <p class="mg-b-0">{{$data->tanggal_pelanggaran}} </p>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -58,6 +58,10 @@
                             @foreach($data->lampiran as $l)
                                 <a class="btn btn-sm btn-success" href="{{asset('lampiran/'.$l->file)}}" target="_blank"> <i data-feather="paperclip"></i> File Lampiran</a>
                             @endforeach
+                        </div>
+                        <div class="form-group">
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tahun Ajaran</label>
+                            <p class="mg-b-0 text-primary ">{{$data->tahun_ajaran->tahun_ajaran}}</p>
                         </div>
                     </div>
                 </div>

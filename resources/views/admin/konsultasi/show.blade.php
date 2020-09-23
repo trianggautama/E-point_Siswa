@@ -36,8 +36,8 @@
                             <p class="mg-b-0">{{$data->siswa->NIS}}</p>
                         </div>
                         <div class="form-group">
-                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
-                            <p class="mg-b-0">Kelas {{$data->siswa->kelas->kelas}}</p>
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas (Sekarang)</label>
+                            <p class="mg-b-0">Kelas {{$data->siswa->kelas_siswa->last()->kelas->kelas}}</p>
                         </div>
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tanggal Konseling</label>
@@ -52,6 +52,10 @@
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Uraian</label>
                             <p class="mg-b-0 text-justify">{{$data->uraian}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Tahun Ajaran</label>
+                            <p class="mg-b-0 text-justify">{{$data->tahun_ajaran->tahun_ajaran}}</p>
                         </div>
                         <div class="form-group">
                             <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Saran</label>

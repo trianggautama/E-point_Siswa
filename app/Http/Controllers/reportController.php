@@ -10,6 +10,7 @@ use App\Kelas;
 use App\Pejabat_struktural;
 use App\Pelanggaran;
 use App\Prestasi;
+use App\Tahun_ajaran;
 use App\Wali_siswa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -37,10 +38,18 @@ class reportController extends Controller
     }
 
     public function siswaFilter(Request $req)
-    {
-        $data         = siswa::where('kelas_id',$req->kelas_id)->get();
+    { 
+        $kelas = Kelas::where('id', $req->kelas_id)->first();
+        $tahun_ajaran = Tahun_ajaran::latest()->first();
+        $data = Siswa::whereHas('kelas_siswa', function($query)use($kelas,$tahun_ajaran)
+        {
+            $query->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id);
+        })->with('kelas_siswa')
+          ->orderBy('point', 'desc')
+          ->get();
+
         $tgl= Carbon::now()->format('d-m-Y');
-        $pdf          = PDF::loadView('formCetak.siswaFilter', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf          = PDF::loadView('formCetak.siswaFilter', ['data'=>$data,'tgl'=>$tgl,'kelas'=>$kelas]);
         $pdf->setPaper('a4', 'portrait');
 
         return $pdf->stream('Laporan Data siswa  Filter Kelas.pdf');
@@ -98,9 +107,14 @@ class reportController extends Controller
 
     public function poinFilterKelas(Request $request)
     {
-        $kelas        = Kelas::findOrFail($request->kelas_id);
-        $tgl= Carbon::now()->format('d-m-Y');
-        $data         = Siswa::where('kelas_id',$kelas->id)->orderBy('point', 'desc')->get();
+        $kelas = Kelas::where('id', $request->kelas_id)->first();
+        $tahun_ajaran = Tahun_ajaran::latest()->first();
+        $data = Siswa::whereHas('kelas_siswa', function($query)use($kelas,$tahun_ajaran)
+        {
+            $query->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id);
+        })->with('kelas_siswa')
+          ->orderBy('point', 'desc')
+          ->get();        $tgl= Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.poinFilterKelas', ['data'=>$data ,'kelas'=>$kelas,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'portrait');
 
