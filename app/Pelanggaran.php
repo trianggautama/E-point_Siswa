@@ -10,7 +10,7 @@ class Pelanggaran extends Model
     use Uuid;
 
     protected $fillable = [
-        'siswa_id', 'pedoman_id', 'tanggal_pelanggaran',
+        'tahun_ajaran_id', 'siswa_id', 'pedoman_id', 'tanggal_pelanggaran',
     ];
 
     public function siswa()

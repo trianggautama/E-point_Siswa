@@ -13,12 +13,13 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Pelanggaran</h4>
             </div>
             <div class="d-none d-md-block">
-            <a href="{{Route('pelanggaranCetak')}}"class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</a>
+                <a href="{{Route('pelanggaranCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"
+                    target="_blank"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</a>
                 <a href="{{Route('pelanggaranFilter')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
                         data-feather="filter" class="wd-10 mg-r-5"></i> Filter Pelanggaran</a>
-            <a href="{{Route('pelanggaranFilterWaktu')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
-                        data-feather="filter" class="wd-10 mg-r-5"></i> Filter Waktu</a>
+                <a href="{{Route('pelanggaranFilterWaktu')}}"
+                    class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i data-feather="filter"
+                        class="wd-10 mg-r-5"></i> Filter Waktu</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
             </div>
@@ -50,9 +51,11 @@
                                     <td>
                                         <p class="text-danger">- {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td>{{carbon\carbon::parse($d->tanggal_pelanggaran)->translatedFormat('d F Y')}} </td>
+                                    <td>{{carbon\carbon::parse($d->tanggal_pelanggaran)->translatedFormat('d F Y')}}
+                                    </td>
                                     <td>
-                                        <a href="{{Route('pelanggaranShow',['uuid'=>$d->uuid])}}" class="btn btn-white btn-icon">
+                                        <a href="{{Route('pelanggaranShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
                                         <a href="{{Route('pelanggaranEdit',['uuid' => $d->uuid])}}"
@@ -129,8 +132,8 @@
                     <br>
                     <div class="form-group">
                         <label for="Nama">Tahun Ajaran</label>
-                        <select class=" form-control" name="tahun_ajaran" >
-                            <option value="">ambil tahun ajaran sekarang</option>
+                        <select class=" form-control" name="tahun_ajaran_id">
+                            <option value="{{$tahun_ajaran->id}}">{{$tahun_ajaran->tahun_ajaran}}</option>
                         </select>
                     </div>
                     <div class="modal-footer">
@@ -169,21 +172,21 @@
         }).then((result) => {
             if (result.value) {
                 url = '{{route("pelanggaranDestroy",'')}}';
-                window.location.href = url + '/' + uuid;
-            }
-        })
-    }
+                                window.location.href = url + '/' + uuid;
+                                }
+                                })
+                                }
 
-        $(function () {
-            'use strict'
+                                $(function () {
+                                'use strict'
 
-            $('#dataTable').DataTable({
-                language: {
-                    searchPlaceholder: 'Search...',
-                    Search: '',
-                    lengthMenu: '_MENU_ items/page',
-                }
-            });
-         });
+                                $('#dataTable').DataTable({
+                                language: {
+                                searchPlaceholder: 'Search...',
+                                Search: '',
+                                lengthMenu: '_MENU_ items/page',
+                                }
+                                });
+                                });
 </script>
 @endsection

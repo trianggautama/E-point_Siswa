@@ -6,6 +6,7 @@ use App\Lampiran;
 use App\Pedoman;
 use App\Pelanggaran;
 use App\Siswa;
+use App\Tahun_ajaran;
 use Illuminate\Http\Request;
 
 class pelanggaranController extends Controller
@@ -14,8 +15,9 @@ class pelanggaranController extends Controller
     {
         $data = Pelanggaran::orderBy('id', 'desc')->get();
         $siswa = Siswa::all();
+        $tahun_ajaran = Tahun_ajaran::all()->last();
         $pedoman = Pedoman::where('status', 1)->get();
-        return view('admin.pelanggaran.index', compact('siswa', 'pedoman', 'data'));
+        return view('admin.pelanggaran.index', compact('siswa', 'pedoman', 'data', 'tahun_ajaran'));
     }
 
     public function show($uuid)

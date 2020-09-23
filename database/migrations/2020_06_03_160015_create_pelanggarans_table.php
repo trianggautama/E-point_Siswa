@@ -18,6 +18,7 @@ class CreatePelanggaransTable extends Migration
             $table->string('uuid', 36);
             $table->foreignId('siswa_id')->constrained()->onDelete('restrict');
             $table->foreignId('pedoman_id')->constrained()->onDelete('restrict');
+            $table->foreignId('tahun_ajaran_id')->constrained()->onDelete('restrict');
             $table->date('tanggal_pelanggaran');
             $table->timestamps();
         });

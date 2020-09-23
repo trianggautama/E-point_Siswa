@@ -10,7 +10,7 @@ class Prestasi extends Model
     use Uuid;
 
     protected $fillable = [
-        'siswa_id', 'pedoman_id', 'tanggal_prestasi',
+        'tahun_ajaran_id', 'siswa_id', 'pedoman_id', 'tanggal_prestasi',
     ];
 
     public function siswa()

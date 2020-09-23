@@ -7,6 +7,7 @@ use App\Lampiran;
 use App\Pedoman;
 use App\Prestasi;
 use App\Siswa;
+use App\Tahun_ajaran;
 use Illuminate\Http\Request;
 
 class prestasiController extends Controller
@@ -15,8 +16,10 @@ class prestasiController extends Controller
     {
         $data = Prestasi::orderBy('id', 'desc')->get();
         $siswa = Siswa::all();
+        $tahun_ajaran = Tahun_ajaran::all()->last();
+
         $pedoman = Pedoman::where('status', 2)->get();
-        return view('admin.prestasi.index', compact('siswa', 'pedoman', 'data'));
+        return view('admin.prestasi.index', compact('siswa', 'pedoman', 'data', 'tahun_ajaran'));
     }
 
     public function edit($uuid)

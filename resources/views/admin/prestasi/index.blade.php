@@ -13,15 +13,15 @@
                 <h4 class="mg-b-0 tx-spacing--1">Data Prestasi</h4>
             </div>
             <div class="d-none d-md-block">
-                <a href="{{Route('prestasiCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5" target="_blank"><i data-feather="printer"
-                        class="wd-10 mg-r-5"></i> Print</a>
-                <a href="{{Route('prestasiFilter')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i data-feather="filter"
-                        class="wd-10 mg-r-5"></i> Filter Prestasi</a> 
+                <a href="{{Route('prestasiCetak')}}" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"
+                    target="_blank"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</a>
+                <a href="{{Route('prestasiFilter')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
+                        data-feather="filter" class="wd-10 mg-r-5"></i> Filter Prestasi</a>
                 <a href="{{Route('prestasiFilterWaktu')}}" class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5"><i
                         data-feather="filter" class="wd-10 mg-r-5"></i> Filter Waktu</a>
                 <a class="btn btn-sm pd-x-15 btn-dark btn-uppercase mg-l-5" href="#modal2" data-toggle="modal"><i
                         data-feather="plus" class="wd-10 mg-r-5"></i> tambah Data</a>
-            </div>  
+            </div>
         </div>
 
         <div class="row row-xs">
@@ -51,14 +51,14 @@
                                     <td>
                                         <p class="text-success">+ {{$d->pedoman->bobot_point}} poin</p>
                                     </td>
-                                    <td> 
+                                    <td>
                                         @if(isset($d->detail_prestasi))
                                         {{$d->detail_prestasi->nama_kejuaraan}}
                                         @else
                                         -
                                         @endif
                                     </td>
-                                    <td> 
+                                    <td>
                                         @if(isset($d->detail_prestasi))
                                         {{$d->detail_prestasi->penyelenggara}}
                                         @else
@@ -66,7 +66,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{Route('prestasiShow',['uuid'=>$d->uuid])}}" class="btn btn-white btn-icon">
+                                        <a href="{{Route('prestasiShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-white btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
                                         <a href="{{Route('prestasiEdit',['uuid' => $d->uuid])}}"
@@ -143,8 +144,8 @@
                     <br>
                     <div class="form-group">
                         <label for="Nama">Tahun Ajaran</label>
-                        <select class=" form-control" name="tahun_ajaran" >
-                            <option value="">ambil tahun ajaran sekarang</option>
+                        <select class=" form-control" name="tahun_ajaran_id">
+                            <option value="{{$tahun_ajaran->id}}">{{$tahun_ajaran->tahun_ajaran}}</option>
                         </select>
                     </div>
                     <div class="modal-footer">
