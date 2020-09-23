@@ -106,7 +106,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
-                                    <td>{{$d->kelas->kelas}}</td>
+                                    <td>{{$d->kelas_siswa->last()->kelas->kelas}}</td>
                                     <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
                                 </tr>
                                 @endforeach

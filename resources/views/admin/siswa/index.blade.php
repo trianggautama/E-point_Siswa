@@ -93,15 +93,6 @@
                         <label for="Nama">Nama</label>
                         <input type="text" name="nama" class="form-control" placeholder="Nama">
                     </div>
-                    <div class="form-group">
-                        <label for="Nama">Kelas</label>
-                        <select name="kelas_id" id="kelas_id" class="form-control">
-                            <option value="">-- pilih kelas --</option>
-                            @foreach($kelas as $k)
-                            <option value="{{$k->id}}">{{$k->kelas}}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

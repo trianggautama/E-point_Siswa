@@ -29,15 +29,6 @@
                             <label for="Nama">Nama</label>
                             <input type="text" name="nama" class="form-control" placeholder="Nama" value="{{$data->nama}}">
                         </div>
-                        <div class="form-group">
-                            <label for="Nama">Kelas</label>
-                            <select name="kelas_id" id="kelas_id" class="form-control">
-                                <option value="">-- pilih kelas --</option>
-                                @foreach($kelas as $k)
-                                <option value="{{$k->id}}" {{ $data->kelas_id == $k->id ? 'selected' : ''}}>{{$k->kelas}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -76,7 +67,7 @@
                             <textarea name="alamat" class="form-control">{{$data->wali_siswa->alamat}}</textarea>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</button>
+                            <a href="{{Route('siswaIndex')}}" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</a>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="save"
                                     class="wd-10 mg-r-5"></i>
                                 Simpan</button>

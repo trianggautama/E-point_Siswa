@@ -23,7 +23,6 @@ class CreateSiswasTable extends Migration
             $table->string('tanggal_lahir', 50);
             $table->integer('point');
             $table->timestamps();
-            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('restrict');
         });
     }
 

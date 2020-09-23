@@ -38,14 +38,18 @@
                                             <label
                                                 class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Nomor
                                                 Induk Siswa</label>
-                                            <p class="mg-b-0">{{$data->NIS}}</p>
+                                            <p class="mg-b-0">{{$data->NIS}}</p> 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label
-                                                class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
-                                            <p class="mg-b-0">Kelas {{$data->kelas->kelas}}</p>
+                                            <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label><br>
+                                            @if($data->kelas_siswa->isEmpty())
+                        
+                                            -
+                                            @else
+                                                <p class="mg-b-0">Kelas {{$data->kelas_siswa->last()->kelas->kelas}}</p>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label
@@ -63,13 +67,13 @@
                                         data-toggle="modal"><i data-feather="plus" class="wd-10 mg-r-5"></i> tambah
                                         Data</a>
                                 </div>
-                                @foreach($kelas_siswa as $d)
+                                @foreach($data->kelas_siswa as $d)
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label
                                                 class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Kelas</label>
-                                            <p class="mg-b-0">{{$loop->iteration}}. Kelas {{$d->kelas->kelas}}</p>
+                                            <p class="mg-b-0">- Kelas {{$d->kelas->kelas}}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

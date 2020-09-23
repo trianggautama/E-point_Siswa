@@ -39,7 +39,6 @@ class SiswaController extends Controller
     {
 
         $data = new siswa;
-        $data->kelas_id = $request->kelas_id;
         $data->nama = $request->nama;
         $data->NIS = $request->NIS;
         $data->tempat_lahir = $request->tempat_lahir;
