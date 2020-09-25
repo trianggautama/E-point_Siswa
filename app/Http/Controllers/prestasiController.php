@@ -84,7 +84,7 @@ class prestasiController extends Controller
     public function destroy($uuid)
     {
         $data = Prestasi::where('uuid', $uuid)->first();
-        $point = $data->pedoman->bobot_point;
+        $point = $data->pedoman->bobot_point; 
         $siswa = Siswa::findOrFail($data->siswa_id);
         $siswa->point = $siswa->point - $point;
         $siswa->update();
@@ -100,7 +100,8 @@ class prestasiController extends Controller
 
     public function filterWaktu()
     {
-        return view('admin.pelanggaran.filterWaktu');
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
+        return view('admin.prestasi.filterWaktu',compact('tahun_ajaran'));
     }
 
     public function detailStore(Request $req)

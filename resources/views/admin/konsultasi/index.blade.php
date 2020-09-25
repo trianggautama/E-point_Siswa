@@ -119,8 +119,8 @@
                     </div>
                     <div class="form-group">
                         <label for="Nama">Tahun Ajaran</label>
-                        <select class=" form-control" name="tahun_ajaran" >
-                            <option value="">ambil tahun ajaran sekarang</option>
+                        <select class=" form-control" name="tahun_ajaran_id" >
+                            <option value="{{$tahun_ajaran->id}}">{{$tahun_ajaran->tahun_ajaran}}</option>
                         </select>
                     </div>
             </div>

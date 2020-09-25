@@ -99,6 +99,7 @@ class pelanggaranController extends Controller
 
     public function filterWaktu()
     {
-        return view('admin.pelanggaran.filterWaktu');
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
+        return view('admin.pelanggaran.filterWaktu',compact('tahun_ajaran'));
     }
 }

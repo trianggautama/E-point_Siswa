@@ -20,13 +20,21 @@
                 <div class="card card-body ">
                     <form action="" method="POST" target="_blank">
                         @csrf
-                        <div class="row">
+                            <div class="form-group">
+                                    <label for="Nama">Tahun Ajaran</label>
+                                    <select class=" form-control" name="tahun_ajaran" >
+                                        @foreach($tahun_ajaran as $d)
+                                        <option value="{{$d->id}}">{{$d->tahun_ajaran}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Tanggal Awal</label>
                                     <input type="date" name="tgl_awal" class="form-control">
                                 </div>
-                            </div>
+                            </div> 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Tanggal Akhir</label>
@@ -35,7 +43,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="{{Route('pedomanIndex')}}" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</a>
+                            <a href="{{Route('konsultasiIndex')}}" class="btn btn-secondary tx-13" data-dismiss="modal">Batal</a>
                             <button type="submit" class="btn btn-primary tx-13"><i data-feather="printer"
                                     class="wd-10 mg-r-5"></i>
                                 cetak</button>

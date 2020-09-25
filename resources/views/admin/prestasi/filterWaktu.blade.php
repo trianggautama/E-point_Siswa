@@ -20,6 +20,14 @@
                 <div class="card card-body ">
                     <form action="" method="POST" target="_blank">
                         @csrf
+                        <div class="form-group">
+                                    <label for="Nama">Tahun Ajaran</label>
+                                    <select class=" form-control" name="tahun_ajaran" >
+                                        @foreach($tahun_ajaran as $d)
+                                        <option value="{{$d->id}}">{{$d->tahun_ajaran}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

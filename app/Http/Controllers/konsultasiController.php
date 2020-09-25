@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Konsultasi;
 use App\Pejabat_struktural;
 use App\Siswa;
+use App\Tahun_ajaran;
 use Illuminate\Http\Request;
 
 class konsultasiController extends Controller
@@ -13,8 +14,9 @@ class konsultasiController extends Controller
     {
         $data = Konsultasi::with('pejabat')->orderBy('id', 'desc')->get();
         $siswa = Siswa::all();
+        $tahun_ajaran = Tahun_ajaran::all()->last();
         $guru = Pejabat_struktural::all();
-        return view('admin.konsultasi.index', compact('siswa', 'data','guru'));
+        return view('admin.konsultasi.index', compact('siswa', 'data','guru','tahun_ajaran'));
     }
 
     public function store(Request $req)
@@ -54,7 +56,8 @@ class konsultasiController extends Controller
 
     public function filterWaktu()
     {
-        return view('admin.konsultasi.filterWaktu');
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
+        return view('admin.konsultasi.filterWaktu',compact('tahun_ajaran'));
     }
 
 }
