@@ -132,5 +132,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/pelanggaran/filterWaktu', 'reportController@pelanggaranFilterWaktu')->name('pelanggaranFilterWaktuCetak');
     Route::post('/prestasi/filterWaktu', 'reportController@prestasiFilterWaktu')->name('prestasiFilterWaktuCetak');
     Route::post('/konsultasi/filterWaktu', 'reportController@konsultasiFilterWaktu')->name('konsultasiFilterWaktuCetak');
+    Route::get('/suratPemanggilan/{uuid}', 'reportController@suratPemanggilan')->name('suratPemanggilan');
 
 });

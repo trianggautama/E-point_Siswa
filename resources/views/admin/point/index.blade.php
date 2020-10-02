@@ -42,12 +42,20 @@
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
                                     <td>{{$d->kelas_siswa->last()->kelas->kelas}}</td>
-                                    <td>{{$d->point}}</td>
+                                    <td>
+                                        {{$d->point}} 
+                                    </td>
                                     <td>
                                     <a href="{{Route('pointShow',['uuid'=>$d->uuid])}}"
                                             class="btn btn-warning btn-icon">
                                             <i data-feather="info"></i>
                                         </a>
+                                        @if($d->point <= 30)
+                                        <a href="{{Route('suratPemanggilan',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-sm btn-danger btn-icon">
+                                            <i data-feather="printer"></i> Surat pemanggilan
+                                        </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

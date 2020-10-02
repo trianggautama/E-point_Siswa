@@ -208,4 +208,15 @@ class reportController extends Controller
 
         return $pdf->stream('Laporan Data Filter konsultasi Siswa filter Waktu.pdf');
     }
+
+    public function suratPemanggilan($uuid)
+    {
+        $data         = Siswa::where('uuid',$uuid)->first();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.suratPemanggilan', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Surat Pemanggilan');
+    }
+
 }
