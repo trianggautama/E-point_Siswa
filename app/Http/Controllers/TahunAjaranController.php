@@ -37,8 +37,6 @@ class TahunAjaranController extends Controller
     public function destroy($uuid)
     {
         $data = Tahun_ajaran::where('uuid', $uuid)->first()->delete();
-
         return redirect()->route('tahunAjaranIndex')->with('success', 'Berhasil menghapus data');
-
     }
 }

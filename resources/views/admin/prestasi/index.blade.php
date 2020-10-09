@@ -145,7 +145,9 @@
                     <div class="form-group">
                         <label for="Nama">Tahun Ajaran</label>
                         <select class=" form-control" name="tahun_ajaran_id">
-                            <option value="{{$tahun_ajaran->id}}">{{$tahun_ajaran->tahun_ajaran}}</option>
+                            @foreach($tahun_ajaran as $t)
+                                <option value="{{$t->id}}">{{$t->tahun_ajaran}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="modal-footer">

@@ -14,7 +14,7 @@ class konsultasiController extends Controller
     {
         $data = Konsultasi::with('pejabat')->orderBy('id', 'desc')->get();
         $siswa = Siswa::all();
-        $tahun_ajaran = Tahun_ajaran::all()->last();
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
         $guru = Pejabat_struktural::all();
         return view('admin.konsultasi.index', compact('siswa', 'data','guru','tahun_ajaran'));
     }
