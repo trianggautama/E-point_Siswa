@@ -16,9 +16,9 @@ class CreateKonsultasisTable extends Migration
         Schema::create('konsultasis', function (Blueprint $table) {
             $table->id();
             $table->string('uuid', 36);
-            $table->foreignId('siswa_id')->constrained()->onDelete('restrict');
-            $table->foreignId('tahun_ajaran_id')->constrained()->onDelete('restrict');
-            $table->foreignId('pejabat_struktural_id')->constrained()->onDelete('restrict');
+            $table->foreignId('siswa_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tahun_ajaran_id')->constrained()->onDelete('cascade');
+            $table->foreignId('pejabat_struktural_id')->constrained()->onDelete('cascade');
             $table->text('uraian');
             $table->text('saran');
             $table->date('tanggal_konseling');
