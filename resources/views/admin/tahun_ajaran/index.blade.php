@@ -41,7 +41,7 @@
                                             class="btn btn-primary btn-icon">
                                             <i data-feather="edit"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-icon" onclick="Hapus()">
+                                        <button type="button" class="btn btn-danger btn-icon" onclick="Hapus('{{$d->uuid}}')">
                                             <i data-feather="delete"></i>
                                         </button>
 
@@ -101,10 +101,10 @@
         });
     });
 
-    function Hapus(uuid, nama) {
+    function Hapus(uuid) {
         Swal.fire({
             title: 'Anda Yakin?',
-            text: " Menghapus data Tahun Ajaran '" + nama,
+            text: " Menghapus data Tahun Ajaran ",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
