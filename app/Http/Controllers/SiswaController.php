@@ -100,28 +100,38 @@ class SiswaController extends Controller
     {
         $data = siswa::where('uuid', $uuid)->first();
         $prestasi = Prestasi::where('siswa_id', $data->id)->get();
-        $prestasi = $prestasi->map(function ($item) {
+        if($prestasi->isNotEmpty()){
+            $prestasi = $prestasi->map(function ($item) {
 
-            $lampiran = Lampiran::where('file', 'like', '%' . 'prestasi_' . $item->id . '_' . $item->siswa->id . '%')->get();
-            $lampiran = $lampiran->map(function ($item) {
-                File::delete('lampiran/' . $item->file);
+                $lampiran = Lampiran::where('file', 'like', '%' . 'prestasi_' . $item->id . '_' . $item->siswa->id . '%')->get();
+                $lampiran = $lampiran->map(function ($item) {
+                    File::delete('lampiran/' . $item->file);
+                });
             });
-        });
+
+            $data->prestasi()->delete();
+        }
         $pelanggaran = Pelanggaran::where('siswa_id', $data->id)->get();
-        $pelanggaran = $pelanggaran->map(function ($item) {
 
-            $lampiran = Lampiran::where('file', 'like', '%' . 'pelanggaran_' . $item->id . '_' . $item->siswa->id . '%')->get();
-
-            // $lampiran = Lampiran::where('file', 'like', '%' . $item->siswa->NIS . '%')->get();
-            $lampiran = $lampiran->map(function ($item) {
-                File::delete('lampiran/' . $item->file);
+        if($pelanggaran->isNotEmpty()){
+            $pelanggaran = $pelanggaran->map(function ($item) {
+    
+                $lampiran = Lampiran::where('file', 'like', '%' . 'pelanggaran_' . $item->id . '_' . $item->siswa->id . '%')->get();
+    
+                // $lampiran = Lampiran::where('file', 'like', '%' . $item->siswa->NIS . '%')->get();
+                $lampiran = $lampiran->map(function ($item) {
+                    File::delete('lampiran/' . $item->file);
+                });
             });
-        });
+    
+            $data->pelanggaran()->delete();
+        }
 
-        $data->prestasi()->delete();
-        $data->pelanggaran()->delete();
+       
         $data->konsultasi()->delete();
-        // $data->delete();
+        $data->kelas_siswa()->delete();
+
+        $data->delete();
 
         return redirect()->route('siswaIndex')->with('success', 'Berhasil menghapus data');
 

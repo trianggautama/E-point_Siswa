@@ -219,7 +219,11 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
-                                    <td>{{$d->kelas_siswa->last()->kelas->kelas}}</td>
+                                    <td>
+                                    @if($d->kelas_siswa->isNotEmpty())
+                                    {{$d->kelas_siswa->last()->kelas->kelas}}
+                                    @endif
+                                    </td>
                                     <td>{{$d->point}}</td>
                                 </tr>
                                 @endforeach
