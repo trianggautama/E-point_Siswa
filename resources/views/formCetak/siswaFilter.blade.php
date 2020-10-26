@@ -89,7 +89,7 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA SISWA KELAS {{$kelas->kelas}}</h2>
+            <h2 style="text-align:center; text-transform:uppercase;">DATA SISWA KELAS {{$kelas->kelas}} TAHUN AJARAN {{$tahun_ajaran->tahun_ajaran}}</h2>
             <table id="dataTable" class="table text-center">
                             <thead>
                                 <tr>
