@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kelas;
 use App\Siswa;
+use App\Tahun_ajaran;
 
 class pointController extends Controller
 {
@@ -16,7 +17,8 @@ class pointController extends Controller
     public function filterKelas()
     {
         $kelas = Kelas::orderBy('kelas', 'asc')->get();
-        return view('admin.point.filterKelas', compact('kelas'));
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
+        return view('admin.point.filterKelas', compact('kelas','tahun_ajaran'));
     }
 
     public function show($uuid)

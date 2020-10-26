@@ -21,6 +21,14 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="form-group">
+                            <label for="Nama">Tahun Ajaran</label>
+                            <select name="tahun_ajaran_id" id="tahun_ajaran_id" class="form-control">
+                                @foreach($tahun_ajaran as $t)
+                                <option value="{{$t->id}}" >{{$t->tahun_ajaran}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="Nama">Kelas</label>
                             <select name="kelas_id" id="kelas_id" class="form-control">
                                 <option value="">-- pilih kelas --</option>

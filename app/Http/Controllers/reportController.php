@@ -103,15 +103,11 @@ class reportController extends Controller
 
     public function poinFilterKelas(Request $request)
     {
-        $kelas = Kelas::where('id', $request->kelas_id)->first();
-        $tahun_ajaran = Tahun_ajaran::latest()->first();
-        $data = Siswa::whereHas('kelas_siswa', function($query)use($kelas,$tahun_ajaran)
-        {
-            $query->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id);
-        })->with('kelas_siswa')
-          ->orderBy('point', 'desc')
-          ->get();        $tgl= Carbon::now()->format('d-m-Y');
-        $pdf          = PDF::loadView('formCetak.poinFilterKelas', ['data'=>$data ,'kelas'=>$kelas,'tgl'=>$tgl]);
+        $kelas        = Kelas::where('id', $req->kelas_id)->first();
+        $tahun_ajaran = Tahun_ajaran::findOrFail($req->tahun_ajaran_id);
+        $data         = Kelas_siswa::with('siswa')->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id)->get();        
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.poinFilterKelas', ['data'=>$data ,'kelas'=>$kelas,'tgl'=>$tgl,'tahun_ajaran'=>$tahun_ajaran]);
         $pdf->setPaper('a4', 'portrait');
 
         return $pdf->stream('Laporan Data Poin Siswa Per Kelas.pdf');
