@@ -103,9 +103,9 @@
                                 @foreach ($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->NIS}}</td>
-                                    <td>{{$d->nama}}</td>
-                                    <td>{{$d->point}}</td>
+                                    <td>{{$d->siswa->NIS}}</td>
+                                    <td>{{$d->siswa->nama}}</td>
+                                    <td>{{$d->siswa->point}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
