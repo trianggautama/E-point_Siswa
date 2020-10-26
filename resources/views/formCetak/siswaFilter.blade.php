@@ -107,7 +107,7 @@
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
                                     <td>{{$d->kelas_siswa->last()->kelas->kelas}}</td>
-                                    <td>{{$d->tempat_lahir}}, {{$d->tanggal_lahir}}</td>
+                                    <td>{{$d->tempat_lahir}}, {{Carbon\carbon::parse($d->tanggal_lahir)->format('d F Y')}}</td> 
                                 </tr>
                                 @endforeach
                             </tbody>
