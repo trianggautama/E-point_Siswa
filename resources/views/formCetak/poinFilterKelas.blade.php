@@ -23,7 +23,7 @@
         text-align: center;
       }
       td{
-        text-align: center;
+        text-align: left;
       }
       br{
           margin-bottom: 5px !important;
