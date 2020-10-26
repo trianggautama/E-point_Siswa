@@ -103,8 +103,8 @@ class reportController extends Controller
 
     public function poinFilterKelas(Request $request)
     {
-        $kelas        = Kelas::where('id', $req->kelas_id)->first();
-        $tahun_ajaran = Tahun_ajaran::findOrFail($req->tahun_ajaran_id);
+        $kelas        = Kelas::where('id', $request->kelas_id)->first();
+        $tahun_ajaran = Tahun_ajaran::findOrFail($request->tahun_ajaran_id);
         $data         = Kelas_siswa::with('siswa')->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id)->get();        
         $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.poinFilterKelas', ['data'=>$data ,'kelas'=>$kelas,'tgl'=>$tgl,'tahun_ajaran'=>$tahun_ajaran]);
