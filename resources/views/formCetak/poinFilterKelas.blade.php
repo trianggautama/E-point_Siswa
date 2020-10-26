@@ -93,19 +93,19 @@
             <table id="dataTable" class="table text-center">
                             <thead>
                                 <tr>
-                                    <th>No</th>
+                                    <th style="text-align:center;">No</th>
                                     <th>NIS</th>
-                                    <th>Nama</th>
-                                    <th>point</th>
+                                    <th style="text-align:left;">Nama</th>
+                                    <th style="text-align:center;">point</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($data as $d)
                                 <tr>
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->siswa->NIS}}</td>
+                                    <td style="text-align:center;">{{$loop->iteration}}</td>
+                                    <td style="text-align:center;">{{$d->siswa->NIS}}</td>
                                     <td>{{$d->siswa->nama}}</td>
-                                    <td>{{$d->siswa->point}}</td>
+                                    <td style="text-align:center;">{{$d->siswa->point}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
