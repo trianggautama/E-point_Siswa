@@ -89,14 +89,13 @@
     <hr style="margin-top:1px;">
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA POIN SISWA KELAS {{$kelas->kelas}}</h2>
+            <h2 style="text-align:center; text-transform:uppercase;">DATA POIN SISWA KELAS {{$kelas->kelas}} TAHUN AJARAN {{$tahun_ajaran->tahun_ajaran}}</h2>
             <table id="dataTable" class="table text-center">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>NIS</th>
                                     <th>Nama</th>
-                                    <th>Kelas</th>
                                     <th>point</th>
                                 </tr>
                             </thead>
@@ -106,7 +105,6 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->NIS}}</td>
                                     <td>{{$d->nama}}</td>
-                                    <td>{{$d->kelas_siswa->last()->kelas->kelas}}</td>
                                     <td>{{$d->point}}</td>
                                 </tr>
                                 @endforeach
