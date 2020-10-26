@@ -7,6 +7,8 @@ use App\Pedoman;
 use PDF;
 use App\Siswa;
 use App\Kelas;
+use App\Kelas_siswa;
+
 use App\Pejabat_struktural;
 use App\Pelanggaran;
 use App\Prestasi;
@@ -41,13 +43,7 @@ class reportController extends Controller
     { 
         $kelas = Kelas::where('id', $req->kelas_id)->first();
         $tahun_ajaran = Tahun_ajaran::latest()->first();
-        $data = Siswa::whereHas('kelas_siswa', function($query)use($kelas,$tahun_ajaran)
-        {
-            $query->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id);
-        })->with('kelas_siswa')
-          ->orderBy('point', 'desc')
-          ->get();
-
+        $data = Kelas_siswa::with('siswa')->where('kelas_id',$kelas->id)->where('tahun_ajaran_id',$tahun_ajaran->id)->get();        
         $tgl= Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.siswaFilter', ['data'=>$data,'tgl'=>$tgl,'kelas'=>$kelas]);
         $pdf->setPaper('a4', 'portrait');
