@@ -140,7 +140,8 @@ class SiswaController extends Controller
     public function filter()
     {
         $kelas = Kelas::orderBy('id', 'desc')->get();
-        return view('admin.siswa.filter', compact('kelas'));
+        $tahun_ajaran = Tahun_ajaran::latest()->get();
+        return view('admin.siswa.filter', compact('kelas','tahun_ajaran'));
     }
 
     public function kelasSiswaStore(Request $req)
